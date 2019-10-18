@@ -1,0 +1,7 @@
+.revenue-description {
+  text-overflow: ellipsis;
+  max-width: 500px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+table{ width: 100%;}

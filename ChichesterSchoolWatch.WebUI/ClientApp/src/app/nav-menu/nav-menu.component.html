@@ -1,0 +1,37 @@
+<header>
+  <nav class='navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3'>
+    <div class="container-fluid">
+      <a class="navbar-brand" [routerLink]='["/"]'>Chichester School Watch</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-label="Toggle navigation"
+        [attr.aria-expanded]="isExpanded" (click)="toggle()">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse" [ngClass]='{"show": isExpanded}'>
+        <ul class="navbar-nav flex-grow">
+          <li class="nav-item" [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
+            <a class="nav-link text-dark" [routerLink]='["/"]'>Home</a>
+          </li>
+          <li class="nav-item" [routerLinkActive]='["link-active"]'>
+            <a class="nav-link text-dark" [routerLink]='["/employees/salaries"]'>Employees</a>
+          </li>
+          <li class="nav-item" [routerLinkActive]='["link-active"]'>
+            <div ngbDropdown>
+              <button class="btn btn-outline-primary" id="nav-budgets-dropdown" ngbDropdownToggle>Budgets</button>
+              <div ngbDropdownMenu attr.aria-labelledby="nav-budgets-dropdown">
+                <a class="nav-link" ngbDropdownItem [routerLink]='["/budgets/comparisons/cost-per-student"]'>
+                  Comparisons
+                </a>
+                <a class="nav-link" ngbDropdownItem [routerLink]='["/budgets/expenditures"]'>
+                  Expenditures
+                </a>
+                <a class="nav-link" ngbDropdownItem [routerLink]='["/budgets/revenues"]'>
+                  Revenues
+                </a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

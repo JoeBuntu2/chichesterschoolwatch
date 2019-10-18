@@ -1,0 +1,47 @@
+RevenueId,FiscalYear,DistrictId,Level,Description,FY19-20,FY18-19,FY17-18,FY16-17,FY15-16
+6111,FY19-20,Interboro,L,Current Real Estate Taxes,"38,963,325","37,636,143","36,082,154","34,892,806","33,807,782"
+6112,FY19-20,Interboro,L,Interim Real Estate Taxes,"85,000","100,000","100,000","100,000","100,000"
+6113,FY19-20,Interboro,L,Public Utility Realty Taxes,"42,000","39,426","41,900","44,800","43,000"
+6114,FY19-20,Interboro,L,Payments In Lieu of Current Taxes - State / Local Reimbursement,0,0,0,0,0
+6115,FY19-20,Interboro,L,Payments In Lieu of Current Taxes - Federal Reimbursement,0,0,0,0,0
+6150,FY19-20,Interboro,L,Current Act 511 Taxes,"4,030,000","4,000,000","3,855,000","3,690,000","3,525,000"
+6400,FY19-20,Interboro,L,Delenquencies on Taxes Levied,"1,200,000","1,200,000","1,200,000","1,200,000","900,000"
+6500,FY19-20,Interboro,L,Earnings on Investments,"485,000","220,000","105,000","83,500","70,000"
+6700,FY19-20,Interboro,L,Revenues from LEA Activities,"40,500","45,000","25,000","24,500","30,000"
+6800,FY19-20,Interboro,L,Revenues from Intermediary Sources,"558,000","558,000","550,000","550,000","530,000"
+6910,FY19-20,Interboro,L,Rentals,"25,000","25,000","50,000","50,000","45,000"
+6920,FY19-20,Interboro,L,Contributions and Donations from Private Sources,"2,000",0,"5,000","5,000",0
+6940,FY19-20,Interboro,L,Tuition From Patrons,"29,500","15,000","15,000","20,000","33,000"
+6960,,Interboro,L,Services Provided Other Local Governmental Units / LEAs,0,0,0,0,0
+6980,FY19-20,Interboro,L,Revenue From Community Services,"55,000","55,000","48,000","45,000","45,000"
+6990,FY19-20,Interboro,L,Refunds and Other Miscellaneous,"99,500","54,000","85,000","85,000","80,000"
+7110,FY19-20,Interboro,S,Basic Education Funding,"6,464,744","6,335,028","6,272,605","6,534,728","5,907,642"
+7160,FY19-20,Interboro,S,Tuition for Orphans Subsidy,0,0,0,0,0
+7271,FY19-20,Interboro,S,Special Education funds for School-Aged Pupils,"2,123,897","2,023,897","1,967,508","1,969,620","1,808,000"
+7292,FY19-20,Interboro,S,Pre-K Counts,0,0,0,0,0
+7310,FY19-20,Interboro,S,Transportation (Regular and Additional),0,0,0,"520,000","520,000"
+7311,FY19-20,Interboro,S,Pupil Transportation Subsidy,"350,000","400,000","425,000",0,0
+7312,FY19-20,Interboro,S,Nonpublic and Charter School Pupil Transportation Subsidy,"150,000","100,000",0,0,0
+7320,FY19-20,Interboro,S,Rental and Sinking Fund Payments / Building Reimbursement Subsidy,"305,000","872,494","767,000","727,500","760,000"
+7330,FY19-20,Interboro,S,"Health Services (Medical, Dental, Nurse, Act 25)","75,000","81,000","80,000","81,000","80,000"
+7340,FY19-20,Interboro,S,State Property Tax Reduction Allocation,"1,376,409","1,345,089","1,366,574","1,348,219","1,320,792"
+7360,FY19-20,Interboro,S,Safe Schools,0,0,0,0,0
+7501,FY19-20,Interboro,S,PA Accountability Grants,0,0,0,0,0
+7505,FY19-20,Interboro,S,Ready to Learn Block Grant,"354,943","354,943","354,943",0,"270,000"
+7598,FY19-20,Interboro,S,Revenue for the Support of Public Schools,0,0,0,0,0
+7599,FY19-20,Interboro,S,Other State Revenue Not Listed in the 7500 Series,0,0,0,0,0
+7810,FY19-20,Interboro,S,State Share of Social Security and Medicare Taxes,"1,075,902","1,047,342","1,025,326","1,001,101","979,036"
+7820,FY19-20,Interboro,S,State Share of Retirement Contributions,"4,821,942","4,576,162","4,365,246","3,929,675","3,306,924"
+8390,FY19-20,Interboro,F,Other Restricted Federal Grants-in-Aid Directly from the Federal Government,0,0,0,0,0
+8513,FY19-20,Interboro,F,"IDEA, Part B",0,0,0,0,0
+8514,FY19-20,Interboro,F,"NCLB, Title I - Improving the Academic Acheivement of the Disadvantadged","264,608","264,608","299,500","299,634","370,000"
+8515,FY19-20,Interboro,F,"NCLB, Title II - Preparing, Training, and Recruiting High Quality Teachers and Principals","71,365","71,365","66,500","66,500","75,000"
+8517,FY19-20,Interboro,F,"NCLB, Ttile IV - 21St Century Schools",0,0,0,0,0
+8560,FY19-20,Interboro,F,Federal Block Grants,0,0,0,0,0
+8690,FY19-20,Interboro,F,Other Restricted Federal Grants-in-Aid Through the Commonwealth,0,0,0,0,0
+8810,FY19-20,Interboro,F,School-Based Access Medicaid Reimbursement Program (SBAP) ,0,0,0,0,0
+8820,FY19-20,Interboro,F,Medical Assistance Reimbursements for Administrative Claiming (Quarterly) Program,"100,000","100,000","90,000",0,0
+8830,FY19-20,Interboro,F,Medical Assistance Reimbursements (ACCES) - Early Intervention,0,0,0,0,0
+9400,FY19-20,,O,Sale of or Compensation for Loss of Fixed Assets,0,0,0,0,0
+9800,FY19-20,Interboro,O,Intrafund Transfers In,0,0,0,0,0
+9900,FY19-20,Interboro,O,Other Financing Sources Not Listed in the 9000 Series,0,0,0,0,0

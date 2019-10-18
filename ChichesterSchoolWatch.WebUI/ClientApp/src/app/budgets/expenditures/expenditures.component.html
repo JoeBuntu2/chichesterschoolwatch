@@ -1,0 +1,122 @@
+<div class="container-fluid">
+  <h1>District Budgets - Expenditures</h1>
+
+  <p>
+    What is this? School budgets are simply a list of all projected revenues (that is cash coming in)
+    and a list of all expected expenses. This page shows expenses for different districts in Delaware county
+    over the last several years.
+  </p>
+
+  <div *ngIf="isBusy" style="position: relative">
+    <div class="modal2">
+      <div class="center">
+        <img src="/assets/spinner.gif" />
+        Loading...
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!isBusy" class="row">
+    <div class="col">
+      <div class="list-group list-group-horizontal">
+        <button class="list-group-item list-group-item-action"
+                *ngFor="let district of districts"
+                [ngClass]="{'active': district.isActive}"
+                (click)="setDistrict(district)">
+          {{district.name}}
+        </button>
+      </div>
+    </div>
+    <div class="col-2">
+      <div class="list-group list-group-horizontal">
+        <button class="list-group-item list-group-item-action list-group-item-secondary"
+                *ngFor="let zoomOption of zoomOptions"
+                [ngClass]="{'active': zoomOption.isActive}"
+                (click)="setZoomOption(zoomOption)">
+          {{zoomOption.name}}
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <div *ngIf="!isBusy" class="row-fluid">
+
+    <div class="expenditures-grid" *ngFor="let district of selectedExpenditures">
+      <table class='table table-striped table-sm'>
+        <thead>
+          <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <td></td>
+            <th class="text-right">FY15-16</th>
+            <th class="text-right">FY16-17</th>
+            <th class="text-right">FY17-18</th>
+            <th class="text-right">FY18-19</th>
+            <th class="text-right">FY19-20</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-template let-topLevel ngFor [ngForOf]="district.topLevelExpenditures">
+
+            <!-- Only show top level header if zoom is less than top-->
+            <tr *ngIf="['Mid', 'Low'].includes(selectedZoomOption.name)">
+              <td>{{ topLevel.topLevelId }}</td>
+              <td></td>
+              <td></td>
+              <td class="text-nowrap">{{ codes.topLevelCodes[topLevel.topLevelId].name}}</td>
+              <td class="text-right" *ngFor="let fyAmount of topLevel.fiscalYearAmounts"></td>
+            </tr>
+
+
+            <!-- Only break down mid level if we are below top level-->
+            <ng-template *ngIf="['Mid', 'Low'].includes(selectedZoomOption.name)" let-midLevel ngFor [ngForOf]="topLevel.midLevelExpenditures">
+              <tr *ngIf="['Low'].includes(selectedZoomOption.name)">
+                <td></td>
+                <td>{{ midLevel.midLevelId }}</td>
+                <td></td>
+                <td class="text-nowrap">{{ codes.midLevelCodes[midLevel.midLevelId].name }}</td>
+                <td class="text-right" *ngFor="let fyAmount of midLevel.fiscalYearAmounts"></td>
+              </tr>
+
+              <!-- Only show mid level header if zoom is less than mid-->
+              <ng-template *ngIf="selectedZoomOption.name === 'Low'" let-code ngFor [ngForOf]="midLevel.codeExpenditures">
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td>{{ code.codeLevelId }}</td>
+                  <td>{{ codes.codeLevelCodes[code.codeLevelId].name}}</td>
+                  <td class="text-right" *ngFor="let fyAmount of code.fiscalYearAmounts">{{fyAmount.total | number}}</td>
+                </tr>
+              </ng-template>
+              <tr>
+                <td></td>
+                <td>{{ midLevel.midLevelId }}</td>
+                <td></td>
+                <td class="text-nowrap">{{ codes.midLevelCodes[midLevel.midLevelId].name }}</td>
+                <td class="text-right" *ngFor="let fyAmount of midLevel.fiscalYearAmounts">{{fyAmount.total | number}}</td>
+              </tr>
+            </ng-template>
+            <tr>
+              <td>{{ topLevel.topLevelId }}</td>
+              <td></td>
+              <td></td>
+              <td class="text-nowrap">{{ codes.topLevelCodes[topLevel.topLevelId].name}}</td>
+              <td class="text-right" *ngFor="let fyAmount of topLevel.fiscalYearAmounts">{{fyAmount.total | number}}</td>
+            </tr>
+
+          </ng-template>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="text-right" *ngFor="let fyAmount of district.fiscalYearAmounts">{{fyAmount.total | number}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
