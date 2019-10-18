@@ -1,0 +1,38 @@
+RevenueId,FiscalYear,DistrictId,Level,Description,FY19-20,FY18-19,FY17-18,FY16-17,FY15-16
+6111,FY19-20,Ridley,L,Current Real Estate Taxes,"71,469,308","70,433,818","68,807,366","66,963,992","65,854,358"
+6112,FY19-20,Ridley,L,Interim Real Estate Taxes,"100,191","100,000","65,000","65,000","65,000"
+6113,FY19-20,Ridley,L,Public Utility Realty Taxes,"72,000","72,000","80,050","81,000","82,000"
+6114,FY19-20,Ridley,L,Payments In Lieu of Current Taxes - State / Local Reimbursement,"12,000","6,600","6,600","3,000","3,000"
+6150,FY19-20,Ridley,L,Current Act 511 Taxes,"705,253","640,000","630,000","445,000","365,000"
+6400,FY19-20,Ridley,L,Delenquencies on Taxes Levied,"2,478,000",0,"2,400,000","2,200,000","2,150,000"
+6500,FY19-20,Ridley,L,Earnings on Investments,"380,000","150,000","55,000","40,000","40,000"
+6700,FY19-20,Ridley,L,Revenues from LEA Activities,0,"2,581,000",0,0,0
+6800,FY19-20,Ridley,L,Revenues from Intermediary Sources,"1,101,000","1,101,000","1,101,000","1,030,000","900,000"
+6910,FY19-20,Ridley,L,Rentals,"105,000","105,000","102,000","97,000","95,000"
+6940,FY19-20,Ridley,L,Tuition From Patrons,"15,000","20,000","40,000","82,000","82,000"
+6980,FY19-20,Ridley,L,Revenue From Community Services,0,0,"2,000",0,0
+6990,FY19-20,Ridley,L,Refunds and Other Miscellaneous,"250,000","250,000","280,000","200,003","150,000"
+7110,FY19-20,Ridley,S,Basic Education Funding,"13,186,137","11,376,976","11,226,294","12,059,338","12,034,269"
+7160,FY19-20,Ridley,S,Tuition for Orphans Subsidy,0,0,0,0,"30,000"
+7271,FY19-20,Ridley,S,Special Education funds for School-Aged Pupils,"3,579,498","3,212,620","3,212,620","3,227,782","3,092,832"
+7310,FY19-20,Ridley,S,Transportation (Regular and Additional),0,0,"700,000","688,744","688,744"
+7311,FY19-20,Ridley,S,Pupil Transportation Subsidy,"700,000","599,000",0,0,0
+7312,FY19-20,Ridley,S,Nonpublic and Charter School Pupil Transportation Subsidy,"75,000","75,000",0,0,0
+7320,FY19-20,Ridley,S,Rental and Sinking Fund Payments / Building Reimbursement Subsidy,"325,000","275,000","275,000","275,000","275,000"
+7330,FY19-20,Ridley,S,"Health Services (Medical, Dental, Nurse, Act 25)","125,000","125,000","125,000","125,000","125,000"
+7340,FY19-20,Ridley,S,State Property Tax Reduction Allocation,"2,068,232","2,068,307","2,068,291","2,068,424","2,068,273"
+7360,FY19-20,Ridley,S,Safe Schools,"25,000",0,"15,814","15,814","15,814"
+7505,FY19-20,Ridley,S,Ready to Learn Block Grant,0,"789,095","789,095","649,198",0
+7599,FY19-20,Ridley,S,Other State Revenue Not Listed in the 7500 Series,"30,000","30,000",0,"30,000","30,000"
+7810,FY19-20,Ridley,S,State Share of Social Security and Medicare Taxes,"2,126,979","2,039,052","1,964,087","1,908,510","1,863,926"
+7820,FY19-20,Ridley,S,State Share of Retirement Contributions,"9,500,925","8,884,525","8,338,102","7,457,603","6,272,216"
+8390,FY19-20,Ridley,F,Other Restricted Federal Grants-in-Aid Directly from the Federal Government,0,0,0,0,0
+8514,FY19-20,Ridley,F,"NCLB, Title I - Improving the Academic Acheivement of the Disadvantadged","736,639","661,740","577,938","642,153","642,153"
+8515,FY19-20,Ridley,F,"NCLB, Title II - Preparing, Training, and Recruiting High Quality Teachers and Principals","152,755","152,755",0,"126,213","126,213"
+8517,FY19-20,Ridley,F,"NCLB, Ttile IV - 21St Century Schools","16,000","16,000",0,0,0
+8690,FY19-20,Ridley,F,Other Restricted Federal Grants-in-Aid Through the Commonwealth,"98,000","121,800","60,000","20,515","45,321"
+8810,FY19-20,Ridley,F,School-Based Access Medicaid Reimbursement Program (SBAP) ,"100,000","100,000","100,000","60,000","40,000"
+8820,FY19-20,Ridley,F,Medical Assistance Reimbursements for Administrative Claiming (Quarterly) Program,0,0,0,"18,900",0
+8830,FY19-20,Ridley,F,Medical Assistance Reimbursements (ACCES) - Early Intervention,0,0,0,0,"18,900"
+9800,FY19-20,Ridley,O,Intrafund Transfers In,"1,557,931","1,593,439","1,384,738","750,000",0
+9900,FY19-20,Ridley,O,Other Financing Sources Not Listed in the 9000 Series,0,0,0,0,"1,000,236"

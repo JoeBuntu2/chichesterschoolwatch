@@ -1,0 +1,97 @@
+<div class="container-fluid">
+  <h1>District Budgets - Revenues</h1>
+
+  <p>
+    Some Text About Revenues
+  </p>
+
+  <div *ngIf="isBusy" style="position: relative">
+    <div class="modal2"><div class="center">
+        <img src="/assets/spinner.gif"/>
+        Loading...
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!isBusy" class="row">
+    <div class="col">
+      <div class="list-group list-group-horizontal">
+        <button class="list-group-item list-group-item-action"
+                *ngFor="let district of districts"
+                [ngClass]="{'active': district.isActive}"
+                (click)="setDistrict(district)">
+          {{district.name}}
+        </button>
+      </div>
+    </div>
+    <div class="col-2">
+      <div class="list-group list-group-horizontal">
+        <button class="list-group-item list-group-item-action list-group-item-secondary"
+                *ngFor="let zoomOption of zoomOptions"
+                [ngClass]="{'active': zoomOption.isActive}"
+                (click)="setZoomOption(zoomOption)">
+          {{zoomOption.name}}
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <div *ngIf="!isBusy" class="row-fluid">
+
+    <div class="revenues-grid" *ngFor="let district of selectedRevenues">
+      <table class='table table-striped table-sm'>
+        <thead>
+        <tr>
+          <th></th>
+          <th></th>
+          <td></td>
+          <th class="text-right">FY15-16</th>
+          <th class="text-right">FY16-17</th>
+          <th class="text-right">FY17-18</th>
+          <th class="text-right">FY18-19</th>
+          <th class="text-right">FY19-20</th>
+        </tr>
+        </thead>
+        <tbody>
+        <ng-template let-source ngFor [ngForOf]="district.sources">
+
+          <!-- Source without amounts (header) -->
+          <!-- Only show top level header if zoom is less than top-->
+          <tr [style.visibility]="['Mid', 'Low'].includes(selectedZoomOption.name) ? 'visible' : 'collapse'">
+            <td> {{ codes.levels[source.levelId] }}</td>
+            <td></td>
+            <td></td>
+            <td class="text-right" *ngFor="let fyAmount of source.fiscalYearAmounts"></td>
+          </tr>
+
+          <!-- Function code with amounts -->
+          <ng-template let-function ngFor [ngForOf]="source.functions">
+            <tr [style.visibility]="['Mid', 'Low'].includes(selectedZoomOption.name) ? 'visible' : 'collapse'">
+              <td></td>
+              <td>{{function.functionId}}</td>
+              <td>
+                <div class="revenue-description">{{ codes.functionCodes[function.functionId].description }}</div></td>
+              <td class="text-right" *ngFor="let fyAmount of function.fiscalYearAmounts">{{fyAmount.total | number}}</td>
+            </tr>
+          </ng-template>
+
+          <!-- Source with amounts (footer) -->
+          <tr>
+            <td> {{ codes.levels[source.levelId] }}</td>
+            <td></td>
+            <td></td>
+            <td class="text-right" *ngFor="let fyAmount of source.fiscalYearAmounts">{{fyAmount.total | number}}</td>
+          </tr>
+        </ng-template>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="text-right" *ngFor="let fyAmount of district.fiscalYearAmounts">{{fyAmount.total | number}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

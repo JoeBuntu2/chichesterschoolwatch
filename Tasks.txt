@@ -1,0 +1,49 @@
+- Tasks
+
+	- Comparisons
+		- Home Price + Excess Taxes
+		- Excess District Taxes
+		- Enrollments
+		- Property Assessment Increases
+		- Defecit Per Student
+
+
+	- [X] Site cold-start permormance
+		- Authentication errors
+		- [X] Figure out way to keep cache and mysql connection pool primed
+		- Autostart?
+
+	- Table Header/Footer Styling
+	- Style Top of Pages
+	- [X] Enrollments
+	- [X] Send RTK Request for ridley enrollment
+	- Ridley Enrollment 
+	- [x] Save Current Schema
+
+	- Expenditures odd first 3 column (could be handled with padding)
+	- Improve Favicon
+	- Deep Linking support
+	- [X] Busy Spinners
+
+	- Southeast Delco Imports
+	- Text Content
+		- Refine Purpose
+		- Refine Expenditures Text
+		- Refine Revenues Text
+
+New Stuff
+	- District Enrollment / FY
+
+
+Ideas:
+	- Beta Database / schema
+	- Beta Site
+	- options  
+		- show different levels of interesting
+			- changes in amounts
+			- % changes
+			- color code by change (kind of like a heat map)
+			- show only those lines that meet certain criteria
+
+	Expenditures Matrix
+		- District x FY x Total

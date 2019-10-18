@@ -1,0 +1,35 @@
+<div class="container-fluid">
+  <h1>Chichester SD - Salaries</h1>
+
+  <div *ngIf="isBusy" style="position: relative">
+    <div class="modal2">
+      <div class="center">
+        <img src="/assets/spinner.gif" />
+        Loading...
+      </div>
+    </div>
+  </div>
+
+  <table class='table table-striped table-sm' *ngIf="salaries">
+    <thead>
+      <tr>
+        <th>Position</th>
+        <th>Degree</th>
+        <th>Credits</th>
+        <th>Step</th>
+        <th>Salary</th>
+        <th>Location</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let salary of salaries">
+        <td>{{ salary.position }}</td>
+        <td>{{ salary.degree }}</td>
+        <td>{{ salary.credit }}</td>
+        <td>{{ salary.step }}</td>
+        <td>{{ salary.salary | number}}</td>
+        <td>{{ salary.location}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
