@@ -26,7 +26,7 @@
   <div *ngIf="!isBusy" class="row-fluid" [ngSwitch]="selectedOption.name">
  
     <app-cost-per-student *ngSwitchCase="'TotalCostPerStudent'"></app-cost-per-student>
-
+    <app-deficit *ngSwitchCase="'Deficit'"></app-deficit>
     <table *ngSwitchDefault class='table table-striped table-sm'>
       <thead>
       <tr>
