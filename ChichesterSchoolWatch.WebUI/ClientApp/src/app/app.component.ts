@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core"; 
+import { PingerService } from './pinger.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  route: string;
+
+  constructor(pinger: PingerService) {
+ 
+  }
 }

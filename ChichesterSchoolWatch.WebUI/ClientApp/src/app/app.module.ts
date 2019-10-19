@@ -7,7 +7,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
-import { HomeComponent } from './home/home.component'; 
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,7 @@ import { HomeComponent } from './home/home.component';
     NgbModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' }, 
+      { path: '', component: HomeComponent, pathMatch: 'full' },
       {
         path: "employees",
         loadChildren: "./employees/employees.module#EmployeesModule"
@@ -29,10 +29,11 @@ import { HomeComponent } from './home/home.component';
       {
         path: "budgets",
         loadChildren: "./budgets/budgets.module#BudgetsModule"
-      },
+      }
     ])
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
