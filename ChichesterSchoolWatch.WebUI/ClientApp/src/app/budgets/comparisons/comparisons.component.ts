@@ -60,12 +60,12 @@ export class ComparisonsComponent  {
 
     this.optionGroups = [
       {
-        group: "OverSpending",
+        group: "Over Spending",
         groupOptions: [
-          { name: "CostPerStudentComparedToChichester", format: "number" },
+          { name: "Deficit", format: "number"},
+          { name: "DeficitPerStudent", format: "number"},
           { name: "ExcessChichesterSpending", format: "number" },
-          { name: "SpecialEducation1200PercentageCost", format: "percent"},
-          { name: "TaxRateIncrease", format: "percent"}
+          { name: "CostPerStudentComparedToChichester", format: "number" }
         ]
       },
       {
@@ -83,9 +83,8 @@ export class ComparisonsComponent  {
           { name: "TotalCost", format: "number" },
           { name: "TotalCostPerStudent", format: "number" },
           { name: "TotalCostIncrease", format: "number" },
-          { name: "TotalCostIncreasePerStudent", format: "number" },
-          { name: "Deficit", format: "number"},
-          { name: "DeficitPerStudent", format: "number"}
+          { name: "TotalCostIncreasePerStudent", format: "number" }
+
         ]
       },
       {
@@ -96,7 +95,14 @@ export class ComparisonsComponent  {
           { name: "AssessedIncrease", format: "number"},
           { name: "AssessedNewRevenue", format: "number"}
         ]
-      }
+      },
+      {
+        group: "Board Talking Points",
+        groupOptions: [
+          { name: "TaxRateIncrease", format: "percent"},
+          { name: "SpecialEducation1200PercentageCost", format: "percent"}
+        ]
+      },
     ];
 
     this.options = []; 
@@ -106,6 +112,7 @@ export class ComparisonsComponent  {
       )
     );
 
+    //turn 
     this.options.forEach(option => {
       option.canonicalUrl = option.name
         .replace(/([A-Z])/g, (match) => `-${match.toLowerCase()}`).substr(1);
