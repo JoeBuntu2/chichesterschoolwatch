@@ -1,0 +1,21 @@
+<div *ngIf="!isBusy">
+  This is a component
+  <table class='table table-striped table-sm'>
+    <thead>
+    <tr>
+      <th></th>
+      <th class="text-right text-nowrap" *ngFor="let key of objectKeys(comparisons.fiscalYears)">{{comparisons.fiscalYears[key]}}</th>
+    </tr>
+    </thead>
+    <tbody>
+    <ng-template let-district ngFor [ngForOf]="comparisons.districtFiscalYearMetrics">
+      <tr [ngClass]="{'highlight-row' : district.district.name === 'Chichester'}">
+        <td>{{district.district.name}}</td>
+        <td class="text-right" *ngFor="let key of objectKeys(comparisons.fiscalYears)">
+          <span>{{district.metricsByFiscalYear[key].metrics['TotalCostPerStudent'] | number: '1.0-0'}}</span>
+        </td>
+      </tr>
+    </ng-template>
+    </tbody>
+  </table>
+</div>
