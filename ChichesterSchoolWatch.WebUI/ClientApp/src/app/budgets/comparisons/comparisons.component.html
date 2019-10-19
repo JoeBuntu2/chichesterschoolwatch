@@ -24,26 +24,27 @@
     <h4>Comparisons - {{selectedOption.displayName}}</h4>
   </div>
   <div *ngIf="!isBusy" class="row-fluid" [ngSwitch]="selectedOption.name">
- 
+
     <app-cost-per-student *ngSwitchCase="'TotalCostPerStudent'"></app-cost-per-student>
     <app-deficit *ngSwitchCase="'Deficit'"></app-deficit>
+    <app-deficit-per-student *ngSwitchCase="'DeficitPerStudent'"></app-deficit-per-student>
     <table *ngSwitchDefault class='table table-striped table-sm'>
       <thead>
-      <tr>
-        <th></th>
-        <th class="text-right text-nowrap" *ngFor="let key of objectKeys(comparisions.fiscalYears)">{{comparisions.fiscalYears[key]}}</th>
-      </tr>
+        <tr>
+          <th></th>
+          <th class="text-right text-nowrap" *ngFor="let key of objectKeys(comparisions.fiscalYears)">{{comparisions.fiscalYears[key]}}</th>
+        </tr>
       </thead>
       <tbody>
-      <ng-template let-district ngFor [ngForOf]="comparisions.districtFiscalYearMetrics">
-        <tr [ngClass]="{'highlight-row' : district.district.name === 'Chichester'}">
-          <td>{{district.district.name}}</td>
-          <td class="text-right" *ngFor="let key of objectKeys(comparisions.fiscalYears)">
-            <span *ngIf="selectedOption.format === 'percent'">{{district.metricsByFiscalYear[key].metrics[selectedOption.name] | percent: '1.1-1'}}</span>
-            <span *ngIf="selectedOption.format === 'number'">{{district.metricsByFiscalYear[key].metrics[selectedOption.name] | number: '1.0-0'}}</span>
-          </td>
-        </tr>
-      </ng-template>
+        <ng-template let-district ngFor [ngForOf]="comparisions.districtFiscalYearMetrics">
+          <tr [ngClass]="{'highlight-row' : district.district.name === 'Chichester'}">
+            <td>{{district.district.name}}</td>
+            <td class="text-right" *ngFor="let key of objectKeys(comparisions.fiscalYears)">
+              <span *ngIf="selectedOption.format === 'percent'">{{district.metricsByFiscalYear[key].metrics[selectedOption.name] | percent: '1.1-1'}}</span>
+              <span *ngIf="selectedOption.format === 'number'">{{district.metricsByFiscalYear[key].metrics[selectedOption.name] | number: '1.0-0'}}</span>
+            </td>
+          </tr>
+        </ng-template>
       </tbody>
     </table>
 
