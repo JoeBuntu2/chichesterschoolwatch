@@ -34,7 +34,7 @@ export class ComparisonsComponent  {
       if (match == null)
           match = this.options.find(value => value.name.toLowerCase() === "TotalCostPerStudent".toLowerCase());
 
-      this.selectedOption = match;
+      this.setOption(match);
  
     }));
  
@@ -62,6 +62,7 @@ export class ComparisonsComponent  {
       {
         group: "Over Spending",
         groupOptions: [
+          { name: "TotalCostPerStudent", format: "number" },
           { name: "Deficit", format: "number"},
           { name: "DeficitPerStudent", format: "number"},
           { name: "ExcessChichesterSpending", format: "number" },
@@ -81,7 +82,7 @@ export class ComparisonsComponent  {
         group: "Expenditures",
         groupOptions: [
           { name: "TotalCost", format: "number" },
-          { name: "TotalCostPerStudent", format: "number" },
+
           { name: "TotalCostIncrease", format: "number" },
           { name: "TotalCostIncreasePerStudent", format: "number" }
 
@@ -102,7 +103,7 @@ export class ComparisonsComponent  {
           { name: "TaxRateIncrease", format: "percent"},
           { name: "SpecialEducation1200PercentageCost", format: "percent"}
         ]
-      },
+      }
     ];
 
     this.options = []; 
@@ -112,19 +113,37 @@ export class ComparisonsComponent  {
       )
     );
 
-    //turn 
+    //TODO - convert to angular pipe?
+    //turn 'TotalCostPerStudent' into 'total-cost-per-student
     this.options.forEach(option => {
       option.canonicalUrl = option.name
         .replace(/([A-Z])/g, (match) => `-${match.toLowerCase()}`).substr(1);
+
+      //TODO - convert to angular pipe?
+      //turn 'TotalCostPerStudent' into 'Total Cost Per Student'
+      option.displayName = option.name
+        .replace(/([A-Z])/g, (match) => ` ${match}`)
+        .replace(/ (Per) /g, (match) => `-${match.trim()}-`).substr(1);
     });
   }
 
 
   setOption(option: any) {
 
+    //mark all options as inactive
     this.options.forEach(o => o.isActive = false);
+
+    //set this option to active
     option.isActive = true;
 
+    //set all groups to inactive
+    this.optionGroups.forEach(og => og.isActive = false);
+
+    //find group containing this option and mark it as active
+    let groupMatch = this.optionGroups.find(og => og.groupOptions.some(o => o.name === option.name));
+    if (groupMatch != null)
+      groupMatch.isActive = true;
+  
     this.selectedOption = option;
   }
 }
