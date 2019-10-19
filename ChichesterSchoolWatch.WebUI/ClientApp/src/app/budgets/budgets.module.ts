@@ -9,6 +9,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { CostPerStudentComponent } from './comparisons/cost-per-student/cost-per-student.component';
 import { DeficitComponent } from './comparisons/deficit/deficit.component';
 import { DeficitPerStudentComponent } from './comparisons/deficit-per-student/deficit-per-student.component';
+import { ExcessChichesterSpendingComponent } from './comparisons/excess-chichester-spending/excess-chichester-spending.component';
 
 let routing = RouterModule.forChild([
   { path: "expenditures", component: ExpendituresComponent },
@@ -21,6 +22,6 @@ let routing = RouterModule.forChild([
     CommonModule, routing,
     NgbModule
   ],
-  declarations: [BudgetsComponent, RevenuesComponent, ExpendituresComponent, ComparisonsComponent, CostPerStudentComponent, DeficitComponent, DeficitPerStudentComponent]
+  declarations: [BudgetsComponent, RevenuesComponent, ExpendituresComponent, ComparisonsComponent, CostPerStudentComponent, DeficitComponent, DeficitPerStudentComponent, ExcessChichesterSpendingComponent]
 })
 export class BudgetsModule { }
