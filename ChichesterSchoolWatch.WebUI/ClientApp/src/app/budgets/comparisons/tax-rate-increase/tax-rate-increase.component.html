@@ -1,3 +1,45 @@
-<p>
-  tax-rate-increase works!
-</p>
+<div *ngIf="!isBusy">
+  <div class="comparison-blurb">
+    <p>
+      Tax Rate Increase - We will have an entire article on this topic coming soon. This number is
+      basically useless in terms of measuring how cost-effective a school board is running a
+      district. Chichester is spending 4-5k more per student than comparable districts,
+      but has some of the lowest tax rate increases across the county.
+    </p>
+    <p class="mt-2">
+      How is that possible?
+      <ul class="list-group">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <span class="badge badge-primary badge-pill">14</span>
+          They are leading the pack in cost-per-student among delaware county districts.
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <span class="badge badge-primary badge-pill">14</span>
+          2. This year's 0% increase was made possible by a massive 3.4 million deficit leading the pack in total deficit, and leading the pack in deficit-per-student.
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          Morbi leo risus
+          <span class="badge badge-primary badge-pill">1</span>
+        </li>
+      </ul>
+    </p> 
+  </div>
+  <table class='table table-striped table-sm'>
+    <thead>
+    <tr>
+      <th></th>
+      <th class="text-right text-nowrap" *ngFor="let key of objectKeys(comparisons.fiscalYears)">{{comparisons.fiscalYears[key]}}</th>
+    </tr>
+    </thead>
+    <tbody>
+    <ng-template let-district ngFor [ngForOf]="comparisons.districtFiscalYearMetrics">
+      <tr [ngClass]="{'highlight-row' : district.district.name === 'Chichester'}">
+        <td>{{district.district.name}}</td>
+        <td class="text-right" *ngFor="let key of objectKeys(comparisons.fiscalYears)">
+          <span>{{district.metricsByFiscalYear[key].metrics['TaxRateIncrease'] | percent: '1.1-1'}}</span>
+        </td>
+      </tr>
+    </ng-template>
+    </tbody>
+  </table>
+</div>

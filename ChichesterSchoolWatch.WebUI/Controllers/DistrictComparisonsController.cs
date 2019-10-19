@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Logging;
 using SchoolWatch.Business.DTO.DistrictComparisons; 
 using SchoolWatch.Business.Interface;
@@ -23,7 +24,7 @@ namespace ChichesterSchoolWatch.WebUI.Controllers
         // - 8 hour cache
         [HttpGet] 
         [ResponseCache(CacheProfileName = "StaticData12Hr")]
-        public AllDistrictComparisonsDto Get()
+        public AllDistrictComparisonsDto Get( )
         {
             Logger.LogDebug("Made it past cache...fetching data");
             return DistrictComparisonService.GetAll();
