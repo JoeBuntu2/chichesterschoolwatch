@@ -94,7 +94,8 @@ export class ComparisonsComponent  {
           { name: "Assessed", format: "number"},
           { name: "AssessedPerStudent", format: "number"},
           { name: "AssessedIncrease", format: "number"},
-          { name: "AssessedNewRevenue", format: "number"}
+          { name: "AssessedNewRevenue", format: "number"},
+          { name: "AssessedNewRevenuePerStudent", format: "number"}
         ]
       },
       {

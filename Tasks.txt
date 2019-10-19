@@ -1,10 +1,10 @@
 - Tasks
 
 1. Polish Comparisons Screen
-	- Add spaces to the name
+	- [x] Add spaces to the name
 	- Add calculations values to the results
 	- Add blurbs
 	- Add calculations/formulas
-	- Highlight selected group
+	- [x] Highlight selected group
 
 2. Tax Savings(home value) Calculator
