@@ -4,9 +4,12 @@
       These numbers show how excessive Chichester's spending is, relative to all the
       other districts in Delaware county.
     </p>
-    <p class="mt-2"> 
- 
-    </p>
+    <div class="mt-2"> 
+      <pre>
+Cost-Per-Student Difference = Chichester - {{currentDistrict.district.name}}
+{{currentMetric.calculationValues.differenceCostPerStudent | number}} = {{currentMetric.calculationValues.chichesterCostPerStudent | number}} - {{currentMetric.calculationValues.districtCostPerStudent |number}}
+      </pre>
+    </div>  
   </div>
   <table class='table table-striped table-sm'>
     <thead>
@@ -19,8 +22,8 @@
     <ng-template let-district ngFor [ngForOf]="comparisons.districtFiscalYearMetrics">
       <tr [ngClass]="{'highlight-row' : district.district.name === 'Chichester'}">
         <td>{{district.district.name}}</td>
-        <td class="text-right" *ngFor="let key of objectKeys(comparisons.fiscalYears)">
-          <span>{{district.metricsByFiscalYear[key].metrics['ExcessChichesterSpending'] | number: '1.0-0'}}</span>
+        <td class="text-right" *ngFor="let key of objectKeys(comparisons.fiscalYears)" (click)="setCurrent(district, district.metricsByFiscalYear[key].metrics['ExcessChichesterSpending'])">"">
+          <span>{{district.metricsByFiscalYear[key].metrics['ExcessChichesterSpending'].value | number: '1.0-0'}}</span>
         </td>
       </tr>
     </ng-template>

@@ -61,7 +61,22 @@ namespace SchoolWatch.Business.DistrictComparisons
                     var chichesterExcessSpending =  difference * chichesterEnrollment;
  
                     fyMetric.Value.Metrics.Add(ComparisonType.CostPerStudentComparedToChichester, difference);
-                    fyMetric.Value.Metrics.Add(ComparisonType.ExcessChichesterSpending, chichesterExcessSpending);
+
+
+                    var data = new
+                    { 
+                        Value = chichesterExcessSpending,
+
+                        //include all the intermediary values for proof
+                        calculationValues = new {
+                            ChichesterCostPerStudent = chichesterCostPerStudent,
+                            DistrictCostPerStudent = costPerStudent.Value,
+                            DifferenceCostPerStudent = difference,
+                            ChichesterEnrollment = chichesterEnrollment, 
+                        }
+                    };
+
+                    fyMetric.Value.Metrics.Add(ComparisonType.ExcessChichesterSpending, data);
 
                 }
             }

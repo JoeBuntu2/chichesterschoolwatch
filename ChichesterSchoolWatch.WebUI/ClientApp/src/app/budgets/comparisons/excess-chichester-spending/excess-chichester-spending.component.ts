@@ -13,9 +13,11 @@ export class ExcessChichesterSpendingComponent {
   public districts: any[];
   public comparisons: any[];
   public objectKeys = Object.keys;
+  public currentDistrict: any;
+  public currentMetric: any;
 
   constructor(
-    private http: HttpClient, 
+    private http: HttpClient,
     @Inject('BASE_URL') baseUrl: string) {
   
     this.isBusy = true;
@@ -34,6 +36,11 @@ export class ExcessChichesterSpendingComponent {
       },
       error => console.error(error)
     );
+  }
+
+  setCurrent(district: any, metric: any) {
+    this.currentDistrict = district;
+    this.currentMetric = metric;
   }
 
 }
