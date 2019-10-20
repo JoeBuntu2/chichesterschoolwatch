@@ -2,6 +2,7 @@ import { Component, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { forkJoin } from 'rxjs';
 import { Lightbox } from 'ngx-lightbox';
+import { StatsService } from "../../../stats.service";  
 
 @Component({
   selector: 'app-deficit-per-student',
@@ -19,6 +20,7 @@ export class DeficitPerStudentComponent  {
   constructor(
     private http: HttpClient,
     private lightbox: Lightbox,
+    public stats: StatsService,
     @Inject('BASE_URL') baseUrl: string) {
  
     this.isBusy = true;

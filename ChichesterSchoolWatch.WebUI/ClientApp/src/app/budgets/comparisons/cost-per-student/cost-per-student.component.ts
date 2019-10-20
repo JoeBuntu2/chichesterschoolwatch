@@ -1,6 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { forkJoin } from 'rxjs'; 
+import { forkJoin } from 'rxjs';
+import { StatsService } from "../../../stats.service";  
 
 @Component({
   selector: 'app-cost-per-student',
@@ -14,6 +15,7 @@ export class CostPerStudentComponent {
   public objectKeys = Object.keys;
 
   constructor(
+    public stats: StatsService,
     private http: HttpClient, 
     @Inject('BASE_URL') baseUrl: string) {
   
