@@ -12,6 +12,8 @@ import { DeficitPerStudentComponent } from './comparisons/deficit-per-student/de
 import { ExcessChichesterSpendingComponent } from './comparisons/excess-chichester-spending/excess-chichester-spending.component';
 import { TaxRateIncreaseComponent } from './comparisons/tax-rate-increase/tax-rate-increase.component';
 import { SharedModule   } from '../shared/shared.module';
+import { LightboxModule } from 'ngx-lightbox';
+
 
 let routing = RouterModule.forChild([
   { path: "expenditures", component: ExpendituresComponent },
@@ -24,7 +26,8 @@ let routing = RouterModule.forChild([
     CommonModule,
     routing,
     NgbModule,
-    SharedModule
+    SharedModule,
+    LightboxModule 
   ],
   declarations: [BudgetsComponent, RevenuesComponent, ExpendituresComponent, ComparisonsComponent, CostPerStudentComponent, DeficitComponent, DeficitPerStudentComponent, ExcessChichesterSpendingComponent, TaxRateIncreaseComponent]
 })

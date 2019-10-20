@@ -1,6 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { forkJoin } from 'rxjs';
+import { Lightbox } from 'ngx-lightbox';
 
 @Component({
   selector: 'app-deficit-per-student',
@@ -13,12 +14,21 @@ export class DeficitPerStudentComponent  {
   public districts: any[];
   public comparisons: any[];
   public objectKeys = Object.keys;
+  private album: any[];
 
   constructor(
-    private http: HttpClient, 
+    private http: HttpClient,
+    private lightbox: Lightbox,
     @Inject('BASE_URL') baseUrl: string) {
-  
+ 
     this.isBusy = true;
+
+    this.album = [ {
+      src: "../assets/images/bartholf-touts-zero-percent.png",
+      caption: "Bartholf forgets Deficit, Touts Zero Percent Increase.",
+      thumb: "../assets/images/bartholf-touts-zero-percent.png"
+
+    }];
  
     forkJoin([
       http.get<any[]>(baseUrl + 'api/DistrictComparisons'),
@@ -34,6 +44,11 @@ export class DeficitPerStudentComponent  {
       },
       error => console.error(error)
     );
+  }
+  
+  open(index: number): void {
+    // open lightbox
+    this.lightbox.open(this.album, index);
   }
 
 }

@@ -24,7 +24,7 @@
 
   </div>
   <div *ngIf="!isBusy" class="row-fluid mt-3" [ngSwitch]="selectedOption.name">
-    <h4>Comparisons - {{selectedOption.displayName}}</h4>
+    <h4>Comparisons: {{selectedOption.displayName}}</h4>
     <app-cost-per-student *ngSwitchCase="'TotalCostPerStudent'"></app-cost-per-student>
     <app-deficit *ngSwitchCase="'Deficit'"></app-deficit>
     <app-deficit-per-student *ngSwitchCase="'DeficitPerStudent'"></app-deficit-per-student>

@@ -1,15 +1,17 @@
 <div *ngIf="!isBusy">
   <div class="comparison-blurb">
-    <p> 
+    <img class="img-thumbnail img-responsive rounded float-right" style="max-width: 300px; max-height: 300px;" [src]="album[0].thumb" (click)="open(0)" />
+    <p>
       Making comparisons on a per-student basis is the only way to compare apples-to-apples and budget deficits are no different.
-      Chichester might seem somewhat on par with other districts when looking at total deficit figures, but once you start
+      Chichester might seem somewhat on par with other districts when looking at
+      <a [routerLink]='["../deficit"]'>total deficit figures</a>, but once you start
       looking at dollars-per-student, you start seeing how disproportionate Chichester's budget deficits really are.
     </p>
-    <p class="mt-2">
+    <div class="mt-2">
       This year on the day of election primaries, David Bartholf proudly touted the 0% tax increases
       but neglected to mention this year's massive <span class="hardcoded">$3,477,090 </span>
       <a [routerLink]='["../deficit"]'>deficit</a>.
-    </p>
+    </div>
   </div>
   <table class='table table-striped table-sm'>
     <thead>

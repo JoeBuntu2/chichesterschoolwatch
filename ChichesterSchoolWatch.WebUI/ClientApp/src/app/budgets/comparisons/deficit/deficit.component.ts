@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { forkJoin } from 'rxjs'; 
+import { forkJoin } from 'rxjs';  
 
 @Component({
   selector: 'app-deficit',
@@ -18,7 +18,7 @@ export class DeficitComponent {
     @Inject('BASE_URL') baseUrl: string) {
   
     this.isBusy = true;
- 
+
     forkJoin([
       http.get<any[]>(baseUrl + 'api/DistrictComparisons'),
       http.get<any[]>(baseUrl + 'api/Districts') 
@@ -33,6 +33,6 @@ export class DeficitComponent {
       },
       error => console.error(error)
     );
-  }
+  } 
 
 }
