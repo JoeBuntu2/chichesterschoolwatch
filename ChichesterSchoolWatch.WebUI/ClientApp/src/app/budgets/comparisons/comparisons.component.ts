@@ -62,10 +62,10 @@ export class ComparisonsComponent  {
       {
         group: "Over Spending",
         groupOptions: [
-          { name: "TotalCostPerStudent", format: "number" },
+          { name: "TotalCostPerStudent", format: "number" , recommended: true},
           { name: "Deficit", format: "number"},
           { name: "DeficitPerStudent", format: "number"},
-          { name: "ExcessChichesterSpending", format: "number" },
+          { name: "ExcessChichesterSpending", format: "number", recommended: true },
           { name: "CostPerStudentComparedToChichester", format: "number" }
         ]
       },
@@ -105,7 +105,7 @@ export class ComparisonsComponent  {
       {
         group: "Board Talking Points",
         groupOptions: [
-          { name: "TaxRateIncrease", format: "percent"},
+          { name: "TaxRateIncrease", format: "percent", misleading: true},
           { name: "SpecialEducation1200PercentageCost", format: "percent"}
         ]
       }
