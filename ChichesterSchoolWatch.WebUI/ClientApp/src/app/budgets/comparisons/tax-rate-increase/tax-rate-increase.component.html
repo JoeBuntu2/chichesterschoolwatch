@@ -25,14 +25,14 @@
     <thead>
     <tr>
       <th></th>
-      <th class="text-right text-nowrap" *ngFor="let key of objectKeys(comparisons.fiscalYears)">{{comparisons.fiscalYears[key]}}</th>
+      <th class="text-right text-nowrap" *ngFor="let key of objectKeys(comparisons.fiscalYears) | orderBy:  key : true">{{comparisons.fiscalYears[key]}}</th>
     </tr>
     </thead>
     <tbody>
     <ng-template let-district ngFor [ngForOf]="comparisons.districtFiscalYearMetrics">
       <tr [ngClass]="{'highlight-row' : district.district.name === 'Chichester'}">
         <td>{{district.district.name}}</td>
-        <td class="text-right" *ngFor="let key of objectKeys(comparisons.fiscalYears)">
+        <td class="text-right" *ngFor="let key of objectKeys(comparisons.fiscalYears) | orderBy:  key : true">
           <span>{{district.metricsByFiscalYear[key].metrics['TaxRateIncrease'] | percent: '1.1-1'}}</span>
         </td>
       </tr>
