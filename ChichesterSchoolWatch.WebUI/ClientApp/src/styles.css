@@ -2,6 +2,15 @@
 body { font-family: "courier new"; min-width: 768px;
 }
 
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.selectable-cell {
+  cursor: pointer;
+}
+.selectable-cell:hover { outline: solid 3px #17a2b8 ; }
+ 
 
 .modal2 { 
   position: absolute; /* Stay in place */

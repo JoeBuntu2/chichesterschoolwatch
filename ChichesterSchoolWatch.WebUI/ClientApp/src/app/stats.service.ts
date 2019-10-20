@@ -9,6 +9,6 @@ export class StatsService {
 
   constructor() {
     this.chiAssessmentBoostFy1819 = 80443934;
-    this.chiDeficitFy1920 = 30;
+    this.chiDeficitFy1920 = 3477090;
   }
 }

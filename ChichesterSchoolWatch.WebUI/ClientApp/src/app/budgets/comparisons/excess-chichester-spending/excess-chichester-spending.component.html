@@ -1,40 +1,53 @@
 <div *ngIf="!isBusy">
   <div class="comparison-blurb">
     <p> 
-      These numbers show how excessive Chichester's spending is, relative to all the
-      other districts in Delaware county.
+      These numbers show how excessive Chichester's spending is relative to other districts in Delaware county.
+      These are simply calculations of how much Chichester would save if it's Cost-Per-Student was in-line with
+      those districts. For example, in FY19-20, if Chichester capped it's spending per student at the same rate
+      as PennDelco did that year, we would have saved almost <span class="font-weight-bold">18 million</span> from this year's budget!!!
     </p>
     <div class="mt-2">
-      <form class="border border-info rounded p-3">
-        <div>
-          Calculating excess cost based on costs of {{currentDistrict.district.name}} School District.
+      <form class="border border-info rounded p-0">
+        <div class="bg-info text-white p-3 rounded font-weight-bold mt-0 border-0 h5">
+          Excess spending of 13 - 18 Million sounds like a stretch, right? Here's the math:
         </div>
 
-        <div class="row">
-          <div class="col-md-3">
-            <div class="form-group">
-              <label for="ChichesterCSP">Chichester - {{currentDistrict.district.name}} CSP</label>
-              <input type="text"
-                     class="form-control text-right"
-                     id="ChichesterCSP"
-                     readonly
-                     placeholder="" 
-                     value="{{currentMetric.calculationValues.chichesterCostPerStudent | number: '1.0-0'}} - {{currentMetric.calculationValues.districtCostPerStudent | number: '1.0-0'}}">
+        <div class="row p-3">
+          <div class="col-6">
+            <div class="row">
+              <div class="col text-left">Selected District</div>
+              <div class="col-3 text-right">{{currentDistrict.district.name}}</div>
+            </div>
+            <div class="row">
+              <div class="col text-left">Selected Fiscal Year</div>
+              <div class="col-3 text-right">FY19-20</div>
+            </div>
+            <div class="row">
+              <div class="col text-left">{{currentDistrict.district.name}} Cost-Per-Student</div>
+              <div class="col-3 text-right">{{currentMetric.calculationValues.chichesterCostPerStudent | number: '1.0-0'}}</div>
+            </div>
+            <div class="row">
+              <div class="col text-left">Chichester Cost-Per-Student</div>
+              <div class="col-3 text-right">{{currentMetric.calculationValues.districtCostPerStudent | number: '1.0-0'}}</div>
+            </div>
+            <div class="row">
+              <div class="col text-left">CPS Difference</div>
+              <div class="col-3 text-right">{{currentMetric.calculationValues.differenceCostPerStudent | number: '1.0-0'}}</div>
+            </div>
+
+            <div class="row">
+              <div class="col text-left">Chichester Enrollment</div>
+              <div class="col-3 text-right">{{currentMetric.calculationValues.chichesterEnrollment | number: '1.0-0'}}</div>
+            </div>
+            <div class="row">
+              <div class="col"><code>[Difference] x [Enrollment] = Excess Chi Spending</code></div>
+            </div>
+            <div class="row">
+              <div class="col"><code>{{currentMetric.calculationValues.differenceCostPerStudent | number: '1.0-0'}} x {{currentMetric.calculationValues.chichesterEnrollment | number: '1.0-0'}} =</code></div>
+              <div class="col-3 text-right"><code class="font-weight-bold">{{currentMetric.value | number: '1.0-0'}}</code></div>
             </div>
           </div>
-          <div class="col-1">
-            <div class="form-group">
-              <label for="DiffOperator2" style="visibility: hidden">Op</label>
-              <input type="text" class="form-control form-control-plaintext text-center" id="DiffOperator2" readonly placeholder="" value="=">
-            </div>
-          </div>
-          <div class="col-md-2">
-            <div class="form-group">
-              <label for="SelectedDistrictCSP">Per Student Savings!</label>
-              <input type="text" class="form-control text-right" id="CSPDifference" readonly placeholder="" value="{{currentMetric.calculationValues.DifferenceCostPerStudent | number: '1.0-0'}}">
-            </div>
-          </div>
-        </div>
+        </div>  
       </form>  
     </div>  
   </div>
@@ -49,7 +62,7 @@
     <ng-template let-district ngFor [ngForOf]="comparisons.districtFiscalYearMetrics">
       <tr [ngClass]="{'highlight-row' : district.district.name === 'Chichester'}">
         <td>{{district.district.name}}</td>
-        <td class="text-right" *ngFor="let key of objectKeys(comparisons.fiscalYears)" (click)="setCurrent(district, district.metricsByFiscalYear[key].metrics['ExcessChichesterSpending'])">
+        <td class="text-right selectable-cell" *ngFor="let key of objectKeys(comparisons.fiscalYears)" (click)="setCurrent(district, district.metricsByFiscalYear[key].metrics['ExcessChichesterSpending'])">
           <span>{{district.metricsByFiscalYear[key].metrics['ExcessChichesterSpending'].value | number: '1.0-0'}}</span>
         </td>
       </tr>

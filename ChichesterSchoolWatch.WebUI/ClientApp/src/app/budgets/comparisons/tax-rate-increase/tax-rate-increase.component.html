@@ -1,27 +1,25 @@
 <div *ngIf="!isBusy">
   <div class="comparison-blurb">
-    <p>
-      These numbers basically useless for measuring how cost-effective a school board is running a
-      district. They don't account for increases in revenue from business/property development, they don't
-      account for budget deficits, the don't reflect how cost-effective a district is compared to other districts.
+    <div class="mt-2 mb-2">
+          
 
-      Chichester is spending 4-5k more per student than comparable districts,
-      but has some of the lowest tax rate increases across the county. 
+          <p class="mb-2">These numbers are not reliable metrics upon which to compare school district
+            cost-effectiveness.<br/>
+            They don't account for any of the following:</p>
 
-    </p>
-    <ol>
-      <li>Chichester's budget is already 21% higher than it should be. <span class="hardcoded">12 - 17 million</span>. 
-      </li>
-      <li>When you gain <span class="stat">{{stats.chiAssessmentBoostFy1819 | thousandSuff : 1}} </span> in property values, netting an additional <span>3 million</span>
-        in local tax revenue from business, it's not hard to keep taxes at the same rate.
-      </li>
-      <li>When you run a massive deficit (in what is hard not to view as a pure political stunt), it's not hard
-        to keep taxes at the same rate. 
-      </li>
-    </ol>
-    <p class="mt-2">
+          <ol style="max-width: 768px;">
+            <li>Differences in cost-per-student. Chichester <a [routerLink]='["../cost-per-student"]'>leads the pack</a>
+              at 4-5k more per student.</li>
+            <li>New revenue generated from increases in property assessments (business development), such as
+              Chichester's huge surplus of revenue from a once-in-a-blue-moon
+              <a [routerLink]='["../assessed-increase"]'>{{stats.chiAssessmentBoostFy1819 | thousandSuff }}</a> dollar increase in property values.</li>
+            <li>Budget deficits such as Chichester's <a [routerLink]='["../deficit"]'>{{stats.chiDeficitFy1920 | thousandSuff }}</a> dollar deficit
+              this year.</li>
+          </ol>
 
-    </p> 
+          I propose <a [routerLink]='["../cost-per-student"]'>Cost-Per-Student</a> as the metric for comparing districts apples-to-apples.
+    </div>
+ 
   </div>
   <table class='table table-striped table-sm'>
     <thead>
