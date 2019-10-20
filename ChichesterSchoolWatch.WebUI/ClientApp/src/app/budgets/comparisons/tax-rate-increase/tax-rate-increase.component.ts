@@ -1,6 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { forkJoin } from 'rxjs';
+import { StatsService } from "../../../stats.service";  
 
 @Component({
   selector: 'app-tax-rate-increase',
@@ -15,6 +16,8 @@ export class TaxRateIncreaseComponent {
 
   constructor(
     private http: HttpClient,
+    public stats: StatsService,
+
     @Inject('BASE_URL') baseUrl: string) {
 
     this.isBusy = true;

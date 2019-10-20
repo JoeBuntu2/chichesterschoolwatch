@@ -11,17 +11,20 @@ import { DeficitComponent } from './comparisons/deficit/deficit.component';
 import { DeficitPerStudentComponent } from './comparisons/deficit-per-student/deficit-per-student.component';
 import { ExcessChichesterSpendingComponent } from './comparisons/excess-chichester-spending/excess-chichester-spending.component';
 import { TaxRateIncreaseComponent } from './comparisons/tax-rate-increase/tax-rate-increase.component';
+import { SharedModule   } from '../shared/shared.module';
 
 let routing = RouterModule.forChild([
   { path: "expenditures", component: ExpendituresComponent },
   { path: "revenues", component: RevenuesComponent },
   { path: "comparisons/:comp-type", component: ComparisonsComponent },
   { path: "", component: BudgetsComponent }
-])
+]);
 @NgModule({
   imports: [
-    CommonModule, routing,
-    NgbModule
+    CommonModule,
+    routing,
+    NgbModule,
+    SharedModule
   ],
   declarations: [BudgetsComponent, RevenuesComponent, ExpendituresComponent, ComparisonsComponent, CostPerStudentComponent, DeficitComponent, DeficitPerStudentComponent, ExcessChichesterSpendingComponent, TaxRateIncreaseComponent]
 })
