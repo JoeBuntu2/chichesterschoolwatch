@@ -5,11 +5,11 @@ namespace ChichesterSchoolWatch.WebUI.Controllers
     [Route("api/[controller]")]
     [ApiController]
     public class PingController : ControllerBase
-    { 
-        [HttpPost] 
-        public string Get(string url)
+    {
+        [HttpPost]
+        public object Get(string url)
         {
-            return "Pong";
-        } 
+            return new {Pong = "Pong"};
+        }
     }
 }
