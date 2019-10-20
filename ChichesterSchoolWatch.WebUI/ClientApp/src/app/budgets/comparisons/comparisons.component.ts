@@ -75,7 +75,11 @@ export class ComparisonsComponent  {
             { name: "TotalRevenue", format: "number" },
             { name: "TotalRevenuePerStudent", format: "number" },
             { name: "RevenueIncrease", format: "number" },
-            { name: "RevenueIncreasePerStudent", format: "number" }
+            { name: "RevenueIncreasePerStudent", format: "number" },
+            { name: "StateRevenue", format: "number" },
+            { name: "StateRevenuePerStudent", format: "number" },
+            { name: "StateRevenuePercent", format: "percent" }
+
         ]
       },
       {

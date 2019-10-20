@@ -43,6 +43,7 @@ namespace SchoolWatch.Business.DistrictComparisons
                 //get revenues for this district
                 var districtRevenues = revenueByDistrict[districtContainer.District.DistrictId];
                 var fiscalYearRevenues = districtRevenues.FiscalYearAmounts.ToDictionary(x => x.FiscalYearId);
+                var levelAmounts = districtRevenues.Sources.ToDictionary(x => x.LevelId);
 
                 //for each fiscal year
                 foreach (var fyMetric in districtContainer.MetricsByFiscalYear)
@@ -57,10 +58,28 @@ namespace SchoolWatch.Business.DistrictComparisons
                     var fyRevenue = (decimal) fiscalYearRevenues[fyMetric.Key].Total;
                     var enrollment = enrollmentsByDistrict[districtContainer.District.DistrictId];
                     var revenuePerStudent = fyRevenue / enrollment.Enrollment;
- 
+
                     //add the metric
                     fyMetric.Value.Metrics.Add(ComparisonType.TotalRevenue, fyRevenue);
                     fyMetric.Value.Metrics.Add(ComparisonType.TotalRevenuePerStudent, revenuePerStudent);
+
+                    //try to get state revenues
+                    if (levelAmounts.TryGetValue("S", out var stateRevenues))
+                    {
+                        var currentYearStateRevenue = stateRevenues.FiscalYearAmounts.FirstOrDefault(x => x.FiscalYearId == fyMetric.Key);
+                        if (currentYearStateRevenue != null)
+                        {
+                            var fyStateRevenue = currentYearStateRevenue.Total;
+                            fyMetric.Value.Metrics.Add(ComparisonType.StateRevenue, fyStateRevenue);
+
+                            var stateRevenuePerStudent = currentYearStateRevenue.Total / enrollment.Enrollment;
+                            fyMetric.Value.Metrics.Add(ComparisonType.StateRevenuePerStudent, stateRevenuePerStudent);
+
+                            fyMetric.Value.Metrics.Add(ComparisonType.StateRevenuePercent, fyStateRevenue / fyRevenue);
+                        }
+                    }
+ 
+
  
                     //now make comparisons to previous year
                     var budget = BudgetsService.Find(districtContainer.District.DistrictId, fyMetric.Key);

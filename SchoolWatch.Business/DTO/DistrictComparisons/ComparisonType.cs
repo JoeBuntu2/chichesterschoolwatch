@@ -6,7 +6,10 @@
         TotalRevenuePerStudent,
         RevenueIncrease,
         RevenueIncreasePerStudent,
- 
+        StateRevenue,
+        StateRevenuePerStudent,
+        StateRevenuePercent,
+
         TotalCost,
         TotalCostPerStudent,
         TotalCostIncrease,
@@ -29,7 +32,7 @@
         AssessedNewRevenue,
         AssessedNewRevenuePerStudent,
 
-        Enrollment
+        Enrollment,
 
     }
 }
