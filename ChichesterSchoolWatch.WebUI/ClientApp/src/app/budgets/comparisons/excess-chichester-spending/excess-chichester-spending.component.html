@@ -2,18 +2,20 @@
   <div class="comparison-blurb">
     <p> 
       These numbers show how excessive Chichester's spending is relative to other districts in Delaware county.
-      These are simply calculations of how much Chichester would save if it's Cost-Per-Student was in-line with
-      those districts. For example, in FY19-20, if Chichester capped it's spending per student at the same rate
-      as PennDelco did that year, we would have saved almost <span class="font-weight-bold">18 million</span> from this year's budget!!!
+      These are simply calculations of how much Chichester would save if it's
+      <a [routerLink]='["../deficit-per-student"]'>Cost-Per-Student</a>  was in-line with
+      those districts. For example, in fiscal year 2019-2020, if Chichester capped spending at the same rate
+      as Penn Delco did that year, we would have saved almost <span class="hardcoded font-weight-bold">18 million</span>
+      from this year's budget!!!
     </p>
-    <div class="mt-2">
+    <div class="mt-2 mb-2" >
       <form class="border border-info rounded p-0">
-        <div class="bg-info text-white p-3 rounded font-weight-bold mt-0 border-0 h5">
-          Excess spending of 13 - 18 Million sounds like a stretch, right? Here's the math:
+        <div class="bg-info text-white p-2 rounded font-weight-bold mt-0 border-0">
+          Here's the Math
         </div>
 
         <div class="row p-3">
-          <div class="col-6">
+          <div style="width: 600px;">
             <div class="row">
               <div class="col text-left">Selected District</div>
               <div class="col-3 text-right">{{currentDistrict.name}}</div>
