@@ -1,0 +1,33 @@
+<div *ngIf="!isBusy">
+  <div class="comparison-blurb">
+    <p>
+
+      As defined in the <a target="_blank" href="https://www.education.pa.gov/Documents/Teachers-Administrators/School%20Finances/Comptrollers%20Office/Chart%20of%20Accounts.pdf">PA Chart of Accounts</a>
+      1200 SPECIAL PROGRAMS – ELEMENTARY / SECONDARY
+      Activities designed primarily for students having special needs. The Special Programs
+      include support classes for pre-kindergarten, kindergarten, elementary, and secondary
+      students identified as exceptional. (Record expenditures to the following sub-accounts.)
+ 
+
+      <a target="_blank" href="https://www.education.pa.gov/Documents/Teachers-Administrators/School%20Finances/Comptrollers%20Office/Chart%20of%20Accounts.pdf"></a>
+    </p>
+  </div>
+  <table class='table table-striped table-sm'>
+    <thead>
+      <tr>
+        <th></th>
+        <th class="text-right text-nowrap" *ngFor="let key of objectKeys(comparisons.fiscalYears) | orderBy:  key : true">{{comparisons.fiscalYears[key]}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-template let-district ngFor [ngForOf]="comparisons.districtFiscalYearMetrics">
+        <tr [ngClass]="{'highlight-row' : district.district.name === 'Chichester'}">
+          <td>{{district.district.name}}</td>
+          <td class="text-right selectable-cell" *ngFor="let key of objectKeys(comparisons.fiscalYears) | orderBy:  key : true" (click)="setCurrent(district.district, key, district.metricsByFiscalYear[key].metrics['SpecialEducation1200PercentageCost'])">
+            <span>{{district.metricsByFiscalYear[key].metrics['SpecialEducation1200PercentageCost'].value | number: '1.0-0'}}</span>
+          </td>
+        </tr>
+      </ng-template>
+    </tbody>
+  </table>
+</div>

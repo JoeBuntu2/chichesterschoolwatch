@@ -12,14 +12,14 @@
     <div ngbDropdown class="d-inline-block" *ngFor="let optionGroup of optionGroups">
       <button class="btn btn-outline-primary" [ngClass]="{'active': optionGroup.isActive}" id="dropdown-{{optionGroup.group}}" ngbDropdownToggle>{{optionGroup.group}}</button>
       <div ngbDropdownMenu [attr.aria-labelledby]="'dropdown-' + optionGroup.group">
-        <a class="nav-link"
+        <button class="nav-link"
            ngbDropdownItem
            *ngFor="let option of optionGroup.groupOptions"
            [routerLink]='["../" + option.canonicalUrl]' >
           {{option.displayName}}
           <span *ngIf="option.misleading" class="badge badge-warning text-right">Misleading!</span>
           <span *ngIf="option.recommended" class="badge badge-info text-right">Most Viewed!</span>
-        </a>
+        </button>
       </div>
     </div>
 
@@ -34,7 +34,7 @@
     <app-deficit-per-student *ngSwitchCase="'DeficitPerStudent'"></app-deficit-per-student>
     <app-excess-chichester-spending *ngSwitchCase="'ExcessChichesterSpending'"></app-excess-chichester-spending>
     <app-tax-rate-increase *ngSwitchCase="'TaxRateIncrease'"></app-tax-rate-increase>
-
+    <app-special-education1200-percentage-cost *ngSwitchCase="'SpecialEducation1200PercentageCost'"></app-special-education1200-percentage-cost>
     <table *ngSwitchDefault class='table table-striped table-sm'>
       <thead>
         <tr>

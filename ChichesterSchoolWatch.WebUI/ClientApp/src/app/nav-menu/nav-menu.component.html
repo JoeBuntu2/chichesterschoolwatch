@@ -7,30 +7,30 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse" [ngClass]='{"show": isExpanded}'>
-        <ul class="navbar-nav flex-grow">
-          <li class="nav-item" [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
+        <div class="navbar-nav flex-grow">
+          <div class="nav-item" [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
             <a class="nav-link text-dark" [routerLink]='["/"]'>Home</a>
-          </li>
-          <li class="nav-item" [routerLinkActive]='["link-active"]'>
+          </div>
+          <div class="nav-item" [routerLinkActive]='["link-active"]'>
             <a class="nav-link text-dark" [routerLink]='["/employees/salaries"]'>Employees</a>
-          </li>
-          <li class="nav-item" [routerLinkActive]='["link-active"]'>
+          </div>
+          <div class="nav-item" [routerLinkActive]='["link-active"]'>
             <div ngbDropdown>
               <button class="btn btn-outline-primary" id="nav-budgets-dropdown" ngbDropdownToggle>Budgets</button>
               <div ngbDropdownMenu attr.aria-labelledby="nav-budgets-dropdown">
-                <a class="nav-link" ngbDropdownItem [routerLink]='["/budgets/comparisons/cost-per-student"]'>
+                <button class="nav-link" ngbDropdownItem (click)="navigate('/budgets/comparisons/cost-per-student')">
                   Comparisons
-                </a>
-                <a class="nav-link" ngbDropdownItem [routerLink]='["/budgets/expenditures"]'>
+                </button>
+                <button class="nav-link" ngbDropdownItem [routerLink]='["/budgets/expenditures"]'>
                   Expenditures
-                </a>
-                <a class="nav-link" ngbDropdownItem [routerLink]='["/budgets/revenues"]'>
+                </button>
+                <button class="nav-link" ngbDropdownItem [routerLink]='["/budgets/revenues"]'>
                   Revenues
-                </a>
+                </button>
               </div>
             </div>
-          </li>
-        </ul>
+          </div>
+        </div>
       </div>
     </div>
   </nav>
