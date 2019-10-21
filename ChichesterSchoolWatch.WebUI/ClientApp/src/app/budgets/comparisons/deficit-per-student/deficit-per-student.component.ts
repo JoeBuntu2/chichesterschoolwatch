@@ -1,7 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { forkJoin } from 'rxjs';
-import { Lightbox } from 'ngx-lightbox';
+//import { Lightbox } from 'ngx-lightbox';
 import { StatsService } from "../../../stats.service";  
 
 @Component({
@@ -19,7 +19,7 @@ export class DeficitPerStudentComponent  {
 
   constructor(
     private http: HttpClient,
-    private lightbox: Lightbox,
+    //private lightbox: Lightbox,
     public stats: StatsService,
     @Inject('BASE_URL') baseUrl: string) {
  
@@ -48,9 +48,9 @@ export class DeficitPerStudentComponent  {
     );
   }
   
-  open(index: number): void {
-    // open lightbox
-    this.lightbox.open(this.album, index);
-  }
+  //open(index: number): void {
+  //  // open lightbox
+  //  this.lightbox.open(this.album, index);
+  //}
 
 }

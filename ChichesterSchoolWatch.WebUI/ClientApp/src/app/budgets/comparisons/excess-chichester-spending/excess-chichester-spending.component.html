@@ -20,7 +20,7 @@
             </div>
             <div class="row">
               <div class="col text-left">Selected Fiscal Year</div>
-              <div class="col-3 text-right">FY19-20</div>
+              <div class="col-3 text-right">{{currentFiscalYear}}</div>
             </div>
             <div class="row">
               <div class="col text-left">{{currentDistrict.name}} Cost-Per-Student</div>
@@ -62,7 +62,7 @@
     <ng-template let-district ngFor [ngForOf]="comparisons.districtFiscalYearMetrics">
       <tr [ngClass]="{'highlight-row' : district.district.name === 'Chichester'}">
         <td>{{district.district.name}}</td>
-        <td class="text-right selectable-cell" *ngFor="let key of objectKeys(comparisons.fiscalYears) | orderBy:  key : true" (click)="setCurrent(district, district.metricsByFiscalYear[key].metrics['ExcessChichesterSpending'])">
+        <td class="text-right selectable-cell" *ngFor="let key of objectKeys(comparisons.fiscalYears) | orderBy:  key : true" (click)="setCurrent(district.district, key, district.metricsByFiscalYear[key].metrics['ExcessChichesterSpending'])">
           <span>{{district.metricsByFiscalYear[key].metrics['ExcessChichesterSpending'].value | number: '1.0-0'}}</span>
         </td>
       </tr>

@@ -15,6 +15,7 @@ export class ExcessChichesterSpendingComponent {
   public objectKeys = Object.keys;
   public currentDistrict: any;
   public currentMetric: any;
+  public currentFiscalYear: any;
 
   constructor(
     private http: HttpClient,
@@ -40,7 +41,7 @@ export class ExcessChichesterSpendingComponent {
               let district = match.district;
               let fyMetrics = match.metricsByFiscalYear[5]; //2019-2020 metrics
               let excessSpendingMetrics = fyMetrics.metrics.ExcessChichesterSpending;
-              this.setCurrent(district, excessSpendingMetrics);
+              this.setCurrent(district, 5, excessSpendingMetrics);
             } 
  
           this.isBusy = false;
@@ -49,9 +50,10 @@ export class ExcessChichesterSpendingComponent {
       );
   }
 
-  setCurrent(district: any, metric: any) {
+  setCurrent(district: any, key: number, metric: any) {
     this.currentDistrict = district;
     this.currentMetric = metric;
+    this.currentFiscalYear = this.comparisons.fiscalYears[key];
   }
 
 }
