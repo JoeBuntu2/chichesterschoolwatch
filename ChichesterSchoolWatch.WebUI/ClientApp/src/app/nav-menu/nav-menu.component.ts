@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, NavigationStart } from '@angular/router';
 
 @Component({
   selector: 'app-nav-menu',
@@ -10,6 +10,12 @@ export class NavMenuComponent {
 
   constructor(private router: Router) {
 
+    //collapse menu when we navigate
+    router.events.subscribe(e => {
+      if(e instanceof NavigationStart) {
+        this.collapse();
+      }
+    }); 
   }
 
   isExpanded = false;

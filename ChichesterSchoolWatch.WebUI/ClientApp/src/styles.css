@@ -1,7 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
-body { font-family: "courier new"; min-width: 768px;
+body {
+  font-family: "courier new";
+  /*min-width: 768px;*/
 }
 
+* {
+  /*outline: red solid 1px;*/
+}
 .cursor-pointer {
   cursor: pointer;
 }
