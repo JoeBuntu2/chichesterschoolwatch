@@ -1,10 +1,30 @@
-- Tasks
+----------------------------- Tasks --------------------
 
-1. Polish Comparisons Screen
-	- [x] Add spaces to the name
-	- Add calculations values to the results
-	- Add blurbs
-	- Add calculations/formulas
-	- [x] Highlight selected group
+0. Mobile 
 
-2. Tax Savings(home value) Calculator
+1. Tax Savings Calculator
+
+2. Finish Blurbs (That are important)
+
+3. Where is the money going?
+
+4. PSERS
+
+5. Facebook Preview
+
+------------------ Mid -------------------------
+ 
+
+5. Misconceptions
+
+	- Joe Pushing Democratic Agenda
+	- PSERS
+	- State Contributions
+
+----------- Low Priority  -----------------------
+ 
+5. Salaries By Title - Numbers
+
+6. Google Preview
+
+7. Documents
