@@ -15,6 +15,8 @@ export class ExpendituresComponent implements OnInit {
   public selectedDistrict: any;
   public selectedZoomOption: any;
   public zoomOptions: any[];
+  public selectedViewMode: any;
+  public viewModes: any[];
   public codes: any[];
   public isBusy: boolean;
 
@@ -28,6 +30,13 @@ export class ExpendituresComponent implements OnInit {
       { name: "Low" }
     ];
     this.setZoomOption(this.zoomOptions[1]); //mid
+
+    this.viewModes = [
+      { name: "Total" },
+      { name: "Percent" },
+      { name: "CostPerStudent" }
+    ];
+    this.setViewMode(this.viewModes[0]);
 
     forkJoin([
       http.get<any[]>(baseUrl + 'api/Expenditures'),
@@ -62,6 +71,14 @@ export class ExpendituresComponent implements OnInit {
     zoomOption.isActive = true;
 
     this.selectedZoomOption = zoomOption;
+  }
+
+  setViewMode(viewMode: any) {
+
+    this.viewModes.forEach(option => option.isActive = false);
+    viewMode.isActive = true;
+
+    this.selectedViewMode = viewMode;
   }
 
   setDistrict(district: any) {

@@ -9,6 +9,10 @@ namespace SchoolWatch.Business.DTO
         public List<MidLevelExpendituresDto> MidLevelExpenditures { get; set; }
 
         public List<FiscalYearAmount> FiscalYearAmounts { get; set; }
- 
+
+        public override string ToString()
+        {
+            return $"Top Level {TopLevelId}";
+        }
     }
 }

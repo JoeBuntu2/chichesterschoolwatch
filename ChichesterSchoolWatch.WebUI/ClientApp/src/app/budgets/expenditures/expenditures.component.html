@@ -17,7 +17,7 @@
   </div>
 
   <div *ngIf="!isBusy" class="row">
-    <div class="col">
+    <div>
       <div class="list-group list-group-horizontal">
         <button class="list-group-item list-group-item-action"
                 *ngFor="let district of districts"
@@ -27,16 +27,33 @@
         </button>
       </div>
     </div>
-    <div class="col-2">
-      <div class="list-group list-group-horizontal">
-        <button class="list-group-item list-group-item-action list-group-item-secondary"
-                *ngFor="let zoomOption of zoomOptions"
-                [ngClass]="{'active': zoomOption.isActive}"
-                (click)="setZoomOption(zoomOption)">
-          {{zoomOption.name}}
-        </button>
+
+  </div>
+  <div *ngIf="!isBusy" class="row">
+ 
+      <div class="d-inline-block">
+        <div class="d-inline-block">View Mode:</div>
+        <div class="list-group list-group-horizontal">
+          <button class="list-group-item list-group-item-action list-group-item-secondary"
+                  *ngFor="let viewMode of viewModes"
+                  [ngClass]="{'active': viewMode.isActive}"
+                  (click)="setViewMode(viewMode)">
+            {{viewMode.name}}
+          </button>
+        </div>
       </div>
-    </div>
+      <div class="d-inline-block">
+        <span>Zoom</span>
+        <div class="list-group list-group-horizontal">
+          <button class="list-group-item list-group-item-action list-group-item-secondary"
+                  *ngFor="let zoomOption of zoomOptions"
+                  [ngClass]="{'active': zoomOption.isActive}"
+                  (click)="setZoomOption(zoomOption)">
+            {{zoomOption.name}}
+          </button>
+        </div>
+      </div>
+ 
 
   </div>
 
@@ -87,7 +104,11 @@
                   <td></td>
                   <td>{{ code.codeLevelId }}</td>
                   <td>{{ codes.codeLevelCodes[code.codeLevelId].name}}</td>
-                  <td class="text-right" *ngFor="let fyAmount of code.fiscalYearAmounts">{{fyAmount.total | number}}</td>
+                  <td class="text-right" *ngFor="let fyAmount of code.fiscalYearAmounts">
+                    <span *ngIf="selectedViewMode.name === 'Total'">{{fyAmount.total | number}}</span>
+                    <span *ngIf="selectedViewMode.name === 'Percent'">{{fyAmount.percentTotal | percent}}</span>
+                    <span *ngIf="selectedViewMode.name === 'CostPerStudent'">{{fyAmount.perStudent | number}}</span>
+                  </td>
                 </tr>
               </ng-template>
               <tr>
@@ -95,7 +116,11 @@
                 <td>{{ midLevel.midLevelId }}</td>
                 <td></td>
                 <td class="text-nowrap">{{ codes.midLevelCodes[midLevel.midLevelId].name }}</td>
-                <td class="text-right" *ngFor="let fyAmount of midLevel.fiscalYearAmounts">{{fyAmount.total | number}}</td>
+                <td class="text-right" *ngFor="let fyAmount of midLevel.fiscalYearAmounts">
+                  <span *ngIf="selectedViewMode.name === 'Total'">{{fyAmount.total | number}}</span>
+                  <span *ngIf="selectedViewMode.name === 'Percent'">{{fyAmount.percentTotal | percent}}</span>
+                  <span *ngIf="selectedViewMode.name === 'CostPerStudent'">{{fyAmount.perStudent | number}}</span>
+                </td>
               </tr>
             </ng-template>
             <tr>
@@ -103,7 +128,11 @@
               <td></td>
               <td></td>
               <td class="text-nowrap">{{ codes.topLevelCodes[topLevel.topLevelId].name}}</td>
-              <td class="text-right" *ngFor="let fyAmount of topLevel.fiscalYearAmounts">{{fyAmount.total | number}}</td>
+              <td class="text-right" *ngFor="let fyAmount of topLevel.fiscalYearAmounts">
+                <span *ngIf="selectedViewMode.name === 'Total'">{{fyAmount.total | number}}</span>
+                <span *ngIf="selectedViewMode.name === 'Percent'">{{fyAmount.percentTotal | percent}}</span>
+                <span *ngIf="selectedViewMode.name === 'CostPerStudent'">{{fyAmount.perStudent | number}}</span>
+              </td>
             </tr>
 
           </ng-template>
@@ -112,7 +141,11 @@
             <td></td>
             <td></td>
             <td></td>
-            <td class="text-right" *ngFor="let fyAmount of district.fiscalYearAmounts">{{fyAmount.total | number}}</td>
+            <td class="text-right" *ngFor="let fyAmount of district.fiscalYearAmounts">
+              <span *ngIf="selectedViewMode.name === 'Total'">{{fyAmount.total | number}}</span>
+              <span *ngIf="selectedViewMode.name === 'Percent'">{{fyAmount.percentTotal | percent}}</span>
+              <span *ngIf="selectedViewMode.name === 'CostPerStudent'">{{fyAmount.perStudent | number}}</span>
+            </td>
           </tr>
         </tbody>
       </table>

@@ -6,5 +6,10 @@ namespace SchoolWatch.Business.DTO
     {
         public int CodeLevelId { get; set; }
         public List<FiscalYearAmount> FiscalYearAmounts { get; set; }
+
+        public override string ToString()
+        {
+            return $"Code {CodeLevelId}";
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using SchoolWatch.Business.DTO;
 using SchoolWatch.Business.Interface;
@@ -10,16 +11,18 @@ namespace SchoolWatch.Business.BudgetExpenditures
     public class BudgetExpendituresService : IBudgetExpendituresService
     {
         private readonly IFiscalYearsService FiscalYearsService;
+        private readonly IEnrollmentsService EnrollmentsService;
         private readonly IBudgetsService BudgetsService;
         private readonly IBudgetExpendituresRepository BudgetExpendituresRepository;
-
-
+ 
         public BudgetExpendituresService(
             IFiscalYearsService fiscalYearsService,
+            IEnrollmentsService enrollmentsService,
             IBudgetsService budgetsService,
             IBudgetExpendituresRepository budgetExpendituresRepository)
         {
             FiscalYearsService = fiscalYearsService;
+            EnrollmentsService = enrollmentsService;
             BudgetsService = budgetsService;
             BudgetExpendituresRepository = budgetExpendituresRepository;
         }
@@ -41,11 +44,64 @@ namespace SchoolWatch.Business.BudgetExpenditures
                 ));
             }
 
+            ApplyCalculations(districtExpenditures);
+
             return districtExpenditures;
         }
 
+        internal virtual void ApplyCalculations(List<DistrictExpendituresDto> districtExpenditures)
+        {
+            var averageEnrollments = EnrollmentsService.GetAll().ToDictionary(x => x.DistrictId);
+            
+            foreach (var district in districtExpenditures)
+            { 
+                foreach (var top in district.TopLevelExpenditures)
+                { 
+                    foreach (var mid in top.MidLevelExpenditures)
+                    {
+                        foreach (var code in mid.CodeExpenditures)
+                        {
+                            ApplyPercentages(district.FiscalYearAmounts, code.FiscalYearAmounts);
+                            ApplyCostPerStudent(district.DistrictId, averageEnrollments, code.FiscalYearAmounts);
+                        }
 
+                        ApplyPercentages(district.FiscalYearAmounts, mid.FiscalYearAmounts);
+                        ApplyCostPerStudent(district.DistrictId, averageEnrollments, mid.FiscalYearAmounts);
+                    }
+                    ApplyPercentages(district.FiscalYearAmounts, top.FiscalYearAmounts);
+                    ApplyCostPerStudent(district.DistrictId, averageEnrollments, top.FiscalYearAmounts);
+                }
+                ApplyPercentages(district.FiscalYearAmounts, district.FiscalYearAmounts);
+                ApplyCostPerStudent(district.DistrictId, averageEnrollments, district.FiscalYearAmounts);
+            }
+        }
 
+        internal virtual void ApplyPercentages(List<FiscalYearAmount> grandTotals, List<FiscalYearAmount> amounts)
+        {
+            var grandLookup = grandTotals.ToDictionary(x => x.FiscalYearId);
+            foreach (var fiscalYearAmount in amounts)
+            {
+                var fyGrandTotal = grandLookup[fiscalYearAmount.FiscalYearId];
+                var percent = ((decimal) fiscalYearAmount.Total) / fyGrandTotal.Total;
+                fiscalYearAmount.PercentTotal = Math.Round(percent, 2);
+            }
+        }
+
+        internal virtual void ApplyCostPerStudent(
+            int districtId, 
+            Dictionary<int, DistrictEnrollment> avgEnrollmentByDistrict, 
+            List<FiscalYearAmount> amounts)
+        {
+            if (avgEnrollmentByDistrict.TryGetValue(districtId, out var avgEnrollment))
+            {
+                foreach (var fiscalYearAmount in amounts)
+                {
+                    var costPerStudent =   fiscalYearAmount.Total / avgEnrollment.Enrollment;
+                    fiscalYearAmount.PerStudent =  costPerStudent;
+                }
+            } 
+        }
+ 
         internal virtual IEnumerable<IGrouping<int, BudgetExpenditureEntity>> GetExpendituresGroupedByDistrict()
         {
             var allExpenditures = BudgetExpendituresRepository.GetAll();
