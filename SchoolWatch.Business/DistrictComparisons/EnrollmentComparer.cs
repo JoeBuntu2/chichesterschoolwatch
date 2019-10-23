@@ -22,9 +22,7 @@ namespace SchoolWatch.Business.DistrictComparisons
         }
 
         public void LoadComparisonData(AllDistrictComparisonsDto response)
-        {
-            BudgetsService.Prime();
-
+        { 
             foreach (var districtContainer in response.DistrictFiscalYearMetrics)
             { 
                 //for each fiscal year

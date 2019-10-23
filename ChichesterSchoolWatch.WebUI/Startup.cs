@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SchoolWatch.Business;
+using SchoolWatch.Business.BudgetExpenditures;
 using SchoolWatch.Business.DistrictComparisons;
 using SchoolWatch.Business.Interface;
 using SchoolWatch.Business.Interface.DistrictComparers;

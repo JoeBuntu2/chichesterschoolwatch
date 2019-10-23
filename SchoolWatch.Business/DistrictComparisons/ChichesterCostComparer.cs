@@ -25,9 +25,7 @@ namespace SchoolWatch.Business.DistrictComparisons
         }
 
         public void LoadComparisonData(AllDistrictComparisonsDto response)
-        {
-            BudgetsService.Prime();
-
+        { 
             var enrollmentByDistrict = EnrollmentsService.GetAll().ToDictionary(x => x.DistrictId);
             var chichesterEnrollment = enrollmentByDistrict[ChichesterDistrictId]?.Enrollment;
             var chichesterContainer = response.DistrictFiscalYearMetrics.FirstOrDefault(x => x.District.DistrictId == ChichesterDistrictId);

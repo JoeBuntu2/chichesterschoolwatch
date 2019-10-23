@@ -29,8 +29,7 @@ namespace SchoolWatch.Business.DistrictComparisons
         {
             var expendituresByDistrict = BudgetExpendituresService.GetAll().ToDictionary(x => x.DistrictId);
             var enrollmentsByDistrict = EnrollmentsService.GetAll().ToDictionary(x => x.DistrictId);
-            BudgetsService.Prime();
-
+ 
             foreach (var districtContainer in response.DistrictFiscalYearMetrics)
             {
                 //if we don't have expenditures for this district... pass

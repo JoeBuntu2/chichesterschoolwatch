@@ -5,66 +5,59 @@ using SchoolWatch.Business.Interface;
 using SchoolWatch.Data.Entities;
 using SchoolWatch.Data.Repositories.Interfaces;
 
-namespace SchoolWatch.Business
+namespace SchoolWatch.Business.BudgetExpenditures
 {
     public class BudgetExpendituresService : IBudgetExpendituresService
     {
-        private const int FiscalYearStart = 2015;
-        private const int FiscalYearEnd = 2020;
+        private readonly IFiscalYearsService FiscalYearsService;
+        private readonly IBudgetsService BudgetsService;
         private readonly IBudgetExpendituresRepository BudgetExpendituresRepository;
-        private readonly IFiscalYearRepository FiscalYearRepository;
-        private readonly IBudgetsRepository BudgetsRepository;
 
 
         public BudgetExpendituresService(
-            IBudgetExpendituresRepository budgetExpendituresRepository,
-            IFiscalYearRepository fiscalYearRepository,
-            IBudgetsRepository budgetsRepository)
+            IFiscalYearsService fiscalYearsService,
+            IBudgetsService budgetsService,
+            IBudgetExpendituresRepository budgetExpendituresRepository)
         {
+            FiscalYearsService = fiscalYearsService;
+            BudgetsService = budgetsService;
             BudgetExpendituresRepository = budgetExpendituresRepository;
-            FiscalYearRepository = fiscalYearRepository;
-            BudgetsRepository = budgetsRepository;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
         public List<DistrictExpendituresDto> GetAll()
-        { 
-            //very tedious way of writing a sql pivot in C#
-
-            var fiscalYears = FiscalYearRepository.GetYearsBetween(FiscalYearStart, FiscalYearEnd);
-            var budgetsLookup = BudgetsRepository.GetYearsBetween(FiscalYearStart, FiscalYearEnd).ToDictionary(x => x.BudgetId);
-
+        {
+            //very tedious way of writing a sql pivot in C#  
             var districtExpenditures = new List<DistrictExpendituresDto>();
 
-            var allExpenditures = BudgetExpendituresRepository.GetAll();
-            foreach (var districtGroup in allExpenditures.GroupBy(x => budgetsLookup[x.BudgetId].DistrictId).OrderBy(x => x.Key))
+            //group all expenditures by district
+            var expendituresByDistrict = GetExpendituresGroupedByDistrict();
+
+            //process each district expenditure group
+            foreach (var districtGroup in expendituresByDistrict.OrderBy(x => x.Key))
             {
                 districtExpenditures.Add(GenerateYearlyDistrictExpenditures(
-                    districtGroup.Key, 
-                    districtGroup.ToArray(),
-                    budgetsLookup, fiscalYears
-                )); 
+                    districtGroup.Key,
+                    districtGroup.ToArray()
+                ));
             }
 
             return districtExpenditures;
         }
 
+
+
+        internal virtual IEnumerable<IGrouping<int, BudgetExpenditureEntity>> GetExpendituresGroupedByDistrict()
+        {
+            var allExpenditures = BudgetExpendituresRepository.GetAll();
+            return allExpenditures.GroupBy(x => BudgetsService.FindByBudgetId(x.BudgetId).DistrictId);
+        }
+
         /// <summary>
         /// Generates DTO that represents district expense containing all top-level codes and totals for each fiscal year
-        /// </summary>
-        /// <param name="districtId"></param>
-        /// <param name="districtExpenditures"></param>
-        /// <param name="budgetsLookup"></param>
-        /// <param name="fiscalYears"></param>
-        /// <returns></returns>
+        /// </summary> 
         internal virtual DistrictExpendituresDto GenerateYearlyDistrictExpenditures(
             int districtId,
-            BudgetExpenditureEntity[] districtExpenditures,
-            Dictionary<int, BudgetEntity> budgetsLookup,
-            FiscalYearEntity[] fiscalYears
+            BudgetExpenditureEntity[] districtExpenditures
         )
         {
             var yearlyDistrictExpenditures = new DistrictExpendituresDto
@@ -78,14 +71,12 @@ namespace SchoolWatch.Business
             {
                 yearlyDistrictExpenditures.TopLevelExpenditures.Add(GenerateYearlyTopLevelExpenditures(
                     codeGroup.Key,
-                    codeGroup.ToArray(),
-                    budgetsLookup,
-                    fiscalYears
+                    codeGroup.ToArray()
                 ));
             }
 
-            //aggregate the code amounts for each fiscal year
-            foreach (var fiscalYear in fiscalYears)
+            //aggregate the code amounts for each fiscal year 
+            foreach (var fiscalYear in FiscalYearsService.GetSupportedYears())
             {
                 yearlyDistrictExpenditures.FiscalYearAmounts.Add(new FiscalYearAmount
                 {
@@ -105,9 +96,7 @@ namespace SchoolWatch.Business
         /// </summary> 
         internal virtual TopLevelExpendituresDto GenerateYearlyTopLevelExpenditures(
             int topLevelId,
-            BudgetExpenditureEntity[] topLevelExpenditures,
-            Dictionary<int, BudgetEntity> budgetsLookup,
-            FiscalYearEntity[] fiscalYears
+            BudgetExpenditureEntity[] topLevelExpenditures
         )
         {
             var yearlyExpendituresForTopLevel = new TopLevelExpendituresDto
@@ -121,14 +110,12 @@ namespace SchoolWatch.Business
             {
                 yearlyExpendituresForTopLevel.MidLevelExpenditures.Add(GenerateYearlyMidLevelExpenditures(
                     codeGroup.Key,
-                    codeGroup.ToArray(),
-                    budgetsLookup,
-                    fiscalYears
+                    codeGroup.ToArray()
                 ));
             }
 
             //aggregate the code amounts for each fiscal year
-            foreach (var fiscalYear in fiscalYears)
+            foreach (var fiscalYear in FiscalYearsService.GetSupportedYears())
             {
                 yearlyExpendituresForTopLevel.FiscalYearAmounts.Add(new FiscalYearAmount
                 {
@@ -148,9 +135,7 @@ namespace SchoolWatch.Business
         /// </summary> 
         internal virtual MidLevelExpendituresDto GenerateYearlyMidLevelExpenditures(
             int middleLevelId,
-            BudgetExpenditureEntity[] yearlyMidLevelExpenditures,
-            Dictionary<int, BudgetEntity> budgetsLookup,
-            FiscalYearEntity[] fiscalYears
+            BudgetExpenditureEntity[] yearlyMidLevelExpenditures
         )
         {
             var yearlyExpendituresForMidLevel = new MidLevelExpendituresDto
@@ -164,14 +149,12 @@ namespace SchoolWatch.Business
             {
                 yearlyExpendituresForMidLevel.CodeExpenditures.Add(GenerateYearlyCodeExpenditures(
                     codeGroup.Key,
-                    codeGroup.ToArray(),
-                    budgetsLookup,
-                    fiscalYears
+                    codeGroup.ToArray()
                 ));
             }
 
             //aggregate the code amounts for each fiscal year
-            foreach (var fiscalYear in fiscalYears)
+            foreach (var fiscalYear in FiscalYearsService.GetSupportedYears())
             {
                 yearlyExpendituresForMidLevel.FiscalYearAmounts.Add(new FiscalYearAmount
                 {
@@ -191,18 +174,15 @@ namespace SchoolWatch.Business
         /// </summary>  
         internal virtual CodeExpendituresDto GenerateYearlyCodeExpenditures(
             int code,
-            BudgetExpenditureEntity[] yearlyCodeExpenditures,
-            Dictionary<int, BudgetEntity> budgetsLookup,
-            FiscalYearEntity[] fiscalYears
+            BudgetExpenditureEntity[] yearlyCodeExpenditures
         )
         {
             var codeExpenditure = new CodeExpendituresDto {CodeLevelId = code, FiscalYearAmounts = new List<FiscalYearAmount>()};
 
-            foreach (var fiscalYear in fiscalYears)
+            foreach (var fiscalYear in FiscalYearsService.GetSupportedYears())
             {
                 //find code for each fiscal year (may not exist)
-                var codeForFiscalYear = yearlyCodeExpenditures.FirstOrDefault(x => budgetsLookup[x.BudgetId].FiscalYearId == fiscalYear.FiscalYearId);
-
+                var codeForFiscalYear = yearlyCodeExpenditures.FirstOrDefault(x => BudgetsService.FindByBudgetId(x.BudgetId).FiscalYearId == fiscalYear.FiscalYearId);
                 codeExpenditure.FiscalYearAmounts.Add(new FiscalYearAmount
                 {
                     FiscalYear = fiscalYear.Name,
@@ -213,6 +193,6 @@ namespace SchoolWatch.Business
 
             return codeExpenditure;
         }
-         
+
     }
 }

@@ -21,9 +21,7 @@ namespace SchoolWatch.Business.DistrictComparisons
         }
 
         public void LoadComparisonData(AllDistrictComparisonsDto response)
-        {
-            BudgetsService.Prime();
-
+        { 
             var enrollments = EnrollmentsService.GetAll().ToDictionary(x => x.DistrictId);
 
             foreach (var districtContainer in response.DistrictFiscalYearMetrics)
