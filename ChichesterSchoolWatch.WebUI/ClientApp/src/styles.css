@@ -50,6 +50,10 @@ body { }
   background-color: lightyellow;
 }
 
+.comparisons {
+  margin-bottom: 20px;
+}
+
 @media screen and (max-width: 768px) {
   .main.container-fluid {
     padding-left: 5px;
