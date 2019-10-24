@@ -1,0 +1,35 @@
+<div class="d-none d-md-block">
+  <div ngbDropdown class="d-inline-block" *ngFor="let optionGroup of optionGroups">
+    <button class="btn btn-outline-primary" [ngClass]="{'active': optionGroup.isActive}" id="dropdown-{{optionGroup.group}}" ngbDropdownToggle>{{optionGroup.group}}</button>
+    <div ngbDropdownMenu [attr.aria-labelledby]="'dropdown-' + optionGroup.group">
+      <button class="nav-link"
+              ngbDropdownItem
+              *ngFor="let option of optionGroup.groupOptions"
+              [routerLink]='["../" + option.canonicalUrl]' >
+        {{option.displayName}}
+        <span *ngIf="option.misleading" class="badge badge-warning text-right">Misleading!</span>
+        <span *ngIf="option.recommended" class="badge badge-info text-right">Popular</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div ngbDropdown class="d-md-none">
+  <button class="btn btn-outline-primary d-block" id="MobileComparisionDropdown" style="width: 100%" ngbDropdownToggle>District Comparisons</button>
+  <div ngbDropdownMenu [attr.aria-labelledby]="'MobileComparisionDropdown'">
+    <ng-template let-optionGroup ngFor [ngForOf]="optionGroups">
+      {{optionGroup.group}}
+      <ng-template let-option ngFor [ngForOf]="optionGroup.groupOptions">
+        <button
+          class="nav-link nav-fill"
+          [ngClass]="{'active': option.isActive}"
+          ngbDropdownItem [routerLink]='["../" + option.canonicalUrl]'>
+          {{option.displayName}}
+          <span *ngIf="option.misleading" class="badge badge-warning text-right">Misleading!</span>
+          <span *ngIf="option.recommended" class="badge badge-info text-right">Popular</span>
+        </button>
+      </ng-template>
+    </ng-template>
+  </div>
+</div>
+

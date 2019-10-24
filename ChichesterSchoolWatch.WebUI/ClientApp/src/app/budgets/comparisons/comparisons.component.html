@@ -9,20 +9,7 @@
   </div>
 
   <div *ngIf="!isBusy" class="row-fluid">
-    <div ngbDropdown class="d-inline-block" *ngFor="let optionGroup of optionGroups">
-      <button class="btn btn-outline-primary" [ngClass]="{'active': optionGroup.isActive}" id="dropdown-{{optionGroup.group}}" ngbDropdownToggle>{{optionGroup.group}}</button>
-      <div ngbDropdownMenu [attr.aria-labelledby]="'dropdown-' + optionGroup.group">
-        <button class="nav-link"
-           ngbDropdownItem
-           *ngFor="let option of optionGroup.groupOptions"
-           [routerLink]='["../" + option.canonicalUrl]' >
-          {{option.displayName}}
-          <span *ngIf="option.misleading" class="badge badge-warning text-right">Misleading!</span>
-          <span *ngIf="option.recommended" class="badge badge-info text-right">Most Viewed!</span>
-        </button>
-      </div>
-    </div>
-
+    <app-comparison-options [optionGroups]="optionGroups"></app-comparison-options>
   </div>
   <div *ngIf="!isBusy" class="row-fluid mt-3" [ngSwitch]="selectedOption.name">
     <h4>Comparisons: {{selectedOption.displayName}}

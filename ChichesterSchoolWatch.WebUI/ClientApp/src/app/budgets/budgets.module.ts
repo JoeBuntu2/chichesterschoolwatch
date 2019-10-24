@@ -16,6 +16,7 @@ import { SharedModule } from '../shared/shared.module';
 import { OrderModule } from 'ngx-order-pipe';
 import { SpecialEducation1200PercentageCostComponent } from './comparisons/special-education1200-percentage-cost/special-education1200-percentage-cost.component';
 import { ComparisonsGridComponent } from '../components/comparisons-grid/comparisons-grid.component';
+import { ComparisonOptionsComponent } from './comparisons/comparison-options/comparison-options.component';
 
 
 let routing = RouterModule.forChild([
@@ -33,6 +34,6 @@ let routing = RouterModule.forChild([
     //LightboxModule,
     OrderModule
   ],
-  declarations: [BudgetsComponent, RevenuesComponent, ExpendituresComponent, ComparisonsComponent, CostPerStudentComponent, DeficitComponent, DeficitPerStudentComponent, ExcessChichesterSpendingComponent, TaxRateIncreaseComponent, SpecialEducation1200PercentageCostComponent, ComparisonsGridComponent]
+  declarations: [BudgetsComponent, RevenuesComponent, ExpendituresComponent, ComparisonsComponent, CostPerStudentComponent, DeficitComponent, DeficitPerStudentComponent, ExcessChichesterSpendingComponent, TaxRateIncreaseComponent, SpecialEducation1200PercentageCostComponent, ComparisonsGridComponent, ComparisonOptionsComponent]
 })
 export class BudgetsModule { }
