@@ -12,24 +12,24 @@
     <app-comparison-options [optionGroups]="optionGroups"></app-comparison-options>
   </div>
   <div *ngIf="!isBusy" class="row-fluid mt-3" [ngSwitch]="selectedOption.name">
-    <h4>Comparisons: {{selectedOption.displayName}}
+    <h4>District Comparisons</h4>
+    <h5>{{selectedOption.displayName}}
       <span *ngIf="selectedOption.misleading" class="badge badge-warning text-right">Misleading!</span>
-      <span *ngIf="selectedOption.recommended" class="badge badge-info text-right">Most Viewed!</span>
-    </h4>
+      <span *ngIf="selectedOption.recommended" class="badge badge-success text-right">Popular!</span>
+    </h5>
     <app-cost-per-student *ngSwitchCase="'TotalCostPerStudent'"></app-cost-per-student>
     <app-deficit *ngSwitchCase="'Deficit'"></app-deficit>
     <app-deficit-per-student *ngSwitchCase="'DeficitPerStudent'"></app-deficit-per-student>
     <app-excess-chichester-spending *ngSwitchCase="'ExcessChichesterSpending'"></app-excess-chichester-spending>
     <app-tax-rate-increase *ngSwitchCase="'TaxRateIncrease'"></app-tax-rate-increase>
     <app-special-education1200-percentage-cost *ngSwitchCase="'SpecialEducation1200PercentageCost'"></app-special-education1200-percentage-cost>
- 
+
     <app-comparisons-grid *ngSwitchDefault
                           [comparisons]="comparisons"
                           [metric]="selectedOption.name"
-                          [isPercent]="selectedOption.format === 'percent'"
-                          >
+                          [isPercent]="selectedOption.format === 'percent'">
     </app-comparisons-grid>
 
-    
+
   </div>
 </div>

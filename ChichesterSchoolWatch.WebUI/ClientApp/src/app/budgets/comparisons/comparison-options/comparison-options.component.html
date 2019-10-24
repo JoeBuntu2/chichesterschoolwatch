@@ -8,14 +8,14 @@
               [routerLink]='["../" + option.canonicalUrl]' >
         {{option.displayName}}
         <span *ngIf="option.misleading" class="badge badge-warning text-right">Misleading!</span>
-        <span *ngIf="option.recommended" class="badge badge-info text-right">Popular</span>
+        <span *ngIf="option.recommended" class="badge badge-success text-right">Popular</span>
       </button>
     </div>
   </div>
 </div>
 
 <div ngbDropdown class="d-md-none">
-  <button class="btn btn-outline-primary d-block" id="MobileComparisionDropdown" style="width: 100%" ngbDropdownToggle>District Comparisons</button>
+  <button class="btn btn-outline-primary d-block" id="MobileComparisionDropdown" ngbDropdownToggle>All District Comparisons</button>
   <div ngbDropdownMenu [attr.aria-labelledby]="'MobileComparisionDropdown'">
     <ng-template let-optionGroup ngFor [ngForOf]="optionGroups">
       {{optionGroup.group}}
@@ -26,10 +26,17 @@
           ngbDropdownItem [routerLink]='["../" + option.canonicalUrl]'>
           {{option.displayName}}
           <span *ngIf="option.misleading" class="badge badge-warning text-right">Misleading!</span>
-          <span *ngIf="option.recommended" class="badge badge-info text-right">Popular</span>
+          <span *ngIf="option.recommended" class="badge badge-success text-right">Popular</span>
         </button>
       </ng-template>
     </ng-template>
   </div>
 </div>
+<!--<select>
+  <ng-template let-optionGroup ngFor [ngForOf]="optionGroups">
+    <ng-template let-option ngFor [ngForOf]="optionGroup.groupOptions">
+      <option>{{option.displayName}}</option>
+    </ng-template>
+  </ng-template>
+</select>-->
 

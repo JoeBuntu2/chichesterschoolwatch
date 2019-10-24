@@ -1,3 +1,7 @@
 .mobile.options {
   width: 100%;
 }
+
+[ngbDropdownToggle] {
+  width: 100%;
+}

@@ -117,7 +117,7 @@ export class ComparisonsComponent  {
           option => this.options.push(option)
       )
     );
-
+    
     //TODO - convert to angular pipe?
     //turn 'TotalCostPerStudent' into 'total-cost-per-student
     this.options.forEach(option => {
