@@ -1,42 +1,35 @@
 <div *ngIf="!isBusy">
   <div class="comparison-blurb">
     <div class="mt-2 mb-2">
-          
 
-          <p class="mb-2">These numbers are not reliable metrics upon which to compare school district
-            cost-effectiveness.<br/>
-            They don't account for any of the following:</p>
 
-          <ol style="max-width: 768px;">
-            <li>Differences in cost-per-student. Chichester <a [routerLink]='["../cost-per-student"]'>leads the pack</a>
-              at 4-5k more per student.</li>
-            <li>New revenue generated from increases in property assessments (business development), such as
-              Chichester's huge surplus of revenue from a once-in-a-blue-moon
-              <a [routerLink]='["../assessed-increase"]'>{{stats.chiAssessmentBoostFy1819 | thousandSuff }}</a> dollar increase in property values.</li>
-            <li>Budget deficits such as Chichester's <a [routerLink]='["../deficit"]'>{{stats.chiDeficitFy1920 | thousandSuff }}</a> dollar deficit
-              this year.</li>
-          </ol>
+      <p class="mb-2">
+        These numbers are not reliable metrics upon which to compare school district
+        cost-effectiveness.<br />
+        They don't account for any of the following:
+      </p>
 
-          I propose <a [routerLink]='["../cost-per-student"]'>Cost-Per-Student</a> as the metric for comparing districts apples-to-apples.
+      <ol style="max-width: 768px;">
+        <li>
+          Differences in cost-per-student. Chichester <a [routerLink]='["../cost-per-student"]'>leads the pack</a>
+          at 4-5k more per student.
+        </li>
+        <li>
+          New revenue generated from increases in property assessments (business development), such as
+          Chichester's huge surplus of revenue from a once-in-a-blue-moon
+          <a [routerLink]='["../assessed-increase"]'>{{stats.chiAssessmentBoostFy1819 | thousandSuff }}</a> dollar increase in property values.
+        </li>
+        <li>
+          Budget deficits such as Chichester's <a [routerLink]='["../deficit"]'>{{stats.chiDeficitFy1920 | thousandSuff }}</a> dollar deficit
+          this year.
+        </li>
+      </ol>
+
+      I propose <a [routerLink]='["../cost-per-student"]'>Cost-Per-Student</a> as the metric for comparing districts apples-to-apples.
     </div>
- 
+
   </div>
-  <table class='table table-striped table-sm'>
-    <thead>
-    <tr>
-      <th></th>
-      <th class="text-right text-nowrap" *ngFor="let key of objectKeys(comparisons.fiscalYears) | orderBy:  key : true">{{comparisons.fiscalYears[key]}}</th>
-    </tr>
-    </thead>
-    <tbody>
-    <ng-template let-district ngFor [ngForOf]="comparisons.districtFiscalYearMetrics">
-      <tr [ngClass]="{'highlight-row' : district.district.name === 'Chichester'}">
-        <td>{{district.district.name}}</td>
-        <td class="text-right" *ngFor="let key of objectKeys(comparisons.fiscalYears) | orderBy:  key : true">
-          <span>{{district.metricsByFiscalYear[key].metrics['TaxRateIncrease'] | percent: '1.1-1'}}</span>
-        </td>
-      </tr>
-    </ng-template>
-    </tbody>
-  </table>
+  <app-comparisons-grid [comparisons]="comparisons"
+                        [metric]="'TaxRateIncrease'">
+  </app-comparisons-grid>
 </div>
