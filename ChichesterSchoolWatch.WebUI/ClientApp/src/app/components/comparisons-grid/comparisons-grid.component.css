@@ -1,0 +1,20 @@
+td.districts{
+
+}
+td.metrics{
+
+}
+
+@media screen and (max-width: 750px) {
+    table.table.wrapper{
+        max-width: 100%;
+        table-layout: fixed;
+    }
+    td.districts{
+        width: 50%;
+    }
+    td.metrics{
+        width: 50%;
+        overflow-x: scroll;
+    }
+}
