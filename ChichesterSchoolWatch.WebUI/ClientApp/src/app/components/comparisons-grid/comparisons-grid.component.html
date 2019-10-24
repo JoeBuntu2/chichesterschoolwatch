@@ -1,0 +1,44 @@
+<table class='table table-sm wrapper'>
+  <tr>
+    <td class="districts">
+      <table class='table table-striped table-sm'>
+        <thead>
+          <tr>
+            <th>&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-template let-district
+                       ngFor
+                       [ngForOf]="comparisons.districtFiscalYearMetrics">
+            <tr [ngClass]="{'highlight-row' : district.district.name === 'Chichester'}">
+              <td>{{district.district.name}}</td>
+            </tr>
+          </ng-template>
+        </tbody>
+      </table>
+    </td>
+    <td class="metrics">
+      <table class='table table-striped table-sm'>
+        <thead>
+          <tr>
+            <th class="text-right text-nowrap" *ngFor="let fiscalYear of fiscalYears">{{fiscalYear.year}}</th> 
+          </tr>
+        </thead>
+        <tbody>
+          <ng-template let-district
+                       ngFor
+                       [ngForOf]="comparisons.districtFiscalYearMetrics">
+            <tr [ngClass]="{'highlight-row' : district.district.name === 'Chichester'}">
+              <td class="text-right"
+                  *ngFor="let fiscalYear of fiscalYears">
+                <span *ngIf="!isPercent">{{district.metricsByFiscalYear[fiscalYear.key].metrics[metric] | number: '1.0-0'}}</span>
+                <span *ngIf="isPercent">{{district.metricsByFiscalYear[fiscalYear.key].metrics[metric] | percent: '1.0-0'}}</span>
+              </td>
+            </tr>
+          </ng-template>
+        </tbody>
+      </table>
+    </td>
+  </tr>
+</table>

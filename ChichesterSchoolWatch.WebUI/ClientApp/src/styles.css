@@ -1,6 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-body { font-family: "courier new"; min-width: 768px;
-}
+body { }
 
 .cursor-pointer {
   cursor: pointer;
@@ -10,6 +9,10 @@ body { font-family: "courier new"; min-width: 768px;
   cursor: pointer;
 }
 .selectable-cell:hover { outline: solid 3px #17a2b8 ; }
+
+* {
+  /*outline: red solid 1px;*/
+}
  
 
 .modal2 { 
@@ -45,4 +48,12 @@ body { font-family: "courier new"; min-width: 768px;
 
 .highlight-row {
   background-color: lightyellow;
+}
+
+@media screen and (max-width: 768px) {
+  .main.container-fluid {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+ 
 }
