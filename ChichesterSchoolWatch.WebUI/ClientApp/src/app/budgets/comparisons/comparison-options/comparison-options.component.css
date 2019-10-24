@@ -5,3 +5,8 @@
 [ngbDropdownToggle] {
   width: 100%;
 }
+
+[ngbDropdownMenu] {
+  max-height: 400px;
+  overflow-y: scroll;
+}

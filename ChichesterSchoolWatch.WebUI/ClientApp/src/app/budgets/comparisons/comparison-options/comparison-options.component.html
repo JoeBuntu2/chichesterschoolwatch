@@ -15,13 +15,14 @@
 </div>
 
 <div ngbDropdown class="d-md-none">
-  <button class="btn btn-outline-primary d-block" id="MobileComparisionDropdown" ngbDropdownToggle>All District Comparisons</button>
+  <button class="btn btn-outline-primary d-block font-weight-bold" id="MobileComparisionDropdown" ngbDropdownToggle>All District Comparisons</button>
   <div ngbDropdownMenu [attr.aria-labelledby]="'MobileComparisionDropdown'">
     <ng-template let-optionGroup ngFor [ngForOf]="optionGroups">
-      {{optionGroup.group}}
+      <span class="pl-2">{{optionGroup.group}}</span>
+      
       <ng-template let-option ngFor [ngForOf]="optionGroup.groupOptions">
         <button
-          class="nav-link nav-fill"
+          class="nav-link nav-fill pl-5"
           [ngClass]="{'active': option.isActive}"
           ngbDropdownItem [routerLink]='["../" + option.canonicalUrl]'>
           {{option.displayName}}
