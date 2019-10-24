@@ -33,7 +33,7 @@
               <td class="text-right"
                   *ngFor="let fiscalYear of fiscalYears">
                 <span *ngIf="!isPercent">{{district.metricsByFiscalYear[fiscalYear.key].metrics[metric] | number: '1.0-0'}}</span>
-                <span *ngIf="isPercent">{{district.metricsByFiscalYear[fiscalYear.key].metrics[metric] | percent: '1.0-0'}}</span>
+                <span *ngIf="isPercent">{{district.metricsByFiscalYear[fiscalYear.key].metrics[metric] | percent: '1.1-1'}}</span>
               </td>
             </tr>
           </ng-template>

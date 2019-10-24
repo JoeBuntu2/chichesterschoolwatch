@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ComparisonsComponent  {
   public districts: any[];
-  public comparisions: any[];
+  public comparisons: any[];
   public isBusy: boolean;
   public objectKeys = Object.keys;
   public options: any[];
@@ -45,7 +45,7 @@ export class ComparisonsComponent  {
       http.get<any[]>(baseUrl + 'api/Districts') 
     ]).subscribe(results => {
 
-        this.comparisions = results[0];
+        this.comparisons = results[0];
  
         let districtsResults = results[1];
         this.districts = districtsResults.sort((a, b) => a.name.localeCompare(b.name));
