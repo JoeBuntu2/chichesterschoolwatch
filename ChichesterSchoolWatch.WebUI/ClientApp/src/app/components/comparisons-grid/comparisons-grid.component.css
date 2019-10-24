@@ -1,11 +1,11 @@
 td.districts{
-
+  padding: 0;
 }
 td.metrics{
-
+  padding: 0;
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 768px) {
     table.table.wrapper{
         max-width: 100%;
         table-layout: fixed;

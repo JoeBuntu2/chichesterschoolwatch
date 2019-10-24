@@ -9,6 +9,10 @@ body { }
   cursor: pointer;
 }
 .selectable-cell:hover { outline: solid 3px #17a2b8 ; }
+
+* {
+  /*outline: red solid 1px;*/
+}
  
 
 .modal2 { 
@@ -44,4 +48,12 @@ body { }
 
 .highlight-row {
   background-color: lightyellow;
+}
+
+@media screen and (max-width: 768px) {
+  .main.container-fluid {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+ 
 }
