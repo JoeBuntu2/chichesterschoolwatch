@@ -11,8 +11,7 @@ import { StatsService } from "../../../stats.service";
 export class CostPerStudentComponent {
   public isBusy: boolean;
   public districts: any[];
-  public comparisons: any[];
-  public objectKeys = Object.keys;
+  public comparisons: any[]; 
   public condensed: boolean = true;
 
   constructor(
