@@ -26,14 +26,13 @@
           </tr>
         </thead>
         <tbody>
-          <ng-template let-district
-                       ngFor
-                       [ngForOf]="comparisons.districtFiscalYearMetrics">
-            <tr [ngClass]="{'highlight-row' : district.district.name === 'Chichester'}">
-              <td class="text-right"
-                  *ngFor="let fiscalYear of fiscalYears">
-                <span *ngIf="!isPercent">{{district.metricsByFiscalYear[fiscalYear.key].metrics[metric] | number: '1.0-0'}}</span>
-                <span *ngIf="isPercent">{{district.metricsByFiscalYear[fiscalYear.key].metrics[metric] | percent: '1.1-1'}}</span>
+          <ng-template let-district ngFor [ngForOf]="comparisons.districtFiscalYearMetrics">
+            <tr [ngClass]="{'highlight-row' : district.district.name === districtOfInterest}">
+              <td class="text-right" *ngFor="let fiscalYear of fiscalYears">
+                <div [ngClass]="{'highlight-cell' : yearOfInterest === fiscalYear.year && districtOfInterest === district.district.name}"> 
+                  <span *ngIf="!isPercent">{{district.metricsByFiscalYear[fiscalYear.key].metrics[metric] | number: '1.0-0'}}</span>
+                  <span *ngIf="isPercent">{{district.metricsByFiscalYear[fiscalYear.key].metrics[metric] | percent: '1.1-1'}}</span>
+                </div>
               </td>
             </tr>
           </ng-template>

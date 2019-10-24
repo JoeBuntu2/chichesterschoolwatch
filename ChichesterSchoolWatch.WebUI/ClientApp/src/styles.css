@@ -50,6 +50,10 @@ body { }
   background-color: lightyellow;
 }
 
+.highlight-cell {
+  outline: solid red 2px;
+}
+
 .comparisons {
   margin-bottom: 20px;
 }

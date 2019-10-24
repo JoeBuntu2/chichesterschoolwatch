@@ -13,6 +13,7 @@ export class CostPerStudentComponent {
   public districts: any[];
   public comparisons: any[];
   public objectKeys = Object.keys;
+  public condensed: boolean = true;
 
   constructor(
     public stats: StatsService,

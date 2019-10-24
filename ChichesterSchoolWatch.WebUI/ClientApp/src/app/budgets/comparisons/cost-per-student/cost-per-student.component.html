@@ -1,27 +1,33 @@
 <div *ngIf="!isBusy">
   <div class="comparison-blurb">
-    <p>
+    <div>
       The amount of money a district spends on each student. I propose this as the best metric on which to compare
       the cost-effectiveness of one district versus another.
-      You will notice that Chichester is far ahead of the pack, upwards of 5k + more per student.
-      You will notice that even Chichester's spending rate 4 years ago was more than what districts are spending today
-      (except for GV, a much, much
-      <a href="https://www.bizjournals.com/philadelphia/news/2019/08/30/how-wealthy-are-southeastern-pennsylvania-school.html?fbclid=IwAR2Fj9gnnLWh6wGmjayW8KvfjLdPk9uuxzlD6W-iDa6wk7VfQX6H-sT6ro0#g/458769/53"
-         target="_blank">wealthier district</a>).
-    </p>
-    <p>
-      Here's a <a target="_blank"
-         href="https://www.psba.org/report/budgets-annual-study-public-school/a-study-of-pennsylvania-public-school-budgets-2017-18/">PSBA
-        publication </a>
-      for the 2017-2018 fiscal year that show's how other Delaware county districts
-      conform to the state average while Chichester is out in it's own league.
-    </p>
-    <p>
-      If the community has any interest in putting an end to our excessive taxes, I suggest
-      cost-per-student as the number everyone focuses on. Other metrics are just too easily manipulated through
-      smoke and mirrors (tax rate increases manipulated via budget deficits are a good example.)
-    </p>
-  </div>
-  <app-comparisons-grid [comparisons]="comparisons" 
+      <div *ngIf="condensed" class="d-md-none badge badge-primary badge-pill cursor-pointer" (click)="condensed = false">...Press Here To Read Further!</div>
+    </div> 
+    <div [ngClass]="{'d-none': condensed}" class="d-md-block">
+      <p>
+        You will notice that Chichester is far ahead of the pack, upwards of 5k + more per student.
+        You will notice that even Chichester's spending rate 4 years ago was more than what districts are spending today
+        (except for GV, a much, much
+        <a href="https://www.bizjournals.com/philadelphia/news/2019/08/30/how-wealthy-are-southeastern-pennsylvania-school.html?fbclid=IwAR2Fj9gnnLWh6wGmjayW8KvfjLdPk9uuxzlD6W-iDa6wk7VfQX6H-sT6ro0#g/458769/53"
+           target="_blank">wealthier district</a>).
+      </p>
+      <p>
+        Here's a <a target="_blank"
+                    href="https://www.psba.org/report/budgets-annual-study-public-school/a-study-of-pennsylvania-public-school-budgets-2017-18/">PSBA
+          publication </a>
+        for the 2017-2018 fiscal year that show's how other Delaware county districts
+        conform to the state average while Chichester is out in it's own league.
+      </p>
+      <p>
+        If the community has any interest in putting an end to our excessive taxes, I suggest
+        cost-per-student as the number everyone focuses on. Other metrics are just too easily manipulated through
+        smoke and mirrors (tax rate increases manipulated via budget deficits are a good example.)
+      </p>
+    </div>
+  </div> 
+  <app-comparisons-grid [comparisons]="comparisons"
+                        [yearOfInterest]="'FY19-20'" 
                         [metric]="'TotalCostPerStudent'"></app-comparisons-grid>
 </div>

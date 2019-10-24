@@ -8,7 +8,7 @@
               [routerLink]='["../" + option.canonicalUrl]' >
         {{option.displayName}}
         <span *ngIf="option.misleading" class="badge badge-warning text-right">Misleading!</span>
-        <span *ngIf="option.recommended" class="badge badge-success text-right">Popular</span>
+        <span *ngIf="option.recommended" class="badge badge-success text-right">Popular!</span>
       </button>
     </div>
   </div>
@@ -26,7 +26,7 @@
           ngbDropdownItem [routerLink]='["../" + option.canonicalUrl]'>
           {{option.displayName}}
           <span *ngIf="option.misleading" class="badge badge-warning text-right">Misleading!</span>
-          <span *ngIf="option.recommended" class="badge badge-success text-right">Popular</span>
+          <span *ngIf="option.recommended" class="badge badge-success text-right">Popular!</span>
         </button>
       </ng-template>
     </ng-template>

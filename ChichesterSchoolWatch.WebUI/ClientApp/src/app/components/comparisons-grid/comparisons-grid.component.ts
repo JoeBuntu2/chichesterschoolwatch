@@ -10,6 +10,8 @@ export class ComparisonsGridComponent implements OnInit {
   @Input() metric: string;
   @Input() comparisons: any;
   @Input() isPercent: boolean;
+  @Input() yearOfInterest: string;
+  @Input() districtOfInterest: string;
 
   public fiscalYears: any[]; 
 
@@ -20,6 +22,10 @@ export class ComparisonsGridComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    //default to Chichester
+    this.districtOfInterest = this.districtOfInterest || 'Chichester';
+
     var keys = Object.keys(this.comparisons.fiscalYears);
     keys.sort((a, b) => a.localeCompare(b) * -1);
 
