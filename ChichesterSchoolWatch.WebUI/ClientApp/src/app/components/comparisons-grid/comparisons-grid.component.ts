@@ -7,8 +7,8 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ComparisonsGridComponent implements OnInit {
 
-  @Input() metric: string
-  @Input() comparisons: any[];
+  @Input() metric: string;
+  @Input() comparisons: any;
 
   public objectKeys = Object.keys;
 
