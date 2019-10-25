@@ -1,23 +1,51 @@
 <div *ngIf="!isBusy">
   <div class="comparison-blurb">
-
     <p>
-      The amount that expenditures exceed revenues on the budget. Put another way, a deficit is when the
-      amount of cash going out exceeds the amount of cash coming in. Unlike tax rate increases, Chichester School
-      Board members do not post these numbers on social media.
+    The amount that expenditures exceed revenues on the budget. Put another way, a deficit is when the
+    amount of cash going out exceeds the amount of cash coming in. Unlike tax rate increases, Chichester School
+    Board members do not post these numbers on social media.
     <p *ngIf="condensed" class="d-md-none badge p-2 badge-primary badge-pill cursor-pointer" (click)="condensed = false">Click Here To Show More</p>
     <div [ngClass]="{'d-none': condensed}" class="d-md-block">
+
       <p>
         By silently amassing a {{stats.chiDeficitFy1920 | thousandSuff}} deficit
-        this year, the Chichester School Board was able to keep tax rate increases at 0% this year.
+        this year, the Chichester School Board was able to keep tax rate increases at 0% this year. 
       </p>
-      <div class="mb-2">
+      <p> 
+        At the 5-22-19 regular board meeting, Frank Sill 'cautioned' against suggesting the
+        board was doing something 'irregular' in regards to the then 2 million dollar
+        deficit in the preliminary budget. Between the total deficit and the
+        <a [routerLink]='["../deficit-per-student"]'>deficit-per-student</a> you be the judge
+        in determining if there is anything 'irregular'
+        about this this election years 3.47 million dollar deficit.
+      </p>
+      <p>
         Suggestion: to get a better picture of the significance of these deficit numbers, I recommend looking at
         deficit on a <a [routerLink]='["../deficit-per-student"]'>per-student basis</a>.
-      </div>
+      </p>
+
+      <!--<p>Before this years budget deficit ballooned into 3.47 million dollars,
+        it started out at a smaller but still significant 2 million dollar
+        deficit. This is what one board member had to say about the deficit being
+        disclosed on social media. I've done my best to quote from the video
+        hosted on chichesters site. I'll let you judge for yourself if you
+        think Chichester's numbers are irregular or not.</p>
+      <blockquote class="blockquote text-right">
+        ...I want to caution you with this one thing... to just say that
+        there's a two million dollar deficit and we are making it disappear,
+        and that we're doing something irregular... it's not understanding
+        the process...and the other part you got to understand is that
+        <i>we're not done.</i>
+        <footer class="blockquote-footer">
+          Frank Sill, Chichester School Board Member, commenting on the then
+          2 million dollar deficit being disclosed on social media.<br/>
+          <cite title="Source Title">05-22-2019 Regular Board Meeting</cite>
+        </footer>
+      </blockquote>-->
     </div>
     <app-comparisons-grid [comparisons]="comparisons"
                           [yearOfInterest]="'FY19-20'"
                           [metric]="'Deficit'">
     </app-comparisons-grid>
   </div>
+</div>
