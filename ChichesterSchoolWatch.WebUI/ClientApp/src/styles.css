@@ -13,6 +13,22 @@ body { }
 * {
   /*outline: red solid 1px;*/
 }
+
+.beta-badge {
+  z-index: 2000;
+  transform: rotate(-20deg);
+  /* Legacy vendor prefixes that you probably don't need... */
+  /* Safari */
+  -webkit-transform: rotate(-20deg);
+  /* Firefox */
+  -moz-transform: rotate(-20deg);
+  /* IE */
+  -ms-transform: rotate(-20deg);
+  /* Opera */
+  -o-transform: rotate(-20deg);
+  /* Internet Explorer */
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+}
  
 
 .modal2 { 
