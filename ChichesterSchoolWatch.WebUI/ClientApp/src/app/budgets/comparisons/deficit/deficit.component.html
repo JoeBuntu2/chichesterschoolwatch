@@ -5,7 +5,7 @@
       The amount that expenditures exceed revenues on the budget. Put another way, a deficit is when the
       amount of cash going out exceeds the amount of cash coming in. Unlike tax rate increases, Chichester School
       Board members do not post these numbers on social media.
-    <p *ngIf="condensed" class="d-md-none badge p-2 badge-primary badge-pill cursor-pointer" (click)="condensed = false">Click Here Continue Reading!</p>
+    <p *ngIf="condensed" class="d-md-none badge p-2 badge-primary badge-pill cursor-pointer" (click)="condensed = false">Click Here To Show More</p>
     <div [ngClass]="{'d-none': condensed}" class="d-md-block">
       <p>
         By silently amassing a {{stats.chiDeficitFy1920 | thousandSuff}} deficit

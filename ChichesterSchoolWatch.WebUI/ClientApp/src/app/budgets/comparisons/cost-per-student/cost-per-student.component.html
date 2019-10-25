@@ -1,15 +1,16 @@
 <div *ngIf="!isBusy">
   <div class="comparison-blurb">
     <p>
-      The amount of money a district spends on each student. I propose this as the best metric on which to compare
-      the cost-effectiveness of one district versus another.
+      The amount of money a district spends on each student. Likely the best metric on which to compare
+      the cost-effectiveness of one district versus another. Why so? Unlike tax rates, this number is
+      not influenced by factors such as property values, deficits, increases in property assesments, etc. 
     </p>
-    <p *ngIf="condensed" class="d-md-none badge p-2 badge-primary badge-pill cursor-pointer" (click)="condensed = false">Click Here Continue Reading!</p>
+    <p *ngIf="condensed" class="d-md-none badge p-2 badge-primary badge-pill cursor-pointer" (click)="condensed = false">Click Here To Show More</p>
     <div [ngClass]="{'d-none': condensed}" class="d-md-block">
       <p>
-        You will notice that Chichester is far ahead of the pack, upwards of 5k + more per student.
-        You will notice that even Chichester's spending rate 4 years ago was more than what districts are spending today
-        (except for GV, a much, much
+        Unfortunately, Chichester is far ahead of the pack, spending upwards of 5k+ more per student.
+        Even Chichester's cost-per-student rate 4 years ago exceeds what other Delco districts spend today.
+        (well, except for GV, a much, much
         <a href="https://www.bizjournals.com/philadelphia/news/2019/08/30/how-wealthy-are-southeastern-pennsylvania-school.html?fbclid=IwAR2Fj9gnnLWh6wGmjayW8KvfjLdPk9uuxzlD6W-iDa6wk7VfQX6H-sT6ro0#g/458769/53"
            target="_blank">wealthier district</a>).
       </p>
@@ -19,13 +20,14 @@
           PSBA
           publication
         </a>
-        for the 2017-2018 fiscal year that show's how other Delaware county districts
-        conform to the state average while Chichester is out in it's own league.
+        for the 2017-2018 fiscal year that provides a state-wide view. While other Delaware county districts
+        conform to the state average, Chichester is out in it's own league.
       </p>
       <p>
         If the community has any interest in putting an end to our excessive taxes, I suggest
-        cost-per-student as the number everyone focuses on. Other metrics are just too easily manipulated through
-        smoke and mirrors (tax rate increases manipulated via budget deficits are a good example.)
+        cost-per-student as the number everyone focuses on. Tax rates (millage) and rate increase %, the preferred metrics of the
+        school board, are far too easily manipulated through smoke and mirror tactics (such as using a deficit to attain
+        a 0% tax rate increase on election year).
       </p>
     </div>
   </div> 

@@ -29,6 +29,7 @@
     "bootstrap": "^4.3.1",
     "core-js": "^2.6.5",
     "jquery": "3.3.1",
+    "ngx-lightbox": "^2.1.1",
     "ngx-order-pipe": "^2.0.4",
     "oidc-client": "^1.6.1",
     "popper.js": "^1.14.3",

@@ -1,18 +1,29 @@
 <div *ngIf="!isBusy">
-  <div class="comparison-blurb">
-    <img class="img-thumbnail img-responsive rounded float-right" style="max-width: 300px; max-height: 300px;" [src]="album[0].thumb"  />
+  <div class="comparison-blurb"> 
     <p>
-      Making comparisons on a per-student basis is the only way to compare apples-to-apples and budget deficits are no different.
-      Chichester might seem somewhat on par with other districts when looking at
-      <a [routerLink]='["../deficit"]'>total deficit figures</a>, but once you start
-      looking at dollars-per-student, you start seeing how disproportionate Chichester's budget deficits really are.
-    </p>
-    <div class="mt-2">
+    Making district cost-comparisons on a per-student basis is the only way to
+    compare apples-to-apples and budget deficits are no different. Chichester
+    might seem somewhat on par with other districts when looking at
+    <a [routerLink]='["../deficit"]'>total deficit figures</a>, but once you start
+    looking at dollars-per-student, you start seeing how disproportionate Chichester's budget deficits really are.
+
+    <p *ngIf="condensed" class="d-md-none badge p-2 badge-primary badge-pill cursor-pointer" (click)="condensed = false">Click Here To Show More</p>
+    <div [ngClass]="{'d-none': condensed}" class="d-md-block">
       This year on the day of election primaries, board member David Bartholf proudly touted the 0% tax increases
       but neglected to mention this year's massive <span class="hardcoded">{{stats.chiDeficitFy1920 | thousandSuff}} </span>
       <a [routerLink]='["../deficit"]'>deficit</a>.
     </div>
-  </div>
+    <div [ngClass]="{'d-none': condensed}"  class="d-md-block text-center"> 
+       
+        <img [ngClass]="{'d-none': condensed}"
+             class="img-thumbnail img-responsive rounded  d-md-block"
+             (click)="open(0)"
+             style="max-width: 150px; max-height: 150px;"
+             [src]="album[0].thumb" />
+     
+      Bartholf Touts 0%
+      </div>
+    </div> 
   <app-comparisons-grid
     [comparisons]="comparisons"
     [yearOfInterest]="'FY19-20'" 
