@@ -16,6 +16,7 @@ export class ExcessChichesterSpendingComponent {
   public currentDistrict: any;
   public currentMetric: any;
   public currentFiscalYear: any;
+  public condensed: boolean = true;
 
   constructor(
     private http: HttpClient,

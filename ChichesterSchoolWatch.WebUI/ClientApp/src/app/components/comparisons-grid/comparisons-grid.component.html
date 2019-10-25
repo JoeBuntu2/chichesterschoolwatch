@@ -3,18 +3,18 @@
     <td class="districts">
       <table class='table table-striped table-sm'>
         <thead>
-          <tr>
-            <th>&nbsp;</th>
-          </tr>
+        <tr>
+          <th>&nbsp;</th>
+        </tr>
         </thead>
         <tbody>
-          <ng-template let-district
-                       ngFor
-                       [ngForOf]="comparisons.districtFiscalYearMetrics">
-            <tr [ngClass]="{'highlight-row' : district.district.name === 'Chichester'}">
-              <td>{{district.district.name}}</td>
-            </tr>
-          </ng-template>
+        <ng-template let-district
+                     ngFor
+                     [ngForOf]="comparisons.districtFiscalYearMetrics">
+          <tr [ngClass]="{'highlight-row' : district.district.name === 'Chichester'}">
+            <td>{{district.district.name}}</td>
+          </tr>
+        </ng-template>
         </tbody>
       </table>
     </td>
@@ -30,8 +30,14 @@
             <tr [ngClass]="{'highlight-row' : district.district.name === districtOfInterest}">
               <td class="text-right" *ngFor="let fiscalYear of fiscalYears">
                 <div [ngClass]="{'highlight-cell' : yearOfInterest === fiscalYear.year && districtOfInterest === district.district.name}"> 
-                  <span *ngIf="!isPercent">{{district.metricsByFiscalYear[fiscalYear.key].metrics[metric] | number: '1.0-0'}}</span>
-                  <span *ngIf="isPercent">{{district.metricsByFiscalYear[fiscalYear.key].metrics[metric] | percent: '1.1-1'}}</span>
+                  <div *ngIf="metricKey != null">
+                    <span *ngIf="!isPercent">{{district.metricsByFiscalYear[fiscalYear.key].metrics[metric][metricKey] | number: '1.0-0'}}</span>
+                    <span *ngIf="isPercent">{{district.metricsByFiscalYear[fiscalYear.key].metrics[metric][metricKey] | percent: '1.1-1'}}</span>
+                  </div>
+                  <div *ngIf="metricKey == null">
+                    <span *ngIf="!isPercent">{{district.metricsByFiscalYear[fiscalYear.key].metrics[metric] | number: '1.0-0'}}</span>
+                    <span *ngIf="isPercent">{{district.metricsByFiscalYear[fiscalYear.key].metrics[metric] | percent: '1.1-1'}}</span>
+                  </div> 
                 </div>
               </td>
             </tr>

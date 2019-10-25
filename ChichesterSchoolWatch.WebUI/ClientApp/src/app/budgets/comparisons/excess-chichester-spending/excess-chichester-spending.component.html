@@ -5,15 +5,19 @@
       These are simply calculations of how much Chichester would save if it's
       <a [routerLink]='["../deficit-per-student"]'>Cost-Per-Student</a>  was in-line with
       those districts. For example, in fiscal year 2019-2020, if Chichester capped spending at the same rate
-      as Penn Delco did that year, we would have saved almost <span class="hardcoded font-weight-bold">18 million</span>
+      as Penn Delco did that year, <span  class="pl-2 pr-2 bg-danger text-white font-weight-bold">we would have saved almost
+        <span class="hardcoded font-weight-bolder">18 million</span></span>  
       from this year's budget!!!
     </p>
-    <div class="mt-2 mb-2" >
+    <p *ngIf="condensed" class="d-md-none badge p-2 badge-primary badge-pill cursor-pointer" (click)="condensed = false">Click Here To Show More</p>
+    <div [ngClass]="{'d-none': condensed}" class="d-md-block">
+      <p>
+        Select any cell from the grid below to see how excess spending was calculated.
+      </p> 
       <form class="border border-info rounded p-0">
         <div class="bg-info text-white p-2 rounded font-weight-bold mt-0 border-0">
           Here's the Math
         </div>
-
         <div class="row p-3">
           <div style="width: 600px;">
             <div class="row">
@@ -49,13 +53,15 @@
               <div class="col-3 text-right"><code class="font-weight-bold">{{currentMetric.value | number: '1.0-0'}}</code></div>
             </div>
           </div>
-        </div>  
-      </form>  
+        </div>
+      </form>
     </div>  
   </div>
   <app-comparisons-grid
     [comparisons]="comparisons"
-    [yearOfInterest]="'FY19-20'" 
+    [yearOfInterest]="'FY19-20'"
+    [districtOfInterest]="'PennDelco'"
+    [metricKey]="'value'"
     [metric]="'ExcessChichesterSpending'">
   </app-comparisons-grid>
 </div>

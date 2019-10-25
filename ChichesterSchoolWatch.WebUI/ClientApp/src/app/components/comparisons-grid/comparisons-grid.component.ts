@@ -8,10 +8,12 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ComparisonsGridComponent implements OnInit {
 
   @Input() metric: string;
+  @Input() metricKey: string;
   @Input() comparisons: any;
   @Input() isPercent: boolean;
   @Input() yearOfInterest: string;
   @Input() districtOfInterest: string;
+
 
   public fiscalYears: any[]; 
 
