@@ -1,0 +1,16 @@
+<div *ngIf="!isBusy">
+  <div class="comparison-blurb">
+    <p>
+      Page Fold Content
+    </p>
+    <p *ngIf="condensed" class="d-md-none badge p-2 badge-primary badge-pill cursor-pointer" (click)="condensed = false">Click Here To Show More</p>
+    <div [ngClass]="{'d-none': condensed}" class="d-md-block">
+      <p>
+        Below The Fold
+      </p>
+    </div>
+  </div>
+  <app-comparisons-grid [comparisons]="comparisons"
+                        [yearOfInterest]="'FY18-19'"
+                        [metric]="'AssessedIncrease'"></app-comparisons-grid>
+</div>

@@ -17,6 +17,9 @@ import { OrderModule } from 'ngx-order-pipe';
 import { SpecialEducation1200PercentageCostComponent } from './comparisons/special-education1200-percentage-cost/special-education1200-percentage-cost.component';
 import { ComparisonsGridComponent } from './comparisons/comparisons-grid/comparisons-grid.component';
 import { ComparisonOptionsComponent } from './comparisons/comparison-options/comparison-options.component';
+import { AssessedIncreaseComponent } from './comparisons/assessed-increase/assessed-increase.component';
+import { AssessedNewRevenueComponent } from './comparisons/assessed-new-revenue/assessed-new-revenue.component';
+import { AssessedNewRevenuePerStudentComponent } from './comparisons/assessed-new-revenue-per-student/assessed-new-revenue-per-student.component';
 
 
 
@@ -35,6 +38,6 @@ let routing = RouterModule.forChild([
     LightboxModule,
     OrderModule
   ],
-  declarations: [BudgetsComponent, RevenuesComponent, ExpendituresComponent, ComparisonsComponent, CostPerStudentComponent, DeficitComponent, DeficitPerStudentComponent, ExcessChichesterSpendingComponent, TaxRateIncreaseComponent, SpecialEducation1200PercentageCostComponent, ComparisonsGridComponent, ComparisonOptionsComponent]
+  declarations: [BudgetsComponent, RevenuesComponent, ExpendituresComponent, ComparisonsComponent, CostPerStudentComponent, DeficitComponent, DeficitPerStudentComponent, ExcessChichesterSpendingComponent, TaxRateIncreaseComponent, SpecialEducation1200PercentageCostComponent, ComparisonsGridComponent, ComparisonOptionsComponent, AssessedIncreaseComponent, AssessedNewRevenueComponent, AssessedNewRevenuePerStudentComponent]
 })
 export class BudgetsModule { }
