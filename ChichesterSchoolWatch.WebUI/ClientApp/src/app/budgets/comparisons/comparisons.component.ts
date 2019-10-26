@@ -103,7 +103,7 @@ export class ComparisonsComponent  {
       {
         group: "Assessments",
         groupOptions: [
-          { name: "Assessed", format: "number"},
+          { name: "Assessed", format: "number" },
           { name: "AssessedPerStudent", format: "number"},
           { name: "AssessedIncrease", format: "number"},
           { name: "AssessedNewRevenue", format: "number"},

@@ -1,3 +1,17 @@
-<p>
-  assessed-new-revenue works!
-</p>
+<div *ngIf="!isBusy">
+  <div class="comparison-blurb">
+    <p>
+      This shows the amount of new local tax revenue that was generated from
+      <a [routerLink]='["../assessed-increase"]'>increases</a> in property assessments.
+    </p>
+    <div class="alert-info p-3 rounded d-block">
+      <p> 
+        <span class="font-weight-bold">Suggestion:</span> Put these numbers in perspective
+        by looking at them on a <a [routerLink]='["../assessed-new-revenue-per-student"]'>per-student-basis</a>.
+      </p>
+    </div> 
+  </div>
+  <app-comparisons-grid [comparisons]="comparisons"
+                        [yearOfInterest]="'FY18-19'"
+                        [metric]="'AssessedNewRevenue'"></app-comparisons-grid>
+</div>

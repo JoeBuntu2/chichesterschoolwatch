@@ -20,6 +20,7 @@ import { ComparisonOptionsComponent } from './comparisons/comparison-options/com
 import { AssessedIncreaseComponent } from './comparisons/assessed-increase/assessed-increase.component';
 import { AssessedNewRevenueComponent } from './comparisons/assessed-new-revenue/assessed-new-revenue.component';
 import { AssessedNewRevenuePerStudentComponent } from './comparisons/assessed-new-revenue-per-student/assessed-new-revenue-per-student.component';
+import { AssessedComponent } from './comparisons/assessed/assessed.component';
 
 
 
@@ -38,6 +39,6 @@ let routing = RouterModule.forChild([
     LightboxModule,
     OrderModule
   ],
-  declarations: [BudgetsComponent, RevenuesComponent, ExpendituresComponent, ComparisonsComponent, CostPerStudentComponent, DeficitComponent, DeficitPerStudentComponent, ExcessChichesterSpendingComponent, TaxRateIncreaseComponent, SpecialEducation1200PercentageCostComponent, ComparisonsGridComponent, ComparisonOptionsComponent, AssessedIncreaseComponent, AssessedNewRevenueComponent, AssessedNewRevenuePerStudentComponent]
+  declarations: [BudgetsComponent, RevenuesComponent, ExpendituresComponent, ComparisonsComponent, CostPerStudentComponent, DeficitComponent, DeficitPerStudentComponent, ExcessChichesterSpendingComponent, TaxRateIncreaseComponent, SpecialEducation1200PercentageCostComponent, ComparisonsGridComponent, ComparisonOptionsComponent, AssessedIncreaseComponent, AssessedNewRevenueComponent, AssessedNewRevenuePerStudentComponent, AssessedComponent]
 })
 export class BudgetsModule { }

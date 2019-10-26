@@ -3,11 +3,11 @@ import { HttpClient } from '@angular/common/http';
 import { forkJoin } from 'rxjs';  
 
 @Component({
-  selector: 'app-assessed-new-revenue',
-  templateUrl: './assessed-new-revenue.component.html',
-  styleUrls: ['./assessed-new-revenue.component.css']
+  selector: 'app-assessed',
+  templateUrl: './assessed.component.html',
+  styleUrls: ['./assessed.component.css']
 })
-export class AssessedNewRevenueComponent {
+export class AssessedComponent  {
   public isBusy: boolean;
   public districts: any[];
   public comparisons: any[]; 

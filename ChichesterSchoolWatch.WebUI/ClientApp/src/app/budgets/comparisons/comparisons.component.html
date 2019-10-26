@@ -11,13 +11,19 @@
       <span *ngIf="selectedOption.misleading" class="badge badge-warning text-right">Misleading!</span>
       <span *ngIf="selectedOption.recommended" class="badge badge-success text-right">Popular!</span>
     </h5>
+
     <app-cost-per-student *ngSwitchCase="'TotalCostPerStudent'"></app-cost-per-student>
     <app-deficit *ngSwitchCase="'Deficit'"></app-deficit>
     <app-deficit-per-student *ngSwitchCase="'DeficitPerStudent'"></app-deficit-per-student>
     <app-excess-chichester-spending *ngSwitchCase="'ExcessChichesterSpending'"></app-excess-chichester-spending>
+
     <app-tax-rate-increase *ngSwitchCase="'TaxRateIncrease'"></app-tax-rate-increase>
     <app-special-education1200-percentage-cost *ngSwitchCase="'SpecialEducation1200PercentageCost'"></app-special-education1200-percentage-cost>
+
+    <app-assessed *ngSwitchCase="'Assessed'"></app-assessed>
     <app-assessed-increase *ngSwitchCase="'AssessedIncrease'"></app-assessed-increase>
+    <app-assessed-new-revenue *ngSwitchCase="'AssessedNewRevenue'"></app-assessed-new-revenue>
+    <app-assessed-new-revenue-per-student *ngSwitchCase="'AssessedNewRevenuePerStudent'"></app-assessed-new-revenue-per-student>
 
     <app-comparisons-grid *ngSwitchDefault
                           [comparisons]="comparisons"

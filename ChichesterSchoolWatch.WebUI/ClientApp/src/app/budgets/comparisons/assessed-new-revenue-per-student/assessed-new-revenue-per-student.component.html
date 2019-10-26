@@ -1,3 +1,11 @@
-<p>
-  assessed-new-revenue-per-student works!
-</p>
+<div *ngIf="!isBusy">
+  <div class="comparison-blurb">
+    <p>
+      This shows the amount of new local tax revenue that was generated from
+      <a [routerLink]='["../assessed-increase"]'>increases</a> on a per-student-basis.
+    </p>
+  </div>
+  <app-comparisons-grid [comparisons]="comparisons"
+                        [yearOfInterest]="'FY18-19'"
+                        [metric]="'AssessedNewRevenuePerStudent'"></app-comparisons-grid>
+</div>

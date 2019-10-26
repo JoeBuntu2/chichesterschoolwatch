@@ -1,0 +1,10 @@
+<div *ngIf="!isBusy">
+  <div class="comparison-blurb">
+    <p>
+      This shows total property assessments for each district.  Property assessments are a key factor in determining tax rates. 
+    </p> 
+  </div>
+  <app-comparisons-grid [comparisons]="comparisons"
+                        [yearOfInterest]="'FY18-19'"
+                        [metric]="'Assessed'"></app-comparisons-grid>
+</div>

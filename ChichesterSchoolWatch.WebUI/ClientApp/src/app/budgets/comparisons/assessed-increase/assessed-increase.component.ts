@@ -1,7 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { forkJoin } from 'rxjs';
-import { StatsService } from "../../../stats.service";  
+import { forkJoin } from 'rxjs';  
+import { Lightbox } from 'ngx-lightbox';
 
 @Component({
   selector: 'app-assessed-increase',
@@ -11,15 +11,23 @@ import { StatsService } from "../../../stats.service";
 export class AssessedIncreaseComponent {
   public isBusy: boolean;
   public districts: any[];
-  public comparisons: any[]; 
+  public comparisons: any[];
+  private album: any[];
   public condensed: boolean = true;
 
-  constructor(
-    public stats: StatsService,
+  constructor( 
     private http: HttpClient, 
+    private lightbox: Lightbox,
     @Inject('BASE_URL') baseUrl: string) {
   
     this.isBusy = true;
+
+    this.album = [ {
+      src: "../assets/images/bartholf-do-the-math-lowest-in-the-county.png",
+      caption: "Bartholf bludgens tax-payer with DCIU tax comparison chart",
+      thumb: "../assets/images/bartholf-do-the-math-lowest-in-the-county.png"
+
+    }];
  
     forkJoin([
       http.get<any[]>(baseUrl + 'api/DistrictComparisons'),
@@ -36,5 +44,11 @@ export class AssessedIncreaseComponent {
       error => console.error(error)
     );
   }
+
+  open(index: number): void {
+    // open lightbox
+    this.lightbox.open(this.album, index);
+  }
+
 
 }

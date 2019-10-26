@@ -1,13 +1,43 @@
 <div *ngIf="!isBusy">
   <div class="comparison-blurb">
-    <p>
-      Page Fold Content
-    </p>
-    <p *ngIf="condensed" class="d-md-none badge p-2 badge-primary badge-pill cursor-pointer" (click)="condensed = false">Click Here To Show More</p>
-    <div [ngClass]="{'d-none': condensed}" class="d-md-block">
+    <div>
       <p>
-        Below The Fold
-      </p>
+        This comparison shows for each district, how much property assessment values increased.
+        In fiscal year 2018-2019 Chichester SD benefited from an unusual 80 million dollar
+        increase in property assessment values due to development at the Marcus Hook Refineries.
+        Why is this significant? This increase in property assessments netted and additional
+        <a [routerLink]='["../assessed-new-revenue"]'>$3 million</a> in local tax revenue that year.
+      </p> 
+      <p *ngIf="condensed" class="d-md-none badge p-2 badge-primary badge-pill cursor-pointer" (click)="condensed = false">Click Here To Show More</p>
+    </div>
+    <div [ngClass]="{'d-none': condensed}" class="d-md-block">
+      <img 
+        class="img-thumbnail cursor-pointer rounded  float-right d-none d-md-inline"
+        (click)="open(0)"
+        style="max-width: 300px; max-height: 300px;"
+        [src]="album[0].thumb" />
+      <img 
+        class="img-thumbnail cursor-pointer rounded  float-right d-md-none"
+        (click)="open(0)"
+        style="max-width: 200px; max-height: 200px;"
+        [src]="album[0].thumb" />
+      <div>
+        <p>   
+          Time and time again, you will see Chichester Board members patting themselves on the
+          back for keeping tax increases low. You will see them out there proudly holding up their
+          DCIU Delco Tax Rate comparison chart and praising themselves for 0% increases, but you will
+          not hear them mention the <a [routerLink]='["../assessed-new-revenue"]'>$3 million surge</a>
+          in new local tax revenue or the <a [routerLink]='["../deficit"]'>$3.47 million deficit </a>
+          that made those 0% increases possible the last two years.
+        </p>
+      </div> 
+      <div class="alert-info p-3 rounded d-block"> 
+        <p> 
+          <span class="font-weight-bold">Suggestion:</span> Put these numbers in perspective
+          by looking at their impact on new local tax revenue
+          on a <a [routerLink]='["../assessed-new-revenue-per-student"]'>per-student-basis</a>.
+        </p>
+      </div>
     </div>
   </div>
   <app-comparisons-grid [comparisons]="comparisons"

@@ -19,10 +19,12 @@
         in determining if there is anything 'irregular'
         about this this election years 3.47 million dollar deficit.
       </p>
-      <p>
-        Suggestion: to get a better picture of the significance of these deficit numbers, I recommend looking at
-        deficit on a <a [routerLink]='["../deficit-per-student"]'>per-student basis</a>.
-      </p> 
+      <div class="alert-info p-3 rounded d-block"> 
+        <p> 
+          <span class="font-weight-bold">Suggestion:</span> Put these numbers in perspective
+          by looking at deficit on a <a [routerLink]='["../deficit-per-student"]'>per-student basis</a>.
+        </p>
+      </div> 
     </div> 
     <app-comparisons-grid [comparisons]="comparisons"
                           [yearOfInterest]="'FY19-20'"
