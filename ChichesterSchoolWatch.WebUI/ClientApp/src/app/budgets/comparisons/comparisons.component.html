@@ -1,19 +1,13 @@
 <div class="comparisons container-fluid">
-  <div *ngIf="isBusy" style="position: relative">
-    <div class="modal2">
-      <div class="center">
-        <img src="/assets/spinner.gif" />
-        Loading...
-      </div>
-    </div>
-  </div>
+  <app-busy-indicator [isBusy]="isBusy"></app-busy-indicator>
 
   <div *ngIf="!isBusy" class="row-fluid">
     <app-comparison-options [optionGroups]="optionGroups"></app-comparison-options>
   </div>
   <div *ngIf="!isBusy" class="row-fluid mt-3" [ngSwitch]="selectedOption.name">
     <h4>District Comparisons</h4>
-    <h5>{{selectedOption.displayName}}
+    <h5>
+      {{selectedOption.displayName}}
       <span *ngIf="selectedOption.misleading" class="badge badge-warning text-right">Misleading!</span>
       <span *ngIf="selectedOption.recommended" class="badge badge-success text-right">Popular!</span>
     </h5>

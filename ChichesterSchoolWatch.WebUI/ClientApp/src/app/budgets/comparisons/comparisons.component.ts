@@ -2,6 +2,7 @@ import { Component, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { forkJoin } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
+ 
 
 @Component({
   selector: 'app-comparisons',
