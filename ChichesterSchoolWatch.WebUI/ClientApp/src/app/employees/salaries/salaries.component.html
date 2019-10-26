@@ -1,14 +1,7 @@
 <div class="container-fluid">
   <h1>Chichester SD - Salaries</h1>
 
-  <div *ngIf="isBusy" style="position: relative">
-    <div class="modal2">
-      <div class="center">
-        <img src="/assets/spinner.gif" />
-        Loading...
-      </div>
-    </div>
-  </div>
+  <app-busy-indicator [isBusy]="isBusy"></app-busy-indicator>
 
   <table class='table table-striped table-sm' *ngIf="salaries">
     <thead>

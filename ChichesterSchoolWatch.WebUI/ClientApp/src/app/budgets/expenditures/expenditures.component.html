@@ -7,14 +7,7 @@
     over the last several years.
   </p>
 
-  <div *ngIf="isBusy" style="position: relative">
-    <div class="modal2">
-      <div class="center">
-        <img src="/assets/spinner.gif" />
-        Loading...
-      </div>
-    </div>
-  </div>
+  <app-busy-indicator [isBusy]="isBusy"></app-busy-indicator>
 
   <div *ngIf="!isBusy" class="row">
     <div>
@@ -30,30 +23,30 @@
 
   </div>
   <div *ngIf="!isBusy" class="row">
- 
-      <div class="d-inline-block">
-        <div class="d-inline-block">View Mode:</div>
-        <div class="list-group list-group-horizontal">
-          <button class="list-group-item list-group-item-action list-group-item-secondary"
-                  *ngFor="let viewMode of viewModes"
-                  [ngClass]="{'active': viewMode.isActive}"
-                  (click)="setViewMode(viewMode)">
-            {{viewMode.name}}
-          </button>
-        </div>
+
+    <div class="d-inline-block">
+      <div class="d-inline-block">View Mode:</div>
+      <div class="list-group list-group-horizontal">
+        <button class="list-group-item list-group-item-action list-group-item-secondary"
+                *ngFor="let viewMode of viewModes"
+                [ngClass]="{'active': viewMode.isActive}"
+                (click)="setViewMode(viewMode)">
+          {{viewMode.name}}
+        </button>
       </div>
-      <div class="d-inline-block">
-        <span>Zoom</span>
-        <div class="list-group list-group-horizontal">
-          <button class="list-group-item list-group-item-action list-group-item-secondary"
-                  *ngFor="let zoomOption of zoomOptions"
-                  [ngClass]="{'active': zoomOption.isActive}"
-                  (click)="setZoomOption(zoomOption)">
-            {{zoomOption.name}}
-          </button>
-        </div>
+    </div>
+    <div class="d-inline-block">
+      <span>Zoom</span>
+      <div class="list-group list-group-horizontal">
+        <button class="list-group-item list-group-item-action list-group-item-secondary"
+                *ngFor="let zoomOption of zoomOptions"
+                [ngClass]="{'active': zoomOption.isActive}"
+                (click)="setZoomOption(zoomOption)">
+          {{zoomOption.name}}
+        </button>
       </div>
- 
+    </div>
+
 
   </div>
 
