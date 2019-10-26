@@ -70,6 +70,13 @@ export class ComparisonsComponent  {
         ]
       },
       {
+        group: "Board Talking Points",
+        groupOptions: [
+          { name: "TaxRateIncrease", format: "percent", misleading: true},
+          { name: "SpecialEducation1200PercentageCost", displayName: "Special Education Budget %", format: "percent"}
+        ]
+      },
+      {
           group: "Revenue",
           groupOptions: [
             { name: "TotalRevenue", format: "number" },
@@ -101,13 +108,6 @@ export class ComparisonsComponent  {
           { name: "AssessedNewRevenue", format: "number"},
           { name: "AssessedNewRevenuePerStudent", format: "number"}
         ]
-      },
-      {
-        group: "Board Talking Points",
-        groupOptions: [
-          { name: "TaxRateIncrease", format: "percent", misleading: true},
-          { name: "SpecialEducation1200PercentageCost", format: "percent"}
-        ]
       }
     ];
 
@@ -124,11 +124,14 @@ export class ComparisonsComponent  {
       option.canonicalUrl = option.name
         .replace(/([A-Z])/g, (match) => `-${match.toLowerCase()}`).substr(1);
 
-      //TODO - convert to angular pipe?
-      //turn 'TotalCostPerStudent' into 'Total Cost Per Student'
-      option.displayName = option.name
-        .replace(/([A-Z])/g, (match) => ` ${match}`)
-        .replace(/ (Per) /g, (match) => `-${match.trim()}-`).substr(1);
+      //if there isn't already a custom display name, generate it
+      if (option.displayName == null) {
+        //TODO - convert to angular pipe?
+        //turn 'TotalCostPerStudent' into 'Total Cost Per Student'
+        option.displayName = option.name
+          .replace(/([A-Z])/g, (match) => ` ${match}`)
+          .replace(/ (Per) /g, (match) => `-${match.trim()}-`).substr(1);
+      }
     });
   }
 

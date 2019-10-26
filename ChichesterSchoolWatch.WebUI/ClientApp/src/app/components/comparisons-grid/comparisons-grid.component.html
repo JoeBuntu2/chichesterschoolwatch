@@ -11,7 +11,7 @@
         <ng-template let-district
                      ngFor
                      [ngForOf]="comparisons.districtFiscalYearMetrics">
-          <tr [ngClass]="{'highlight-row' : district.district.name === 'Chichester'}">
+          <tr [ngClass]="{'highlight-row' : district.district.name === districtOfInterest}">
             <td>{{district.district.name}}</td>
           </tr>
         </ng-template>

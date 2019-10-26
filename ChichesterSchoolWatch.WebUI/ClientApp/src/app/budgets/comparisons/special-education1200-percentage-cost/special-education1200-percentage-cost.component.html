@@ -1,14 +1,64 @@
 <div *ngIf="!isBusy">
   <div class="comparison-blurb">
+    <img 
+      class="img-thumbnail cursor-pointer rounded  float-right d-none d-md-inline"
+      (click)="open(0)"
+      style="max-width: 300px; max-height: 300px;"
+      [src]="album[0].thumb" />
     <p>
-
-      <a target="_blank" href="https://www.education.pa.gov/Documents/Teachers-Administrators/School%20Finances/Comptrollers%20Office/Chart%20of%20Accounts.pdf">PA Chart of Accounts</a>
-      1200 SPECIAL PROGRAMS – ELEMENTARY / SECONDARY
-      Activities designed primarily for students having special needs. The Special Programs
-      include support classes for pre-kindergarten, kindergarten, elementary, and secondary
-      students identified as exceptional. (Record expenditures to the following sub-accounts.)
-
+    <p>
+      This comparision shows the percentage each school district allocates to special
+      education. If Chichester was facing some sort of unique special eduction challenge,
+      then it should be reflected in the budget. As you will see, Chichester's rate of spending
+      is no different than other districts in Delaware County.
+      This expenditure is coded as 1200 in the school budgets and defined
+      in the <a target="_blank" href="https://www.education.pa.gov/Documents/Teachers-Administrators/School%20Finances/Comptrollers%20Office/Chart%20of%20Accounts.pdf">PA Chart of Accounts</a>.
     </p>
+    <p *ngIf="condensed" class="d-md-none badge p-2 badge-primary badge-pill cursor-pointer" (click)="condensed = false">Click Here To Show More</p>
+    <img [ngClass]="{'d-none': condensed}"
+         class="img-thumbnail cursor-pointer rounded  float-right d-md-none"
+         (click)="open(0)"
+         style="max-width: 250px; max-height:250px;"
+         [src]="album[0].thumb" />
+    <div [ngClass]="{'d-none': condensed}" class="d-md-block">
+      <p class="bg-light rounded p-3">
+        "To believe this Bartholf logic...one has to accept the premise that within, and only within
+        the geo-political boundaries of Chichester School District, we are experiencing some unique medical
+        phenomenon that is costing the district 4-5k more per student..."
+      </p>
+      <p>
+        One go-to strategy of Chichester School Board members (Bartholf & Baiocco in particular),
+        is misleading community members into thinking that Chichester is spending
+        <a [routerLink]='["../cost-per-student"]'>4-5k more per student</a> than
+        other districts due to it's 40% special needs population. Unfortunately, this tactic has
+        worked extremely well for board member Bartholf and tends to both 1) rally people against
+        and 2) demonize anyone challenging the board on it's spending.
+      </p> 
+      Things to consider
+      <ol>
+        <li>
+          To believe this Bartholf logic (see picture), one has to accept the premise that within, and only within
+          the geo-political boundaries of Chichester School District, we are experiencing some unique medical
+          phenomenon that is costing the district <a [routerLink]='["../cost-per-student"]'>4-5k more per student</a>
+          totaling 12-17 million in excess spending over peer districts.
+        </li>
+        <li>
+          One must understand that not every special needs kid costs the same. Is it possible that an ADHD student with an IEP
+          is deemed 'Special Needs' under state law, but in fact has a negligible impact on cost? Very possible.
+          Maybe a better explanation to this misleading 40% statistic is that perhaps IEP's are more commonly leveraged
+          in lower income districts as a means of addressing behavior problems.
+          That seems more believable that people with special needs children moving here in droves as
+          Bartholf <a class="cursor-pointer alert-danger" (click)="open(0)">suggests</a>.
+        </li>
+      </ol>
+      <p>
+        <a target="_blank" href="https://www.education.pa.gov/Documents/Teachers-Administrators/School%20Finances/Comptrollers%20Office/Chart%20of%20Accounts.pdf">PA Chart of Accounts</a>
+        1200 SPECIAL PROGRAMS – ELEMENTARY / SECONDARY
+        Activities designed primarily for students having special needs. The Special Programs
+        include support classes for pre-kindergarten, kindergarten, elementary, and secondary
+        students identified as exceptional. (Record expenditures to the following sub-accounts.)
+      </p>
+    </div>
   </div>
   <app-comparisons-grid
     [comparisons]="comparisons"
