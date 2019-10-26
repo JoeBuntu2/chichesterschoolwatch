@@ -15,8 +15,9 @@ import { SharedModule } from '../shared/shared.module';
 import { LightboxModule } from 'ngx-lightbox';
 import { OrderModule } from 'ngx-order-pipe';
 import { SpecialEducation1200PercentageCostComponent } from './comparisons/special-education1200-percentage-cost/special-education1200-percentage-cost.component';
-import { ComparisonsGridComponent } from '../components/comparisons-grid/comparisons-grid.component';
+import { ComparisonsGridComponent } from './comparisons/comparisons-grid/comparisons-grid.component';
 import { ComparisonOptionsComponent } from './comparisons/comparison-options/comparison-options.component';
+
 
 
 let routing = RouterModule.forChild([
