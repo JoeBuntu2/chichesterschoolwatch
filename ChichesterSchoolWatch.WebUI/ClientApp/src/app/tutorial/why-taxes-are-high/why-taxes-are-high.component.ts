@@ -14,8 +14,9 @@ export class WhyTaxesAreHighComponent implements OnInit {
   constructor(activeRoute: ActivatedRoute) {
 
     this.steps = [
-      'Step1',
-      'Step2',
+      'intro',
+      'step1',
+      'step2',
       'homeowner-tax-breakdown-chart'
     ]; 
 
@@ -40,6 +41,18 @@ export class WhyTaxesAreHighComponent implements OnInit {
  
   get allowPrevious(): boolean {
     return this.currentStep > 0;
+  }
+
+  get prevStep(): string {
+    if (this.allowPrevious)
+      return this.steps[this.currentStep - 1];
+    return null;
+  }
+
+  get nextStep(): string {
+    if (this.allowNext)
+      return  this.steps[1 + this.currentStep];
+    return null;
   }
 
   prev() {

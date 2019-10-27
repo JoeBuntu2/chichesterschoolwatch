@@ -8,6 +8,7 @@ import { StepHostDirective } from './why-taxes-are-high/step-host.directive';
 import { ChartsModule } from 'ng2-charts';
 import { PropertyTaxOverspendingChartComponent } from './why-taxes-are-high/property-tax-overspending-chart/property-tax-overspending-chart.component';
 import { HomeownerTaxBreakdownChartComponent } from './why-taxes-are-high/homeowner-tax-breakdown-chart/homeowner-tax-breakdown-chart.component';
+import { IntroComponent } from './why-taxes-are-high/intro/intro.component';
 
 let routing = RouterModule.forChild([
   { path: "tax-payers-guide-to-high-chi-taxes", component: WhyTaxesAreHighComponent },
@@ -21,7 +22,8 @@ let routing = RouterModule.forChild([
     Step2Component,
     StepHostDirective,
     PropertyTaxOverspendingChartComponent,
-    HomeownerTaxBreakdownChartComponent
+    HomeownerTaxBreakdownChartComponent,
+    IntroComponent
   ],
   imports: [
     routing,

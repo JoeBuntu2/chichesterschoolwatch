@@ -1,14 +1,15 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col">
-      <button class="btn btn-warning float-left" (click)="prev()">Back</button>
-      <button class="btn btn-warning float-right" (click)="next()">Next</button>
+      <a class="btn btn-warning float-left" [routerLink]='["../" + prevStep]'>Back</a>
+      <a class="btn btn-warning float-right" [routerLink]='["../" + nextStep]'>Next</a>
     </div>
   </div>
   <div class="row">
     <div [ngSwitch]="currentStepName">
-      <app-step1 *ngSwitchCase="'Step1'"></app-step1>
-      <app-step2 *ngSwitchCase="'Step2'"></app-step2>
+      <app-intro *ngSwitchCase="'intro'"></app-intro>
+      <app-step1 *ngSwitchCase="'step1'"></app-step1>
+      <app-step2 *ngSwitchCase="'step2'"></app-step2>
       <app-homeowner-tax-breakdown-chart *ngSwitchCase="homeowner-tax-breakdown-chart"></app-homeowner-tax-breakdown-chart>
     </div>
   </div>
