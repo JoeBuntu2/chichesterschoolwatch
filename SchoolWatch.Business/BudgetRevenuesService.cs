@@ -20,6 +20,7 @@ namespace SchoolWatch.Business
         private Dictionary<int, RevenueEntity> RevenuesLookup;
         private FiscalYearEntity[] FiscalYears;
         private Dictionary<int, BudgetEntity> BudgetsLookup;
+        private int[] CodeFilters;
 
 
         public BudgetRevenuesService(
@@ -35,6 +36,27 @@ namespace SchoolWatch.Business
         }
          
         public List<DistrictRevenuesDto> GetAll()
+        {
+            return GetAllCore();
+        }
+
+        public List<DistrictRevenuesDto> GetAllForCode(int code)
+        {
+            CodeFilters = new[] {code};
+            return GetAllCore();
+        }
+
+
+        internal virtual BudgetRevenueEntity[] GetRevenues()
+        {
+            var revenues = BudgetRevenuesRepository.GetAll();
+            if (CodeFilters != null && CodeFilters.Length > 0)
+                revenues = revenues.Where(x => CodeFilters.Contains(x.RevenueId)).ToArray();
+
+            return revenues;
+        }
+
+        public List<DistrictRevenuesDto> GetAllCore()
         { 
             //very tedious way of writing a sql pivot in C#
 
@@ -44,7 +66,7 @@ namespace SchoolWatch.Business
 
             var districtExpenditures = new List<DistrictRevenuesDto>();
 
-            var allRevenues = BudgetRevenuesRepository.GetAll();
+            var allRevenues = GetRevenues();
             foreach (var districtGroup in allRevenues.GroupBy(x => BudgetsLookup[x.BudgetId].DistrictId).OrderBy(x => x.Key))
             {
                 districtExpenditures.Add(GenerateYearlyDistrictRevenues(
@@ -55,7 +77,7 @@ namespace SchoolWatch.Business
 
             return districtExpenditures;
         }
-         
+ 
         internal virtual DistrictRevenuesDto GenerateYearlyDistrictRevenues(
             int districtId,
             BudgetRevenueEntity[] districtRevenues 

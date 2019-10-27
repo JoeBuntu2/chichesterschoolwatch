@@ -22,6 +22,12 @@
 
         Deficit,
         DeficitPerStudent,
+
+        
+        PsersAll,
+        PsersNetContribution,
+        PsersNetContributionIncrease,
+        PsersStateContribution,
  
 
         TaxRateIncrease,

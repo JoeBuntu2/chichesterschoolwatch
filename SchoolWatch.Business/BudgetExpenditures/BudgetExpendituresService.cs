@@ -14,7 +14,8 @@ namespace SchoolWatch.Business.BudgetExpenditures
         private readonly IEnrollmentsService EnrollmentsService;
         private readonly IBudgetsService BudgetsService;
         private readonly IBudgetExpendituresRepository BudgetExpendituresRepository;
- 
+        private   int[] CodeFilters;
+
         public BudgetExpendituresService(
             IFiscalYearsService fiscalYearsService,
             IEnrollmentsService enrollmentsService,
@@ -28,6 +29,18 @@ namespace SchoolWatch.Business.BudgetExpenditures
         }
 
         public List<DistrictExpendituresDto> GetAll()
+        {
+            return GetAllCore();
+        }
+
+        public List<DistrictExpendituresDto> GetAllForCode(int code)
+        {
+            CodeFilters = new[] {code};
+
+            return GetAllCore();
+        }
+
+        internal virtual List<DistrictExpendituresDto> GetAllCore()
         {
             //very tedious way of writing a sql pivot in C#  
             var districtExpenditures = new List<DistrictExpendituresDto>();
@@ -49,14 +62,17 @@ namespace SchoolWatch.Business.BudgetExpenditures
             return districtExpenditures;
         }
 
+
+        #region GetAll Support
+
         internal virtual void ApplyCalculations(List<DistrictExpendituresDto> districtExpenditures)
         {
             var averageEnrollments = EnrollmentsService.GetAll().ToDictionary(x => x.DistrictId);
-            
+
             foreach (var district in districtExpenditures)
-            { 
+            {
                 foreach (var top in district.TopLevelExpenditures)
-                { 
+                {
                     foreach (var mid in top.MidLevelExpenditures)
                     {
                         foreach (var code in mid.CodeExpenditures)
@@ -68,9 +84,11 @@ namespace SchoolWatch.Business.BudgetExpenditures
                         ApplyPercentages(district.FiscalYearAmounts, mid.FiscalYearAmounts);
                         ApplyCostPerStudent(district.DistrictId, averageEnrollments, mid.FiscalYearAmounts);
                     }
+
                     ApplyPercentages(district.FiscalYearAmounts, top.FiscalYearAmounts);
                     ApplyCostPerStudent(district.DistrictId, averageEnrollments, top.FiscalYearAmounts);
                 }
+
                 ApplyPercentages(district.FiscalYearAmounts, district.FiscalYearAmounts);
                 ApplyCostPerStudent(district.DistrictId, averageEnrollments, district.FiscalYearAmounts);
             }
@@ -88,23 +106,26 @@ namespace SchoolWatch.Business.BudgetExpenditures
         }
 
         internal virtual void ApplyCostPerStudent(
-            int districtId, 
-            Dictionary<int, DistrictEnrollment> avgEnrollmentByDistrict, 
+            int districtId,
+            Dictionary<int, DistrictEnrollment> avgEnrollmentByDistrict,
             List<FiscalYearAmount> amounts)
         {
             if (avgEnrollmentByDistrict.TryGetValue(districtId, out var avgEnrollment))
             {
                 foreach (var fiscalYearAmount in amounts)
                 {
-                    var costPerStudent =   fiscalYearAmount.Total / avgEnrollment.Enrollment;
-                    fiscalYearAmount.PerStudent =  costPerStudent;
+                    var costPerStudent = fiscalYearAmount.Total / avgEnrollment.Enrollment;
+                    fiscalYearAmount.PerStudent = costPerStudent;
                 }
-            } 
+            }
         }
- 
+
         internal virtual IEnumerable<IGrouping<int, BudgetExpenditureEntity>> GetExpendituresGroupedByDistrict()
         {
             var allExpenditures = BudgetExpendituresRepository.GetAll();
+            if (CodeFilters != null && CodeFilters.Length > 0)
+                allExpenditures = allExpenditures.Where(x => CodeFilters.Contains(x.CodeId)).ToArray();
+
             return allExpenditures.GroupBy(x => BudgetsService.FindByBudgetId(x.BudgetId).DistrictId);
         }
 
@@ -249,6 +270,9 @@ namespace SchoolWatch.Business.BudgetExpenditures
 
             return codeExpenditure;
         }
+
+
+        #endregion
 
     }
 }

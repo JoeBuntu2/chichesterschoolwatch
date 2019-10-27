@@ -41,6 +41,7 @@ namespace ChichesterSchoolWatch.WebUI
             services.AddTransient<IDistrictComparer, SpecialEducation1200Comparer>();
             services.AddTransient<IDistrictComparer, PropertyAssessmentComparer>();
             services.AddTransient<IDistrictComparer, ChichesterCostComparer>();
+            services.AddTransient<IDistrictComparer, PsersComparer>();
 
             services.AddTransient<IDistrictsService, DistrictsService>(); 
             services.AddTransient<IEmployeesRepository, EmployeesRepository>();
@@ -60,6 +61,7 @@ namespace ChichesterSchoolWatch.WebUI
             services.AddTransient<IExpenditureCodesRepository, ExpenditureCodesRepository>();
             services.AddScoped<IFiscalYearRepository, FiscalYearRepository>();
             services.AddTransient<IRevenuesRepository, RevenuesRepository>();
+            services.AddScoped<IStatePensionRatesRepository, StatePensionRatesRepository>();
             services.AddScoped<ITotalEnrollmentsRepository, TotalEnrollmentsRepository>();
 
 

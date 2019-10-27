@@ -2,7 +2,7 @@
 
 namespace SchoolWatch.Data.Repositories.Interfaces
 {
-    interface IStatePensionRatesRepository
+    public interface IStatePensionRatesRepository
     {
         StatePensionRateEntity[] GetAll();
     }

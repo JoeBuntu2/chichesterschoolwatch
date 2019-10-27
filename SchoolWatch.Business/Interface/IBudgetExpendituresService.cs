@@ -6,5 +6,6 @@ namespace SchoolWatch.Business.Interface
     public interface IBudgetExpendituresService
     {
         List<DistrictExpendituresDto> GetAll();
+        List<DistrictExpendituresDto> GetAllForCode(int code);
     }
 }

@@ -23,6 +23,11 @@ namespace SchoolWatch.Data
                 .ToTable("FiscalYears")
                 .HasKey(x => x.FiscalYearId);
 
+            modelBuilder.Entity<StatePensionRateEntity>()
+                .ToTable("StatePensionRates")
+                .HasKey(x => x.FiscalYearId);
+
+
             modelBuilder.Entity<RevenueEntity>()
                 .ToTable("Revenues")
                 .HasKey(x => x.RevenueId);
