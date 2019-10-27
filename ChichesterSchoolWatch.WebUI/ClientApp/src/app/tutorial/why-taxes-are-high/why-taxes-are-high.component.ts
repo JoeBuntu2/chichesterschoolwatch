@@ -1,44 +1,21 @@
-import { Component, OnInit, ViewChild, ComponentFactoryResolver, Host, Injector, NgModuleRef } from '@angular/core';
-import {Step1Component} from './step1/step1.component';
-import {Step2Component} from './step2/step2.component';
-import {StepHostDirective} from './step-host.directive';
+import { Component, OnInit} from '@angular/core';
+ 
 
 @Component({
   selector: 'app-why-taxes-are-high',
   templateUrl: './why-taxes-are-high.component.html',
-  styleUrls: ['./why-taxes-are-high.component.css'],
-  entryComponents: [Step1Component, Step2Component]
+  styleUrls: ['./why-taxes-are-high.component.css'], 
 })
 export class WhyTaxesAreHighComponent implements OnInit {
-  public steps : any[];
-  public currentStep: number;
-  @ViewChild(StepHostDirective) stepHost: StepHostDirective;
-
-
-  constructor(
-      private step1 : Step1Component,
-      private step2: Step2Component,
-      private moduleRef: NgModuleRef<any>
-  ) { }
-
+  public steps : string[];
+  public currentStep: number; 
+ 
   ngOnInit() {
     this.steps = [
-      this.step1, this.step2
+      'Step1',
+      'Step2'
     ];
-    this.currentStep = 0;
-    this.loadComponent(); 
+    this.currentStep = 0; 
   } 
- 
-  loadComponent() { 
-    const step = this.steps[this.currentStep];
-
-    const componentFactoryResolver = this.moduleRef.componentFactoryResolver;
-    const componentFactory = componentFactoryResolver.resolveComponentFactory(step);
-
-    const viewContainerRef = this.stepHost.viewContainerRef;
-    viewContainerRef.clear();
-
-    const componentRef = viewContainerRef.createComponent(componentFactory); 
-  }
-
+  
 }

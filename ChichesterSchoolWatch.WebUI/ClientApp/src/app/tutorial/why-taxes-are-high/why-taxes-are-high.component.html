@@ -1,5 +1,25 @@
-<p>
-  Why Taxes are high!!
-  <app-step1></app-step1>
-  <ng-template step-host></ng-template>
-</p>
+<!--<div class="row-fluid">
+  <div class="row-fluid">
+    <div class="col-2"></div>
+    <div class="col"></div>
+    <div class="col-2"><button class="btn btn-primary">Next</button></div>
+  </div> 
+
+  <div class="row-fluid">
+    Why Taxes are high!!
+    <div [ngSwitch]="steps[currentStep]">
+      <app-step1 *ngSwitchCase="'Step1'"></app-step1>
+      <app-step1 *ngSwitchCase="'Step2'"></app-step1>
+    </div>
+  </div> 
+</div>-->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <button class="btn btn-primary float-left w-100">Back</button>
+    </div> 
+    <div class="col">
+      <button class="btn btn-primary float-right w-100">Next</button>
+    </div>
+  </div>
+</div>
