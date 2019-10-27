@@ -1,0 +1,51 @@
+<div *ngIf="!isBusy">
+  <div class="comparison-blurb">
+    <div>
+      <p>
+        Chichester School Board seems to want the community to believe that state pension
+        contributions are putting an enormous strain on district finances. The truth of the
+        matter is that State contributions to PSERS increases each year. The last two years
+        Chichester's net contribution (Chichester's obligation after the state pays)
+        into PSERS has slightly decreased. That is, PSERS pension funding has had zero
+        contribution to this years 3.47 million
+        <a [routerLink]='["deficit"]'>deficit</a> or Chichester SD's excessive
+        <a [routerLink]='["cost-per-student"]'>cost-per-student</a>.
+
+      </p>
+      <p *ngIf="condensed" class="d-md-none badge p-2 badge-primary badge-pill cursor-pointer" (click)="condensed = false">Click Here To Show More</p>
+    </div>
+    <div [ngClass]="{'d-none': condensed}" class="d-md-block">
+      <img class="img-thumbnail cursor-pointer rounded  float-right d-none d-md-inline"
+           (click)="open(0)"
+           style="max-width: 300px; max-height: 300px;"
+           [src]="album[0].thumb" />
+      <img class="img-thumbnail cursor-pointer rounded  float-right d-md-none"
+           (click)="open(0)"
+           style="max-width: 200px; max-height: 200px;"
+           [src]="album[0].thumb" />
+
+      <div class="bg-light rounded p-3">
+        "... Even with the state mandated items we must fund for teachers pensions and
+        special education, we have managed to hold taxes at bay..."
+        <br />
+
+        <i>
+          David Bartholf, School Board Treasurer -  5/21/2019. David wants the public to believe that
+          the board is pulling off herculean effort to manage to keep taxes down.
+          The truth is, with additional state revenue , the last two years our net contribution
+          towards PSERS has slightly decreased.
+        </i>
+      </div>
+      <div class="alert-info p-3 rounded d-block">
+        <p>
+          <span class="font-weight-bold">Suggestion:</span>
+          Take a look at district <a [routerLink]='["/budgets/revenues"]'>revenue details </a>.
+          See revenue code 7820 'State Share of Retirement Contributions'.
+        </p>
+      </div>
+    </div>
+  </div>
+  <app-comparisons-grid [comparisons]="comparisons"
+                        [yearOfInterest]="'FY19-20'"
+                        [metric]="'PsersNetContributionIncrease'"></app-comparisons-grid>
+</div>

@@ -72,9 +72,9 @@ export class ComparisonsComponent  {
       },
       {
         group: "Board Talking Points",
-        groupOptions: [
-          { name: "PsersNetContributionIncrease", format: "number", "PSERS Net Contribution Increases"},
+        groupOptions: [ 
           { name: "TaxRateIncrease", format: "percent", misleading: true},
+          { name: "PsersNetContributionIncrease", format: "number", displayName: "PSERS Net Contribution Increases"},
           { name: "SpecialEducation1200PercentageCost", displayName: "Special Education Budget %", format: "percent"}
         ]
       },

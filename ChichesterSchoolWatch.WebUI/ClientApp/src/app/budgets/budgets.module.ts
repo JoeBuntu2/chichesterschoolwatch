@@ -21,6 +21,7 @@ import { AssessedIncreaseComponent } from './comparisons/assessed-increase/asses
 import { AssessedNewRevenueComponent } from './comparisons/assessed-new-revenue/assessed-new-revenue.component';
 import { AssessedNewRevenuePerStudentComponent } from './comparisons/assessed-new-revenue-per-student/assessed-new-revenue-per-student.component';
 import { AssessedComponent } from './comparisons/assessed/assessed.component';
+import { PsersNetContributionIncreaseComponent } from './comparisons/psers-net-contribution-increase/psers-net-contribution-increase.component';
 
 
 
@@ -39,6 +40,6 @@ let routing = RouterModule.forChild([
     LightboxModule,
     OrderModule
   ],
-  declarations: [BudgetsComponent, RevenuesComponent, ExpendituresComponent, ComparisonsComponent, CostPerStudentComponent, DeficitComponent, DeficitPerStudentComponent, ExcessChichesterSpendingComponent, TaxRateIncreaseComponent, SpecialEducation1200PercentageCostComponent, ComparisonsGridComponent, ComparisonOptionsComponent, AssessedIncreaseComponent, AssessedNewRevenueComponent, AssessedNewRevenuePerStudentComponent, AssessedComponent]
+  declarations: [BudgetsComponent, RevenuesComponent, ExpendituresComponent, ComparisonsComponent, CostPerStudentComponent, DeficitComponent, DeficitPerStudentComponent, ExcessChichesterSpendingComponent, TaxRateIncreaseComponent, SpecialEducation1200PercentageCostComponent, ComparisonsGridComponent, ComparisonOptionsComponent, AssessedIncreaseComponent, AssessedNewRevenueComponent, AssessedNewRevenuePerStudentComponent, AssessedComponent, PsersNetContributionIncreaseComponent]
 })
 export class BudgetsModule { }
