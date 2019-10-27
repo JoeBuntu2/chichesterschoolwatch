@@ -1,4 +1,5 @@
 import { Component, OnInit} from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
  
 
 @Component({
@@ -8,15 +9,29 @@ import { Component, OnInit} from '@angular/core';
 })
 export class WhyTaxesAreHighComponent implements OnInit {
   public steps : string[];
-  public currentStep: number; 
- 
-  ngOnInit() {
+  public currentStep: number = 0;
+
+  constructor(activeRoute: ActivatedRoute) {
+
     this.steps = [
       'Step1',
       'Step2',
       'homeowner-tax-breakdown-chart'
-    ];
-    this.currentStep = 0; 
+    ]; 
+
+    //subscribe to route change?
+    activeRoute.pathFromRoot.forEach(route => route.params.subscribe(params => {
+
+      //try and locate the step from the route parameter
+      let step = params["step"] || "intro";
+      let match = this.steps.find(value => value.toLowerCase() === step.toLowerCase());
+
+      //use the match that was found if it is not null
+      this.currentStep = (match != null) ? this.steps.indexOf(match) : 0; 
+    }));
+  }
+ 
+  ngOnInit() { 
   }
 
   get currentStepName(): string {

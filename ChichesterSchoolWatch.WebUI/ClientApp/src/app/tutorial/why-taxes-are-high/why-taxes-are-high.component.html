@@ -3,7 +3,7 @@
     <div class="col">
       <button class="btn btn-warning float-left" (click)="prev()">Back</button>
       <button class="btn btn-warning float-right" (click)="next()">Next</button>
-    </div> 
+    </div>
   </div>
   <div class="row">
     <div [ngSwitch]="currentStepName">
@@ -12,4 +12,4 @@
       <app-homeowner-tax-breakdown-chart *ngSwitchCase="homeowner-tax-breakdown-chart"></app-homeowner-tax-breakdown-chart>
     </div>
   </div>
-</div> 
+</div>
