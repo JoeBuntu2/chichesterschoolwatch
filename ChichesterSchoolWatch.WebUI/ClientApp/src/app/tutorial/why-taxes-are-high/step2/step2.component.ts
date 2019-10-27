@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injectable } from '@angular/core';
 
+@Injectable({
+  providedIn: 'root'
+})
 @Component({
   selector: 'app-step2',
   templateUrl: './step2.component.html',

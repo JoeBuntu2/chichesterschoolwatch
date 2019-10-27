@@ -29,6 +29,10 @@ import { HomeComponent } from './home/home.component';
       {
         path: "budgets",
         loadChildren: "./budgets/budgets.module#BudgetsModule"
+      },
+      {
+        path: "tutorials",
+        loadChildren: "./tutorial/tutorial.module#TutorialModule"
       }
     ])
   ],
