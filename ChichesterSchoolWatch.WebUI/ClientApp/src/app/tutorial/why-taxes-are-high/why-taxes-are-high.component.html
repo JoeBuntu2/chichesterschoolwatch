@@ -1,25 +1,15 @@
-<div class="row-fluid">
-  <div class="row-fluid">
-    <div class="col-2"></div>
-    <div class="col"></div>
-    <div class="col-2"><button class="btn btn-primary">Next</button></div>
-  </div> 
-
-  <div class="row-fluid">
-    Why Taxes are high!!
-    <div [ngSwitch]="steps[currentStep]">
-      <app-step1 *ngSwitchCase="'Step1'"></app-step1>
-      <app-step1 *ngSwitchCase="'Step2'"></app-step1>
-    </div>
-  </div> 
-</div>
-<!--<div class="container-fluid">
+<div class="container-fluid">
   <div class="row">
     <div class="col">
-      <button class="btn btn-primary float-left w-100">Back</button>
+      <button class="btn btn-warning float-left" (click)="prev()">Back</button>
+      <button class="btn btn-warning float-right" (click)="next()">Next</button>
     </div> 
-    <div class="col">
-      <button class="btn btn-primary float-right w-100">Next</button>
+  </div>
+  <div class="row">
+    <div [ngSwitch]="currentStepName">
+      <app-step1 *ngSwitchCase="'Step1'"></app-step1>
+      <app-step2 *ngSwitchCase="'Step2'"></app-step2>
+      <app-homeowner-tax-breakdown-chart *ngSwitchCase="homeowner-tax-breakdown-chart"></app-homeowner-tax-breakdown-chart>
     </div>
   </div>
-</div>-->
+</div> 
