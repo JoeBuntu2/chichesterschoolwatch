@@ -13,10 +13,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChichesterSchoolWatch.WebUI
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{A9543E57-4AE1-47E1-A0A6-8A529A371B39}"
 	ProjectSection(SolutionItems) = preProject
-		ExpendituresPivot.sql = ExpendituresPivot.sql
-		RevenuesPivot.sql = RevenuesPivot.sql
-		Schema.sql = Schema.sql
-		Tasks.txt = Tasks.txt
+		Scripts\ExpendituresPivot.sql = Scripts\ExpendituresPivot.sql
+		Scripts\RevenuesPivot.sql = Scripts\RevenuesPivot.sql
+		Scripts\Schema.sql = Scripts\Schema.sql
+		Scripts\Tasks.txt = Scripts\Tasks.txt
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChichesterSchoolWatch.SitePinger", "ChichesterSchoolWatch.SitePinger\ChichesterSchoolWatch.SitePinger.csproj", "{E29C611C-6D07-4C7E-9DF2-DEC8A0B83CB2}"
