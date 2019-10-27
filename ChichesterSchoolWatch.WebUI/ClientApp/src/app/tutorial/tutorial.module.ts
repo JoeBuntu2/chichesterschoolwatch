@@ -10,6 +10,7 @@ import { PropertyTaxOverspendingChartComponent } from './why-taxes-are-high/prop
 import { HomeownerTaxBreakdownChartComponent } from './why-taxes-are-high/homeowner-tax-breakdown-chart/homeowner-tax-breakdown-chart.component';
 
 let routing = RouterModule.forChild([
+  { path: "tax-payers-guide-to-high-chi-taxes", component: WhyTaxesAreHighComponent },
   { path: "tax-payers-guide-to-high-chi-taxes/:step", component: WhyTaxesAreHighComponent }
 ]);
 
