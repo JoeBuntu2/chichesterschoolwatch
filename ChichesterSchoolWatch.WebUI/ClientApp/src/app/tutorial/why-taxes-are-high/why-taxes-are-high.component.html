@@ -3,8 +3,14 @@
     <div class="col-s col-md-10 col-lg-8">
       <div class="row">
         <div class="col">
-          <a class="btn btn-warning float-left wizard-nav" [routerLink]='["../" + prevStep]'>Back</a>
-          <a class="btn btn-warning float-right wizard-nav" [routerLink]='["../" + nextStep]'>Next</a>
+          <div class="bg-light tutorial-title p-3 rounded">
+            <h3>Chichester SD Tax-Payers Guide</h3>
+            <h5>{{steps[currentStep].display}}</h5> 
+            <div class="navbar">
+              <a class="btn btn-warning float-left wizard-nav" [routerLink]='["../" + prevStep]'>Back</a>
+              <a class="btn btn-warning float-right wizard-nav" [routerLink]='["../" + nextStep]'>Next</a>
+            </div> 
+          </div> 
         </div> 
       </div>
       <div class="row">

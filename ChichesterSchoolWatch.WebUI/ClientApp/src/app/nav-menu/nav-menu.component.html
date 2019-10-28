@@ -8,15 +8,14 @@
       </button>
       <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse" [ngClass]='{"show": isExpanded}'>
         <div class="navbar-nav flex-grow">
-          <div class="nav-item" [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
-            <a class="nav-link text-dark" [routerLink]='["/"]'>Home</a>
-          </div>
+
           <div class="nav-item" [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
             <a class="nav-link text-dark" [routerLink]='["/tutorials/tax-payers-guide-to-high-chi-taxes"]'>Learn</a>
           </div>
           <div class="nav-item" [routerLinkActive]='["link-active"]'>
             <a class="nav-link text-dark" [routerLink]='["/employees/salaries"]'>Employees</a>
           </div>
+
           <div class="nav-item" [routerLinkActive]='["link-active"]'>
             <div ngbDropdown>
               <button class="btn btn-outline-primary" id="nav-budgets-dropdown" ngbDropdownToggle>Budgets</button>
@@ -32,6 +31,10 @@
                 </button>
               </div>
             </div>
+          </div>
+
+          <div class="nav-item" [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
+            <a class="nav-link text-dark" [routerLink]='["/about"]'>About</a>
           </div>
         </div>
       </div>

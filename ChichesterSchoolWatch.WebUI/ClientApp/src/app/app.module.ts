@@ -6,15 +6,15 @@ import { RouterModule, UrlSerializer } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
-import { NavMenuComponent } from './nav-menu/nav-menu.component';
-import { HomeComponent } from './home/home.component';
+import { NavMenuComponent } from './nav-menu/nav-menu.component'; 
 import { LowerCaseUrlSerializer } from './lower-case-url-serializer';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavMenuComponent,
-    HomeComponent
+    NavMenuComponent, 
+    AboutComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -22,10 +22,14 @@ import { LowerCaseUrlSerializer } from './lower-case-url-serializer';
     NgbModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
+      { path: '', redirectTo: 'tutorials/tax-payers-guide-to-high-chi-taxes', pathMatch: 'full' },
       {
         path: "employees",
         loadChildren: "./employees/employees.module#EmployeesModule"
+      },
+      {
+        path: "about",
+        component: AboutComponent
       },
       {
         path: "budgets",

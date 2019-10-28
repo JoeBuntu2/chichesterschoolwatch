@@ -8,23 +8,23 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./why-taxes-are-high.component.css'], 
 })
 export class WhyTaxesAreHighComponent implements OnInit {
-  public steps : string[];
+  public steps : any[];
   public currentStep: number = 0;
 
   constructor(activeRoute: ActivatedRoute) {
 
     this.steps = [
-      'intro-welcome',
-      'intro-topics', 
-      'homeowner-tax-breakdown-chart'
+      { name: 'intro-welcome', display: 'Welcome: There are many reasons for you to care.' },
+      { name: 'intro-topics', display: 'Topics we will be covering.' },
+      { name: 'intro-welcome', display: '' }
     ]; 
 
     //subscribe to route change?
     activeRoute.pathFromRoot.forEach(route => route.params.subscribe(params => {
 
       //try and locate the step from the route parameter
-      let step = params["step"] || "intro";
-      let match = this.steps.find(value => value.toLowerCase() === step.toLowerCase());
+      let stepParameter = params["step"] || "intro";
+      let match = this.steps.find(step => step.name.toLowerCase() === stepParameter.toLowerCase());
 
       //use the match that was found if it is not null
       this.currentStep = (match != null) ? this.steps.indexOf(match) : 0; 
@@ -35,7 +35,7 @@ export class WhyTaxesAreHighComponent implements OnInit {
   }
 
   get currentStepName(): string {
-    return this.steps[this.currentStep];
+    return this.steps[this.currentStep].name;
   }
  
   get allowPrevious(): boolean {
@@ -44,13 +44,13 @@ export class WhyTaxesAreHighComponent implements OnInit {
 
   get prevStep(): string {
     if (this.allowPrevious)
-      return this.steps[this.currentStep - 1];
+      return this.steps[this.currentStep - 1].name;
     return null;
   }
 
   get nextStep(): string {
     if (this.allowNext)
-      return  this.steps[1 + this.currentStep];
+      return  this.steps[1 + this.currentStep].name;
     return null;
   }
 
