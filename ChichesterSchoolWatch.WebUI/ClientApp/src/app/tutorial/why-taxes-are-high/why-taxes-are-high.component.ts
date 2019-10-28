@@ -14,9 +14,8 @@ export class WhyTaxesAreHighComponent implements OnInit {
   constructor(activeRoute: ActivatedRoute) {
 
     this.steps = [
-      'intro',
-      'step1',
-      'step2',
+      'intro-welcome',
+      'intro-topics', 
       'homeowner-tax-breakdown-chart'
     ]; 
 

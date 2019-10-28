@@ -1,16 +1,18 @@
-<div class="container-fluid">
+ 
   <div class="row">
-    <div class="col">
-      <a class="btn btn-warning float-left" [routerLink]='["../" + prevStep]'>Back</a>
-      <a class="btn btn-warning float-right" [routerLink]='["../" + nextStep]'>Next</a>
+    <div class="col-s col-md-10 col-lg-8">
+      <div class="row">
+        <div class="col">
+          <a class="btn btn-warning float-left wizard-nav" [routerLink]='["../" + prevStep]'>Back</a>
+          <a class="btn btn-warning float-right wizard-nav" [routerLink]='["../" + nextStep]'>Next</a>
+        </div> 
+      </div>
+      <div class="row">
+        <div [ngSwitch]="currentStepName"> 
+          <app-intro-welcome *ngSwitchCase="'intro-welcome'"></app-intro-welcome>
+          <app-intro-topics *ngSwitchCase="'intro-topics'"></app-intro-topics>
+          <app-homeowner-tax-breakdown-chart *ngSwitchCase="homeowner-tax-breakdown-chart"></app-homeowner-tax-breakdown-chart>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div [ngSwitch]="currentStepName">
-      <app-intro *ngSwitchCase="'intro'"></app-intro>
-      <app-step1 *ngSwitchCase="'step1'"></app-step1>
-      <app-step2 *ngSwitchCase="'step2'"></app-step2>
-      <app-homeowner-tax-breakdown-chart *ngSwitchCase="homeowner-tax-breakdown-chart"></app-homeowner-tax-breakdown-chart>
-    </div>
-  </div>
-</div>
+  </div>  
