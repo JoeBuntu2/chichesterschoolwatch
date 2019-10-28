@@ -8,6 +8,8 @@ import { PropertyTaxOverspendingChartComponent } from './why-taxes-are-high/prop
 import { HomeownerTaxBreakdownChartComponent } from './why-taxes-are-high/homeowner-tax-breakdown-chart/homeowner-tax-breakdown-chart.component';
 import { IntroTopicsComponent } from './why-taxes-are-high/intro/intro-topics.component';
 import { IntroWelcomeComponent } from './why-taxes-are-high/intro/intro-welcome.component';
+import { ExcessCostPerStudentComponent } from './why-taxes-are-high/excess/excess-cost-per-student.component';
+import { StayTunedComponent } from './why-taxes-are-high/stay-tuned/stay-tuned.component';
 
 let routing = RouterModule.forChild([
   { path: "tax-payers-guide-to-high-chi-taxes", redirectTo: 'tax-payers-guide-to-high-chi-taxes/intro-welcome', pathMatch: 'full'},
@@ -21,7 +23,9 @@ let routing = RouterModule.forChild([
     PropertyTaxOverspendingChartComponent,
     HomeownerTaxBreakdownChartComponent,
     IntroTopicsComponent,
-    IntroWelcomeComponent
+    IntroWelcomeComponent,
+    ExcessCostPerStudentComponent,
+    StayTunedComponent
   ],
   imports: [
     routing,

@@ -16,7 +16,9 @@ export class WhyTaxesAreHighComponent implements OnInit {
     this.steps = [
       { name: 'intro-welcome', display: 'Welcome: There are many reasons for you to care.' },
       { name: 'intro-topics', display: 'Topics we will be covering.' },
-      { name: 'intro-welcome', display: '' }
+      { name: 'stay-tuned', display: 'Stay Tuned!' }
+      //{ name: 'excess-cost-per-student', display: 'Excess Cost Per Student' },
+      //{ name: 'excess-spending', display: 'Excess Spending' }
     ]; 
 
     //subscribe to route change?

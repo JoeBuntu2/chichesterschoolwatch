@@ -7,8 +7,8 @@
             <h3>Chichester SD Tax-Payers Guide</h3>
             <h5>{{steps[currentStep].display}}</h5> 
             <div class="navbar">
-              <a class="btn btn-warning float-left wizard-nav" [routerLink]='["../" + prevStep]'>Back</a>
-              <a class="btn btn-warning float-right wizard-nav" [routerLink]='["../" + nextStep]'>Next</a>
+              <a *ngIf="allowPrevious" class="btn btn-warning float-left wizard-nav" [routerLink]='["../" + prevStep]'>Back</a>
+              <a *ngIf="allowNext"  class="btn btn-warning float-right wizard-nav" [routerLink]='["../" + nextStep]'>Next</a>
             </div> 
           </div> 
         </div> 
@@ -17,7 +17,9 @@
         <div [ngSwitch]="currentStepName"> 
           <app-intro-welcome *ngSwitchCase="'intro-welcome'"></app-intro-welcome>
           <app-intro-topics *ngSwitchCase="'intro-topics'"></app-intro-topics>
-          <app-homeowner-tax-breakdown-chart *ngSwitchCase="homeowner-tax-breakdown-chart"></app-homeowner-tax-breakdown-chart>
+          <app-stay-tuned *ngSwitchCase="'stay-tuned'"></app-stay-tuned>
+          <app-excess-cost-per-student *ngSwitchCase="'excess-cost-per-student'"></app-excess-cost-per-student>
+          <app-homeowner-tax-breakdown-chart *ngSwitchCase="'homeowner-tax-breakdown-chart'"></app-homeowner-tax-breakdown-chart>
         </div>
       </div>
     </div>
