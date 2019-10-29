@@ -67,7 +67,11 @@ export class ComparisonsComponent  {
           { name: "Deficit", format: "number"},
           { name: "DeficitPerStudent", format: "number"},
           { name: "ExcessChichesterSpending", format: "number", recommended: true },
-          { name: "CostPerStudentComparedToChichester", format: "number" }
+          {
+            name: "CostPerStudentComparedToChichester",
+            format: "number",
+            blurb: "How much more per-student Chichester pays compared to other districts. For example, Chichester pays over $5k more per-student than PennDelco." 
+          }
         ]
       },
       {

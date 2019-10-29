@@ -11,6 +11,7 @@ import { IntroWelcomeComponent } from './why-taxes-are-high/intro/intro-welcome.
 import { ExcessCostPerStudentComponent } from './why-taxes-are-high/excess/excess-cost-per-student.component';
 import { StayTunedComponent } from './why-taxes-are-high/stay-tuned/stay-tuned.component';
 import { SharedModule } from "../shared/shared.module";
+import { ExcessExpendituresComponent } from './why-taxes-are-high/excess/excess-expenditures.component';
 
 let routing = RouterModule.forChild([
   { path: "tax-payers-guide-to-high-chi-taxes", redirectTo: 'tax-payers-guide-to-high-chi-taxes/intro-welcome', pathMatch: 'full'},
@@ -26,7 +27,8 @@ let routing = RouterModule.forChild([
     IntroTopicsComponent,
     IntroWelcomeComponent,
     ExcessCostPerStudentComponent,
-    StayTunedComponent
+    StayTunedComponent,
+    ExcessExpendituresComponent
   ],
   imports: [
     routing,

@@ -26,7 +26,14 @@
     <app-assessed-new-revenue-per-student *ngSwitchCase="'AssessedNewRevenuePerStudent'"></app-assessed-new-revenue-per-student>
     <app-psers-net-contribution-increase *ngSwitchCase="'PsersNetContributionIncrease'"></app-psers-net-contribution-increase>
 
-    <app-comparisons-grid *ngSwitchDefault
+    <div *ngIf="!isBusy && selectedOption.blurb">
+      <div class="comparison-blurb">
+        <p>
+          {{selectedOption.blurb}}
+        </p> 
+      </div>
+    </div>
+      <app-comparisons-grid *ngSwitchDefault
                           [comparisons]="comparisons"
                           [metric]="selectedOption.name"
                           [isPercent]="selectedOption.format === 'percent'">

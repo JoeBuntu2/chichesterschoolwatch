@@ -1,0 +1,52 @@
+<div>
+  <app-busy-indicator [isBusy]="isBusy"></app-busy-indicator>
+</div>
+
+<div class="p-3 ">
+  <h5 class="bg-info text-white p-3 rounded">
+    How much ChichesterSD would save if it's costs were in line with other districts.
+  </h5>
+  <div class="list-group">
+    <div class="list-group-item ">
+      <span class="badge-pill badge-info center">2</span>For each district, this shows how much
+      we would cut in costs if our costs-per-student were the same as that district.
+
+      <p class="mt-3">
+        For Example: PennDelco spends
+        <a [routerLink]='["/budgets/comparisons/cost-per-student-compared-to-chichester"]'>$5,535 less per student</a> than Chichester.
+        If you multiply this
+        difference in cost-per-student by Chichester's enrollment (<i>
+          I use average enrollment of 3,247
+          from the previous 4 years
+        </i>) you'll end up with almost <span class="font-weight-bold">18 million</span>
+        in cost savings.
+
+      </p> 
+  </div>
+  </div>
+</div>
+
+<div class="p-3 d-md-none" *ngIf="!isBusy" style="overflow: hidden; margin-bottom: 20px;">
+  <div class="chart-container" style="position: relative; height: 70vh; width: 95vw">
+    <canvas baseChart
+            [datasets]="barChartData"
+            [labels]="barChartLabels"
+            [options]="barChartOptions"
+            [plugins]="barChartPlugins"
+            [legend]="barChartLegend"
+            [chartType]="barChartType"></canvas>
+  </div>
+</div>
+
+<div class="p-3 d-none d-md-block" *ngIf="!isBusy" style="overflow: hidden; margin-bottom: 20px;">
+  <div>
+    <canvas baseChart
+            width="768" height="600"
+            [datasets]="barChartData"
+            [labels]="barChartLabels"
+            [options]="barChartOptions"
+            [plugins]="barChartPlugins"
+            [legend]="barChartLegend"
+            [chartType]="barChartType"></canvas>
+  </div>
+</div>
