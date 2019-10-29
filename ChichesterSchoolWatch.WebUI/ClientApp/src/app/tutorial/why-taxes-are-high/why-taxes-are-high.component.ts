@@ -17,7 +17,6 @@ export class WhyTaxesAreHighComponent implements OnInit {
       { name: 'intro-welcome', display: 'Welcome! Many reasons to care.' },
       { name: 'intro-topics', display: 'Topics we will be covering.' },
       { name: 'excess-cost-per-student', display: "Excessive Cost-Per-Student"},
-      { name: 'homeowner-tax-breakdown-chart', display: "tax-break-down"},
       { name: 'stay-tuned', display: 'Stay Tuned for Completion!' }
       //{ name: 'excess-cost-per-student', display: 'Excess Cost Per Student' },
       //{ name: 'excess-spending', display: 'Excess Spending' }

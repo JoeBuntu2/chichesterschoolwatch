@@ -57,7 +57,7 @@ export class ExcessCostPerStudentComponent {
           this.comparisons = comparisons;
 
           //get the last two fiscal years
-          const keys = Object.keys(this.comparisons.fiscalYears).sort((a,b) =>  -1 * a.localeCompare(b)).slice(0,2);
+          const keys = Object.keys(this.comparisons.fiscalYears).sort((a,b) =>  -1 * a.localeCompare(b)).slice(0,1);
 
           //load fiscal years
           this.barChartLabels = [];
