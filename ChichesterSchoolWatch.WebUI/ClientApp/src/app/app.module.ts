@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component'; 
 import { LowerCaseUrlSerializer } from './lower-case-url-serializer';
 import { AboutComponent } from './about/about.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { AboutComponent } from './about/about.component';
         path: "tutorials",
         loadChildren: "./tutorial/tutorial.module#TutorialModule"
       }
-    ])
+    ]),
+    NoopAnimationsModule
   ],
   providers: [
     {

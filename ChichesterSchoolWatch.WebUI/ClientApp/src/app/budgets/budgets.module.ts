@@ -22,7 +22,7 @@ import { AssessedNewRevenueComponent } from './comparisons/assessed-new-revenue/
 import { AssessedNewRevenuePerStudentComponent } from './comparisons/assessed-new-revenue-per-student/assessed-new-revenue-per-student.component';
 import { AssessedComponent } from './comparisons/assessed/assessed.component';
 import { PsersNetContributionIncreaseComponent } from './comparisons/psers-net-contribution-increase/psers-net-contribution-increase.component';
-
+import {MatMenuModule} from '@angular/material/menu';
 
 
 let routing = RouterModule.forChild([
@@ -38,6 +38,7 @@ let routing = RouterModule.forChild([
     NgbModule,
     SharedModule,
     LightboxModule,
+    MatMenuModule,
     OrderModule
   ],
   declarations: [BudgetsComponent, RevenuesComponent, ExpendituresComponent, ComparisonsComponent, CostPerStudentComponent, DeficitComponent, DeficitPerStudentComponent, ExcessChichesterSpendingComponent, TaxRateIncreaseComponent, SpecialEducation1200PercentageCostComponent, ComparisonsGridComponent, ComparisonOptionsComponent, AssessedIncreaseComponent, AssessedNewRevenueComponent, AssessedNewRevenuePerStudentComponent, AssessedComponent, PsersNetContributionIncreaseComponent]

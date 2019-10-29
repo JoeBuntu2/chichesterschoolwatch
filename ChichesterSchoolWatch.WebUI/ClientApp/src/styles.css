@@ -49,3 +49,9 @@ body { }
   }
  
 }
+
+.mat-menu-panel {
+  max-width: 100% !important;
+  max-height: 400px !important;
+  overflow-y: scroll !important;
+}

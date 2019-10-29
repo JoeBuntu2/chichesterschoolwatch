@@ -5,7 +5,7 @@
       <button class="nav-link"
               ngbDropdownItem
               *ngFor="let option of optionGroup.groupOptions"
-              [routerLink]='["../" + option.canonicalUrl]' >
+              [routerLink]='["../" + option.canonicalUrl]'>
         {{option.displayName}}
         <span *ngIf="option.misleading" class="badge badge-warning text-right">Misleading!</span>
         <span *ngIf="option.recommended" class="badge badge-success text-right">Popular!</span>
@@ -13,31 +13,21 @@
     </div>
   </div>
 </div>
-
-<div ngbDropdown class="d-md-none">
-  <button class="btn btn-outline-primary d-block font-weight-bold" id="MobileComparisionDropdown" ngbDropdownToggle>All District Comparisons</button>
-  <div ngbDropdownMenu [attr.aria-labelledby]="'MobileComparisionDropdown'">
+<div class="d-md-none">
+  <button mat-button [matMenuTriggerFor]="menu" class="btn btn-outline-primary d-block font-weight-bold">All District Comparisons</button>
+  <mat-menu #menu="matMenu" class="options-menu">
     <ng-template let-optionGroup ngFor [ngForOf]="optionGroups">
       <span class="pl-2">{{optionGroup.group}}</span>
-      
+
       <ng-template let-option ngFor [ngForOf]="optionGroup.groupOptions">
-        <button
-          class="nav-link nav-fill pl-5"
-          [ngClass]="{'active': option.isActive}"
-          ngbDropdownItem [routerLink]='["../" + option.canonicalUrl]'>
+        <button class="nav-link nav-fill pl-5"
+                [ngClass]="{'active': option.isActive}"
+                ngbDropdownItem [routerLink]='["../" + option.canonicalUrl]'>
           {{option.displayName}}
           <span *ngIf="option.misleading" class="badge badge-warning text-right">Misleading!</span>
           <span *ngIf="option.recommended" class="badge badge-success text-right">Popular!</span>
         </button>
       </ng-template>
     </ng-template>
-  </div>
+  </mat-menu>
 </div>
-<!--<select>
-  <ng-template let-optionGroup ngFor [ngForOf]="optionGroups">
-    <ng-template let-option ngFor [ngForOf]="optionGroup.groupOptions">
-      <option>{{option.displayName}}</option>
-    </ng-template>
-  </ng-template>
-</select>-->
-
