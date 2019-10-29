@@ -13,14 +13,21 @@ import { forkJoin } from 'rxjs';
 export class ExcessExpendituresComponent  {
 
   public barChartOptions: ChartOptions = {
-     responsive: true,
-
+     //responsive: true,
+     title: {
+       display: true,
+       text: 'Millions Chichester Would Save'
+     },
     // We use these empty structures as placeholders for dynamic theming.
     scales: { xAxes: [{}], yAxes: [{
+      scaleLabel: {
+        display: true,
+        labelString: 'Millions'
+      },
       display: true,
       ticks: {
         beginAtZero: true,
-        max: 22000000
+        max: 22
       }
     }] },
     plugins: {
@@ -80,10 +87,10 @@ export class ExcessExpendituresComponent  {
 
             //foreach fy metric set of data
             keys.forEach(key => {
-              let fyMetrics = districtComparisonData.metricsByFiscalYear[key];
-
-              let metric = Math.round(fyMetrics.metrics['ExcessChichesterSpending'].value);
-              data.push(metric);
+              const  fyMetrics = districtComparisonData.metricsByFiscalYear[key];
+              const millions = fyMetrics.metrics['ExcessChichesterSpending'].value / 100000;
+              let metric = Math.round(millions);
+              data.push(metric / 10);
 
             });
  
