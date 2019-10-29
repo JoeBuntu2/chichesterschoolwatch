@@ -14,9 +14,9 @@ export class WhyTaxesAreHighComponent implements OnInit {
   constructor(activeRoute: ActivatedRoute) {
 
     this.steps = [
-      { name: 'intro-welcome', display: 'Welcome: There are many reasons for you to care.' },
+      { name: 'intro-welcome', display: 'Welcome! Many reasons for you to care.' },
       { name: 'intro-topics', display: 'Topics we will be covering.' },
-      { name: 'stay-tuned', display: 'Stay Tuned!' }
+      { name: 'stay-tuned', display: 'Stay Tuned for Completion!' }
       //{ name: 'excess-cost-per-student', display: 'Excess Cost Per Student' },
       //{ name: 'excess-spending', display: 'Excess Spending' }
     ]; 
@@ -44,10 +44,15 @@ export class WhyTaxesAreHighComponent implements OnInit {
     return this.currentStep > 0;
   }
 
+  get allowNext(): boolean {
+    return this.currentStep < (this.steps.length - 1);
+  }
+
   get prevStep(): string {
     if (this.allowPrevious)
       return this.steps[this.currentStep - 1].name;
     return null;
+  
   }
 
   get nextStep(): string {
@@ -56,17 +61,5 @@ export class WhyTaxesAreHighComponent implements OnInit {
     return null;
   }
 
-  prev() {
-    if (this.allowPrevious)
-      this.currentStep--;
-  }
- 
-  next() {
-    if (this.allowNext)
-      this.currentStep++;
-  }
 
-  get allowNext(): boolean {
-    return this.currentStep <= this.steps.length;
-  }
 }

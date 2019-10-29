@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./intro-welcome.component.css']
 })
 export class IntroWelcomeComponent implements OnInit {
-
+  public condensed: boolean = true;
   constructor() { }
 
   ngOnInit() {

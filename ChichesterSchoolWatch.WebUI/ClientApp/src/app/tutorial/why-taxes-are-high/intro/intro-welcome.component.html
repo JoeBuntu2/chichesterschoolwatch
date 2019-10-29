@@ -1,20 +1,26 @@
-<div class="p-3 ">
-  <p class="pl-3 pr-3">
+<div class="p-3">
+  <div class="mb-3">
     If you don't have a good handle on Chichester's School budgets,
-    then this is a good starting point. This site offers a lot of data and interpretation
-    of Chichester budget data, but it can be a bit overwhelming to take in. This guide is to
-    help give you the high-level overview.
-  </p>
-  <p class="pl-3 pr-3">
+    then this is a good starting point. This site offers a lot of Delco school district
+    data and interpretation of that data. It can be a bit overwhelming to
+    navigate through it
+    <p *ngIf="condensed" class="d-md-none badge p-2 mt-2 mb-0 badge-primary badge-pill cursor-pointer" (click)="condensed = false">Click Here To Show More</p>
+    <span [ngClass]="{'d-none': condensed}" class="d-md-inline">
+       on your own and piece everything together. This guide
+      is intended to ease the burden on you, and walk you through the Chichester SD
+      Tax story.
+    </span> 
+  </div>
+  <p class="d-md-block" [ngClass]="{'d-none': condensed}">
     Or perhaps you are feeling bold and want to jump right into the data.
     We have over 20 metrics under Budgets -> Comparisons on which to compare Delco Districts on.
-    <a [routerLink]='["/budgets/comparisons/cost-per-student"]'>Cost-Per-Student</a> is a great
+    <a target="_blank" [routerLink]='["/budgets/comparisons/cost-per-student"]'>Cost-Per-Student</a> is a great
     place to start. Or perhaps you want to peruse the
-    <a [routerLink]='["/budgets/revenues"]'>budget revenue</a> or
-    <a [routerLink]='["/budgets/expenditures"]'>budget expenditure</a> data we have painstakingly
+    <a target="_blank" [routerLink]='["/budgets/revenues"]'>budget revenue</a> or
+    <a target="_blank" [routerLink]='["/budgets/expenditures"]'>budget expenditure</a> data we have painstakingly
     collected from 30 pdf PDE 2028 budgets.
   </p>
-  <div class="p-3 ">
+  <div>
     <h5 class="bg-info text-white p-3 rounded">
       Why Should You Care About Chichester SD Taxes?
     </h5>
@@ -33,14 +39,14 @@
         in expenditures if it simply kept costs in line  with other Delco school districts and schools across PA.
       </div>
       <div class="list-group-item ">
-        <span class="badge-pill badge-info center">3</span>If those 12-17 million dollars were cut
-        from Chichester's $48 million in local tax revenue, tax-payers would see a 25%-35% reduction
+        <span class="badge-pill badge-info center">3</span>If those $12-17 million dollars were cut
+        from Chichester's $45 million in local tax revenue, tax-payers would see a 25%-37% reduction
         in property taxes.
       </div>
-      <div class="list-group-item ">
+      <div class="list-group-item font-weight-bolder">
         <span class="badge-pill badge-info center">4</span>For a home assessed at $165,000,
         a 25%-35% reduction in school property tax  would reduce a home owners $6500 school tax bill
-        between $1,640 and $2,300.
+        between $1,600 and $2,400.
       </div>
       <div class="list-group-item ">
         <span class="badge-pill badge-info center">5</span>Chichester spends $955 more
@@ -59,14 +65,4 @@
     </div>
   </div>
 
-  <!--<img
-    alt="burning cash"
-    src="/assets/images/burning-cash.jpg"
-    width="300"
-    height="300"/>
-  <div>
-    <i>Every once in a while, there is a strange odor stirring around Chichester.
-      Some suspect it's the <a href="https://www.delcotimes.com/news/local/strange-odor-reported-in-western-part-of-county-for-hours/article_d3f62da2-f81d-11e9-b606-f39d1e9f5b01.html">refineries</a>,
-      but could it be 12-17 million dollars of tax-payer money going up in flames?</i>
-  </div>-->
 </div>
