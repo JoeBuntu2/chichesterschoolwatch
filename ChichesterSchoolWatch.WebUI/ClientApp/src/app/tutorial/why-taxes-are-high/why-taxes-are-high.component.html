@@ -3,13 +3,19 @@
     <div class="col-s col-md-10 col-lg-8">
       <div class="row">
         <div class="col">
-          <div class="bg-light tutorial-title p-3 rounded">
-            <div class="h4">Chichester SD Tax-Payers Guide</div>
-            <h5>{{steps[currentStep].display}}</h5> 
+          <div class="bg-light tutorial-title p-3 pb-1 rounded">
+            <div class="d-none d-md-block">
+              <div class="h4">Chichester SD Tax-Payers Guide</div>
+              <h5>{{steps[currentStep].display}}</h5>
+            </div>
+            <div class="d-md-none">
+              <div class="h5">Chichester SD Tax-Payers Guide</div>
+              <div class="font-weight-bolder">Page {{currentStep + 1}}: {{steps[currentStep].display}}</div>
+            </div>
             <div class="navbar">
               <a class="btn btn-warning float-left wizard-nav" [routerLink]='["../" + prevStep]'>Back</a>
               <a class="btn btn-warning float-right wizard-nav" [routerLink]='["../" + nextStep]'>Next</a>
-            </div> 
+            </div>
           </div> 
         </div> 
       </div>
@@ -17,6 +23,7 @@
         <div [ngSwitch]="currentStepName" class="step-container"> 
           <app-intro-welcome *ngSwitchCase="'intro-welcome'"></app-intro-welcome>
           <app-intro-topics *ngSwitchCase="'intro-topics'"></app-intro-topics>
+          <app-excess-cost-per-student *ngSwitchCase="'excess-cost-per-student'"></app-excess-cost-per-student>
           <app-stay-tuned *ngSwitchCase="'stay-tuned'"></app-stay-tuned>
         </div>
       </div>

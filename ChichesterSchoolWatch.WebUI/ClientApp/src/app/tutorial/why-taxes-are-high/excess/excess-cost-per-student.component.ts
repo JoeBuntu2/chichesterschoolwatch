@@ -27,13 +27,12 @@ export class ExcessCostPerStudentComponent {
     }
   };
 
-  public barChartLabels: Label[] = ['School', 'Township', 'County'];
+  public barChartLabels: Label[] = [];
   public barChartType: ChartType = 'bar';
   public barChartLegend = true;
   public barChartPlugins = [pluginDataLabels];
 
-  public barChartData: ChartDataSets[] = [ 
-  ];
+  public barChartData: ChartDataSets[] = [{ data: [] }];
   public isBusy: boolean;
   public districts: any[];
   public comparisons: any;
@@ -71,7 +70,7 @@ export class ExcessCostPerStudentComponent {
             keys.forEach(key => {
               let fyMetrics = districtComparisonData.metricsByFiscalYear[key];
 
-              let metric = fyMetrics.metrics['TotalCostPerStudent'];
+              let metric = Math.round(fyMetrics.metrics['TotalCostPerStudent']);
               data.push(metric);
 
             });
