@@ -1,13 +1,14 @@
 <div>
   <div>
-    <div class="d-block" style="max-width: 500px; max-height: 500px">
+    <div style="display: block">
       <canvas baseChart
               [datasets]="barChartData"
               [labels]="barChartLabels"
               [options]="barChartOptions"
               [plugins]="barChartPlugins"
               [legend]="barChartLegend"
-              [chartType]="barChartType"></canvas>
-    </div>
+              [chartType]="barChartType">
+      </canvas>
+    </div> 
   </div>
 </div>

@@ -13,10 +13,8 @@ import { forkJoin } from 'rxjs';
 export class ExcessCostPerStudentComponent {
 
   public barChartOptions: ChartOptions = {
-    responsive: true,
-    legend: {
-      display: false
-    },
+    // responsive: true,
+
     // We use these empty structures as placeholders for dynamic theming.
     scales: { xAxes: [{}], yAxes: [{}] },
     plugins: {
@@ -32,7 +30,7 @@ export class ExcessCostPerStudentComponent {
   public barChartLegend = true;
   public barChartPlugins = [pluginDataLabels];
 
-  public barChartData: ChartDataSets[] = [{ data: [] }];
+  public barChartData: ChartDataSets[] = [];
   public isBusy: boolean;
   public districts: any[];
   public comparisons: any;
@@ -74,7 +72,7 @@ export class ExcessCostPerStudentComponent {
               data.push(metric);
 
             });
-            let districtData: ChartDataSets = { data: data };
+            let districtData: ChartDataSets = { data: data, label: districtComparisonData.district.name };
             this.barChartData.push(districtData);
           });
 

@@ -1,7 +1,7 @@
-<div>
-  <div>
+<div *ngIf="!isBusy"> 
     <div>
       <canvas baseChart
+              width="600" height="400"
               [datasets]="barChartData"
               [labels]="barChartLabels"
               [options]="barChartOptions"
@@ -9,5 +9,4 @@
               [legend]="barChartLegend"
               [chartType]="barChartType"></canvas>
     </div>
-  </div>
-</div>
+ </div>
