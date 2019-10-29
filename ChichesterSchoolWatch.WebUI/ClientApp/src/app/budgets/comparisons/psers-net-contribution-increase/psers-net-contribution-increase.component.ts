@@ -23,9 +23,9 @@ export class PsersNetContributionIncreaseComponent {
     this.isBusy = true;
 
     this.album = [ {
-      src: "../assets/images/bartholf-exaggerates-psers.png",
+      src: "https://cdn.chichesterschoolwatch.com/bartholf-exaggerates-psers.png",
       caption: "Bartholf suggests PSERS is straining the district",
-      thumb: "../assets/images/bartholf-exaggerates-psers.png"
+      thumb: "https://cdn.chichesterschoolwatch.com/bartholf-exaggerates-psers.png"
 
     }];
  

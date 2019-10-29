@@ -25,9 +25,9 @@ export class DeficitPerStudentComponent  {
     this.isBusy = true;
 
     this.album = [ {
-      src: "../assets/images/bartholf-touts-zero-percent.png",
+      src: "https://cdn.chichesterschoolwatch.com/bartholf-touts-zero-percent.png",
       caption: "Bartholf forgets Deficit, Touts Zero Percent Increase.",
-      thumb: "../assets/images/bartholf-touts-zero-percent.png"
+      thumb: "https://cdn.chichesterschoolwatch.com/bartholf-touts-zero-percent.png"
 
     }];
  

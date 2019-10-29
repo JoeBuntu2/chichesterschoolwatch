@@ -27,9 +27,9 @@ export class SpecialEducation1200PercentageCostComponent  {
     this.isBusy = true;
 
     this.album = [ {
-      src: "../assets/images/bartholf-misleads-on-special-education-budget-impact.png",
+      src: "https://cdn.chichesterschoolwatch.com/bartholf-misleads-on-special-education-budget-impact.png",
       caption: "Bartholf suggests chichester spends more on special education than other districts.",
-      thumb: "../assets/images/bartholf-misleads-on-special-education-budget-impact.png",
+      thumb: "https://cdn.chichesterschoolwatch.com/bartholf-misleads-on-special-education-budget-impact.png",
 
     }];
 

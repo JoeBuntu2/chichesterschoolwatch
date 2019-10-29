@@ -23,9 +23,9 @@ export class AssessedIncreaseComponent {
     this.isBusy = true;
 
     this.album = [ {
-      src: "../assets/images/bartholf-do-the-math-lowest-in-the-county.png",
+      src: "https://cdn.chichesterschoolwatch.com/bartholf-do-the-math-lowest-in-the-county.png",
       caption: "Bartholf bludgens tax-payer with DCIU tax comparison chart",
-      thumb: "../assets/images/bartholf-do-the-math-lowest-in-the-county.png"
+      thumb: "https://cdn.chichesterschoolwatch.com/bartholf-do-the-math-lowest-in-the-county.png"
 
     }];
  
