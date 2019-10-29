@@ -1,12 +1,28 @@
-<div *ngIf="!isBusy"> 
-    <div>
-      <canvas baseChart
-              width="600" height="400"
-              [datasets]="barChartData"
-              [labels]="barChartLabels"
-              [options]="barChartOptions"
-              [plugins]="barChartPlugins"
-              [legend]="barChartLegend"
-              [chartType]="barChartType"></canvas>
-    </div>
- </div>
+
+<div>
+  <app-busy-indicator [isBusy]="isBusy"></app-busy-indicator>
+</div>
+ 
+<div class="p-3 ">
+  <h5 class="bg-info text-white p-3 rounded">
+    Excessive Cost-Per-Student
+  </h5> 
+  <div class="list-group">
+    <div class="list-group-item ">
+      <span class="badge-pill badge-info center">1</span>How Chichester is
+      spending  <a [routerLink]='["/budgets/comparisons/cost-per-student"]'>4-5k more per student</a>.
+    </div> 
+  </div>
+</div>
+
+<div class="p-3" *ngIf="!isBusy" style="overflow: hidden; margin-bottom: 20px;">
+  <div class="chart-container" style="position: relative; height: 60vh; width: 80vw">
+    <canvas baseChart
+            [datasets]="barChartData"
+            [labels]="barChartLabels"
+            [options]="barChartOptions"
+            [plugins]="barChartPlugins"
+            [legend]="barChartLegend"
+            [chartType]="barChartType"></canvas>
+  </div>
+</div> 

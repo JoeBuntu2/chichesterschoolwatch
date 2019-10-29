@@ -13,10 +13,17 @@ import { forkJoin } from 'rxjs';
 export class ExcessCostPerStudentComponent {
 
   public barChartOptions: ChartOptions = {
-    // responsive: true,
+     responsive: true,
 
     // We use these empty structures as placeholders for dynamic theming.
-    scales: { xAxes: [{}], yAxes: [{}] },
+    scales: { xAxes: [{}], yAxes: [{
+      display: true,
+      ticks: {
+        beginAtZero: false,
+        min: 15000,
+        max: 28000
+      }
+    }] },
     plugins: {
       datalabels: {
         anchor: 'end',
@@ -24,6 +31,7 @@ export class ExcessCostPerStudentComponent {
       }
     }
   };
+
 
   public barChartLabels: Label[] = [];
   public barChartType: ChartType = 'bar';
@@ -43,14 +51,13 @@ export class ExcessCostPerStudentComponent {
     this.isBusy = true;
 
     forkJoin(
-        http.get<any>(baseUrl + 'api/DistrictComparisons'),
-        http.get<any[]>(baseUrl + 'api/Districts')
+        http.get<any>(baseUrl + 'api/DistrictComparisons') 
       )
-      .subscribe(([comparisons, districts]) => {
+      .subscribe(([comparisons]) => {
           this.comparisons = comparisons;
-          this.districts = districts.sort((a, b) => a.name.localeCompare(b.name));
 
-          const keys = Object.keys(this.comparisons.fiscalYears);
+          //get the last two fiscal years
+          const keys = Object.keys(this.comparisons.fiscalYears).sort((a,b) =>  -1 * a.localeCompare(b)).slice(0,2);
 
           //load fiscal years
           this.barChartLabels = [];
@@ -59,9 +66,13 @@ export class ExcessCostPerStudentComponent {
             this.barChartLabels.push(<Label> fy);
           });
 
-          //foreach district set of data
-          comparisons.districtFiscalYearMetrics.forEach(districtComparisonData => {
+          //sort districts by name
+          const sortedDistrictMetrics =
+            comparisons.districtFiscalYearMetrics.sort((a, b) => a.district.name.localeCompare(b.district.name));
 
+          //foreach district set of data
+          sortedDistrictMetrics.forEach(districtComparisonData => {
+ 
             let data = [];  
 
             //foreach fy metric set of data
@@ -72,6 +83,7 @@ export class ExcessCostPerStudentComponent {
               data.push(metric);
 
             });
+ 
             let districtData: ChartDataSets = { data: data, label: districtComparisonData.district.name };
             this.barChartData.push(districtData);
           });
