@@ -13,6 +13,8 @@ import { StayTunedComponent } from './why-taxes-are-high/stay-tuned/stay-tuned.c
 import { SharedModule } from "../shared/shared.module";
 import { ExcessExpendituresComponent } from './why-taxes-are-high/excess/excess-expenditures.component';
 import { ImpactOnPropertyTaxesComponent } from './why-taxes-are-high/excess/impact-on-property-taxes.component';
+import { RtkDenialComponent } from './why-taxes-are-high/board/rtk-denial.component';
+import { LightboxModule } from 'ngx-lightbox';
 
 let routing = RouterModule.forChild([
   { path: "tax-payers-guide-to-high-chi-taxes", redirectTo: 'tax-payers-guide-to-high-chi-taxes/intro-welcome', pathMatch: 'full'},
@@ -30,12 +32,14 @@ let routing = RouterModule.forChild([
     ExcessCostPerStudentComponent,
     StayTunedComponent,
     ExcessExpendituresComponent,
-    ImpactOnPropertyTaxesComponent
+    ImpactOnPropertyTaxesComponent,
+    RtkDenialComponent
   ],
   imports: [
     routing,
     ChartsModule,
     CommonModule,
+    LightboxModule,
     SharedModule
   ]
 })

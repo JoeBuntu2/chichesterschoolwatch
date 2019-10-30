@@ -19,6 +19,7 @@ export class WhyTaxesAreHighComponent implements OnInit {
       { name: 'excess-cost-per-student', display: "Excessive Cost-Per-Student"},
       { name: 'excess-expenditures', display: "Excessive Expenditures"},
       { name: 'impact-on-property-taxes', display: "Impact to Your Property Taxes"},
+      { name: 'rtk-denial', display: "So you want to get involved..."},
       { name: 'stay-tuned', display: 'Stay Tuned for Completion!' }
       //{ name: 'excess-cost-per-student', display: 'Excess Cost Per Student' },
       //{ name: 'excess-spending', display: 'Excess Spending' }

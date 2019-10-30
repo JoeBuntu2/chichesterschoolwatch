@@ -41,6 +41,7 @@
     <Folder Include="ClientApp\src\app\shared\components\" />
     <Folder Include="ClientApp\src\app\tutorial\why-taxes-are-high\intro\" />
     <Folder Include="ClientApp\src\app\tutorial\why-taxes-are-high\excess\" />
+    <Folder Include="ClientApp\src\app\tutorial\why-taxes-are-high\board\" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
