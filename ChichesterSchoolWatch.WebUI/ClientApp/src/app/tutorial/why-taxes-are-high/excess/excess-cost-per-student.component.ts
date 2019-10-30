@@ -14,9 +14,11 @@ export class ExcessCostPerStudentComponent {
 
   public barChartOptions: ChartOptions = {
      responsive: true,
+     maintainAspectRatio: false,
      title: {
        display: true,
-       text: 'Delco Districts Cost-Per-Student'
+       text: 'Delco Districts Cost-Per-Student',
+       fontSize: 16
      },
     // We use these empty structures as placeholders for dynamic theming.
     scales: { xAxes: [{}], yAxes: [{

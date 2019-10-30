@@ -13,10 +13,12 @@ import { forkJoin } from 'rxjs';
 export class ExcessExpendituresComponent  {
 
   public barChartOptions: ChartOptions = {
-     //responsive: true,
+    responsive: true,
+    maintainAspectRatio: false,
      title: {
        display: true,
-       text: 'Millions Chichester Would Save'
+       text: '$ Millions Chichester Would Save',
+       fontSize: 16
      },
     // We use these empty structures as placeholders for dynamic theming.
     scales: { xAxes: [{}], yAxes: [{

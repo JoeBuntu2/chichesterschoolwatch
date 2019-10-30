@@ -20,23 +20,9 @@
     </div>
   </div>
 </div>
-
-<div class="p-3 d-md-none" *ngIf="!isBusy" style="overflow: hidden; margin-bottom: 20px;">
-  <div class="chart-container" style="position: relative; height: 70vh; width: 95vw">
-    <canvas baseChart
-            [datasets]="barChartData"
-            [labels]="barChartLabels"
-            [options]="barChartOptions"
-            [plugins]="barChartPlugins"
-            [legend]="barChartLegend"
-            [chartType]="barChartType"></canvas>
-  </div>
-</div>
-
-<div class="p-3 d-none d-md-block" *ngIf="!isBusy" style="overflow: hidden; margin-bottom: 20px;">
-  <div>
-    <canvas baseChart
-            width="768" height="600"
+<div class="p-3" *ngIf="!isBusy" style="overflow: hidden; margin-bottom: 50px;">
+  <div class="chart-container">
+    <canvas baseChart 
             [datasets]="barChartData"
             [labels]="barChartLabels"
             [options]="barChartOptions"
