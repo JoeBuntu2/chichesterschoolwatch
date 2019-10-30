@@ -1,0 +1,52 @@
+<div>
+  <app-busy-indicator [isBusy]="isBusy"></app-busy-indicator>
+</div>
+
+<div class="p-3 ">
+  <h5 class="bg-info text-white p-3 rounded">
+    Your property taxes
+    would be 25-35% less if Chichester's costs were in line with other Delco districts.
+  </h5>
+  <div class="list-group">
+    <div class="list-group-item ">
+      <p>
+        <span class="badge-pill badge-info center">3</span>The previous page showed
+        for several Delco districts, how much Chichester SD would save,
+        if it's cost-per-student was the same as each of those districts. So again,
+        if Chichester spent what PennDelco spends on each student, it would save nearly
+        <span class="font-weight-bold">18 million dollars</span>.
+      </p>
+
+      <p *ngIf="condensed" class="d-md-none badge p-2 mt-2 mb-0 badge-primary badge-pill cursor-pointer" (click)="condensed = false">Click Here To Show More</p>
+      <p class="d-md-block" [ngClass]="{'d-none': condensed}">
+        Now it's time to put some real meaning behind those numbers. Here we show
+        what your property taxes would look like if Chichester simply spent the
+        same per student as each of the other Delco districts.
+      </p>
+
+      <p class="d-md-block" [ngClass]="{'d-none': condensed}">
+        A key assumption that is made here is that the entire $12-17 million dollars
+        could be taken directly out of this year's $45 million in local tax revenue.
+        I think it is a fair assumption to make. Interboro School district ranks immediately next
+        to Chichester in
+        <a href="https://www.bizjournals.com/philadelphia/news/2019/08/30/how-wealthy-are-southeastern-pennsylvania-school.html#g/458769/13"
+           target="_blank">median household income</a>
+        and receives a similar level of state funding as shown in the 
+        in this <a [routerLink]='["/budgets/comparisons/state-revenue-per-student"]'>state-revenue-per-student</a> comparison.
+      </p> 
+    </div>
+  </div>
+</div>
+
+ 
+<div class="p-3" *ngIf="!isBusy" style="overflow: hidden; margin-bottom: 50px;">
+  <div class="chart-container">
+    <canvas baseChart 
+            [datasets]="barChartData"
+            [labels]="barChartLabels"
+            [options]="barChartOptions"
+            [plugins]="barChartPlugins"
+            [legend]="barChartLegend"
+            [chartType]="barChartType"></canvas>
+  </div>
+</div>

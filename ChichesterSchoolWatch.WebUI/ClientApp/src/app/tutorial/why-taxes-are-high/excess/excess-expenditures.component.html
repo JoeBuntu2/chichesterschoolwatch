@@ -21,14 +21,19 @@
         </i>) you'll end up with almost <span class="font-weight-bold">18 million</span>
         in cost savings.
 
-      </p> 
-  </div>
+      </p>
+      <p>
+        Unfortunately some members of the school board aren't completely straight forward when
+        it comes to answering why we are spending this much additional money (see
+        <a [routerLink]='["/budgets/comparisons/psers-net-contribution-increase"]'>PSERS</a>).
+        Remember to ask yourself this simple question: 'Is this a $12-18 million dollar reason?'
+      </p>
+    </div>
   </div>
 </div>
 
  
 <div class="p-3" *ngIf="!isBusy" style="overflow: hidden; margin-bottom: 50px;">
-<div class="chart-container">
   <div class="chart-container">
     <canvas baseChart 
             [datasets]="barChartData"

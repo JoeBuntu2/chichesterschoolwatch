@@ -17,7 +17,7 @@ export class ExcessExpendituresComponent  {
     maintainAspectRatio: false,
      title: {
        display: true,
-       text: '$ Millions Chichester Would Save',
+       text: '$$$ Millions Chichester Would Save',
        fontSize: 16
      },
     // We use these empty structures as placeholders for dynamic theming.
@@ -90,9 +90,9 @@ export class ExcessExpendituresComponent  {
             //foreach fy metric set of data
             keys.forEach(key => {
               const  fyMetrics = districtComparisonData.metricsByFiscalYear[key];
-              const millions = fyMetrics.metrics['ExcessChichesterSpending'].value / 100000;
+              const millions = fyMetrics.metrics['ExcessChichesterSpending'].value / 10000;
               let metric = Math.round(millions);
-              data.push(metric / 10);
+              data.push(metric / 100);
 
             });
  
