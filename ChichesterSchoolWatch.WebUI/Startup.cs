@@ -11,6 +11,7 @@ using SchoolWatch.Business.BudgetExpenditures;
 using SchoolWatch.Business.DistrictComparisons;
 using SchoolWatch.Business.Interface;
 using SchoolWatch.Business.Interface.DistrictComparers;
+using SchoolWatch.Business.Something;
 using SchoolWatch.Data;
 using SchoolWatch.Data.Repositories;
 using SchoolWatch.Data.Repositories.Interfaces;
@@ -50,7 +51,7 @@ namespace ChichesterSchoolWatch.WebUI
             services.AddTransient<IExpenditureCodesService, ExpenditureCodesService>();
             services.AddScoped<IFiscalYearsService, FiscalYearsService>(); 
             services.AddTransient<IRevenueCodesService, RevenueCodesService>();
-
+            services.AddTransient<ISomeNewService, SomeNewService>();
 
             
             services.AddScoped<IBudgetExpendituresRepository, BudgetExpendituresRepository>();

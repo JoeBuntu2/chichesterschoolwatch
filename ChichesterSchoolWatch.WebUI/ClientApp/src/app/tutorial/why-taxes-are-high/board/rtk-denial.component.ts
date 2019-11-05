@@ -7,7 +7,7 @@ import { Lightbox } from 'ngx-lightbox';
   styleUrls: ['./rtk-denial.component.css']
 })
 export class RtkDenialComponent  {
-  private album: any[] =  [ {
+  public  album: any[] =  [ {
     src: "https://cdn.chichesterschoolwatch.com/rtk-denied.PNG",
     caption: "Denied",
     thumb: "https://cdn.chichesterschoolwatch.com/rtk-denied.PNG"

@@ -6,6 +6,7 @@ using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Logging;
 using SchoolWatch.Business.DTO.DistrictComparisons; 
 using SchoolWatch.Business.Interface;
+using SchoolWatch.Business.Something;
 
 namespace ChichesterSchoolWatch.WebUI.Controllers
 {
@@ -14,13 +15,16 @@ namespace ChichesterSchoolWatch.WebUI.Controllers
     public class DistrictComparisonsController : ControllerBase
     {
         private readonly IDistrictComparisonService DistrictComparisonService;
+        private readonly ISomeNewService SomeNewService;
         private readonly ILogger<DistrictComparisonsController> Logger;
 
         public DistrictComparisonsController(
             IDistrictComparisonService districtComparisonService,
+            ISomeNewService someNewService,
             ILogger<DistrictComparisonsController> logger)
         {
             DistrictComparisonService = districtComparisonService;
+            SomeNewService = someNewService;
             Logger = logger;
         }
  
@@ -55,6 +59,12 @@ namespace ChichesterSchoolWatch.WebUI.Controllers
             }
 
             return results;
+        }
+
+        [HttpGet("somethingNew")]
+        public List<DistrictAmounts> SomethingNew(string district1, string district2)
+        {
+            return SomeNewService.CompareTwoBudgets(district1, district2);
         }
 
         public class DownloadRecord
