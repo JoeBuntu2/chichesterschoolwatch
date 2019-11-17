@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ChartsModule } from 'ng2-charts';
 import { BudgetsComponent } from './budgets.component';
 import { RevenuesComponent } from './revenues/revenues.component';
 import { ExpendituresComponent } from './expenditures/expenditures.component';
@@ -36,12 +37,34 @@ let routing = RouterModule.forChild([
   imports: [
     CommonModule,
     routing,
+    ChartsModule,
     NgbModule,
     SharedModule,
     LightboxModule,
     MatMenuModule,
     OrderModule
   ],
-  declarations: [BudgetsComponent, RevenuesComponent, ExpendituresComponent, ComparisonsComponent, CostPerStudentComponent, DeficitComponent, DeficitPerStudentComponent, ExcessChichesterSpendingComponent, TaxRateIncreaseComponent, SpecialEducation1200PercentageCostComponent, ComparisonsGridComponent, ComparisonOptionsComponent, AssessedIncreaseComponent, AssessedNewRevenueComponent, AssessedNewRevenuePerStudentComponent, AssessedComponent, PsersNetContributionIncreaseComponent, PsersContributionsBreakdownComponent]
+  declarations: [
+    BudgetsComponent,
+    RevenuesComponent,
+    ExpendituresComponent,
+    ComparisonsComponent,
+    CostPerStudentComponent,
+    DeficitComponent,
+    DeficitPerStudentComponent,
+    ExcessChichesterSpendingComponent,
+    TaxRateIncreaseComponent,
+    SpecialEducation1200PercentageCostComponent,
+    ComparisonsGridComponent,
+    ComparisonOptionsComponent,
+    AssessedIncreaseComponent,
+    AssessedNewRevenueComponent,
+    AssessedNewRevenuePerStudentComponent,
+    AssessedComponent,
+    PsersNetContributionIncreaseComponent,
+    PsersContributionsBreakdownComponent],
+  exports: [
+    PsersContributionsBreakdownComponent
+    ]
 })
 export class BudgetsModule { }

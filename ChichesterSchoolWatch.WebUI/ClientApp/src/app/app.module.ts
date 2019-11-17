@@ -10,13 +10,12 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { LowerCaseUrlSerializer } from './lower-case-url-serializer';
 import { AboutComponent } from './about/about.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { LetterChichesterPSERSNetContributionsComponent } from './letters/letter-chichester-psers-net-contributions/letter-chichester-psers-net-contributions.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent, 
-    AboutComponent, LetterChichesterPSERSNetContributionsComponent
+    AboutComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -34,12 +33,12 @@ import { LetterChichesterPSERSNetContributionsComponent } from './letters/letter
         component: AboutComponent
       },
       {
-        path: "letters/board/psers-net-contributions-accuracy",
-        component: LetterChichesterPSERSNetContributionsComponent
-      },
-      {
         path: "budgets",
         loadChildren: "./budgets/budgets.module#BudgetsModule"
+      },
+      {
+        path: "letters",
+        loadChildren: "./letters/letters.module#LettersModule"
       },
       {
         path: "tutorials",
