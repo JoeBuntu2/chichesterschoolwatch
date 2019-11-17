@@ -1,0 +1,14 @@
+<p>
+  psers-contributions-breakdown works!
+</p>
+<div class="p-3" *ngIf="!isBusy" style="overflow: hidden; margin-bottom: 50px;">
+  <div class="chart-container">
+    <canvas baseChart
+            [datasets]="barChartData"
+            [labels]="barChartLabels"
+            [options]="barChartOptions"
+            [plugins]="barChartPlugins"
+            [legend]="barChartLegend"
+            [chartType]="barChartType"></canvas>
+  </div>
+</div>

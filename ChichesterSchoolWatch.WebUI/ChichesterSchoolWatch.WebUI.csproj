@@ -37,7 +37,9 @@
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="ClientApp\src\app\budgets\charts\" />
     <Folder Include="ClientApp\src\app\model\" />
+    <Folder Include="ClientApp\src\app\letters\" />
     <Folder Include="ClientApp\src\app\shared\components\" />
     <Folder Include="ClientApp\src\app\tutorial\why-taxes-are-high\intro\" />
     <Folder Include="ClientApp\src\app\tutorial\why-taxes-are-high\excess\" />

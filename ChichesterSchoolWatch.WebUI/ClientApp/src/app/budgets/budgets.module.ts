@@ -23,6 +23,7 @@ import { AssessedNewRevenuePerStudentComponent } from './comparisons/assessed-ne
 import { AssessedComponent } from './comparisons/assessed/assessed.component';
 import { PsersNetContributionIncreaseComponent } from './comparisons/psers-net-contribution-increase/psers-net-contribution-increase.component';
 import {MatMenuModule} from '@angular/material/menu';
+import { PsersContributionsBreakdownComponent } from './charts/psers-contributions-breakdown/psers-contributions-breakdown.component';
 
 
 let routing = RouterModule.forChild([
@@ -41,6 +42,6 @@ let routing = RouterModule.forChild([
     MatMenuModule,
     OrderModule
   ],
-  declarations: [BudgetsComponent, RevenuesComponent, ExpendituresComponent, ComparisonsComponent, CostPerStudentComponent, DeficitComponent, DeficitPerStudentComponent, ExcessChichesterSpendingComponent, TaxRateIncreaseComponent, SpecialEducation1200PercentageCostComponent, ComparisonsGridComponent, ComparisonOptionsComponent, AssessedIncreaseComponent, AssessedNewRevenueComponent, AssessedNewRevenuePerStudentComponent, AssessedComponent, PsersNetContributionIncreaseComponent]
+  declarations: [BudgetsComponent, RevenuesComponent, ExpendituresComponent, ComparisonsComponent, CostPerStudentComponent, DeficitComponent, DeficitPerStudentComponent, ExcessChichesterSpendingComponent, TaxRateIncreaseComponent, SpecialEducation1200PercentageCostComponent, ComparisonsGridComponent, ComparisonOptionsComponent, AssessedIncreaseComponent, AssessedNewRevenueComponent, AssessedNewRevenuePerStudentComponent, AssessedComponent, PsersNetContributionIncreaseComponent, PsersContributionsBreakdownComponent]
 })
 export class BudgetsModule { }
