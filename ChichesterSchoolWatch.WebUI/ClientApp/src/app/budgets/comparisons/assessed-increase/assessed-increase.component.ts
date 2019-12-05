@@ -1,7 +1,10 @@
-import { Component, Inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component } from '@angular/core';
 import { forkJoin } from 'rxjs';  
 import { Lightbox } from 'ngx-lightbox';
+import { DistrictApiService } from 'src/app/model/district-api.service';
+import { DistrictComparisionApiService } from 'src/app/model/district-comparision-api.service';
+import { District } from 'src/app/model/district';
+import { DistrictComparison } from 'src/app/model/district-comparison';
 
 @Component({
   selector: 'app-assessed-increase',
@@ -10,15 +13,15 @@ import { Lightbox } from 'ngx-lightbox';
 })
 export class AssessedIncreaseComponent {
   public isBusy: boolean;
-  public districts: any[];
-  public comparisons: any[];
+  public districts: District[];
+  public comparisons: DistrictComparison[];
   private album: any[];
   public condensed: boolean = true;
 
   constructor( 
-    private http: HttpClient, 
-    private lightbox: Lightbox,
-    @Inject('BASE_URL') baseUrl: string) {
+    private districtsApi : DistrictApiService,
+    private districtComparisonsApi : DistrictComparisionApiService, 
+    private lightbox: Lightbox) {
   
     this.isBusy = true;
 
@@ -30,14 +33,12 @@ export class AssessedIncreaseComponent {
     }];
  
     forkJoin([
-      http.get<any[]>(baseUrl + 'api/DistrictComparisons'),
-      http.get<any[]>(baseUrl + 'api/Districts') 
+      districtComparisonsApi.getComparisons(),
+      districtsApi.getDistricts() 
     ]).subscribe(results => {
 
         this.comparisons = results[0];
- 
-        let districtsResults = results[1];
-        this.districts = districtsResults.sort((a, b) => a.name.localeCompare(b.name));
+        this.districts = results[1];
 
         this.isBusy = false;
       },

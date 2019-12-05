@@ -4,6 +4,7 @@ import { District } from 'src/app/model/district';
 import { DistrictApiService } from 'src/app/model/district-api.service';
 import { DistrictComparisionApiService } from 'src/app/model/district-comparision-api.service';
 import { DistrictComparison } from 'src/app/model/district-comparison';
+import { DistrictNameSorterService } from 'src/app/model/district-name-sorter.service';
 
 @Component({
   selector: 'app-assessed',
@@ -18,7 +19,8 @@ export class AssessedComponent  {
 
   constructor(  
     private districtsApi: DistrictApiService,
-    private districtComparisonsApi: DistrictComparisionApiService
+    private districtComparisonsApi: DistrictComparisionApiService,
+    private districtNameSorter: DistrictNameSorterService
     )
     {
   
@@ -32,7 +34,7 @@ export class AssessedComponent  {
         this.comparisons = results[0];
  
         let districtsResults = results[1];
-        this.districts = districtsResults.sort((a, b) => a.name.localeCompare(b.name));
+        this.districts = districtsResults.sort(districtNameSorter.sort);
 
         this.isBusy = false;
       },
