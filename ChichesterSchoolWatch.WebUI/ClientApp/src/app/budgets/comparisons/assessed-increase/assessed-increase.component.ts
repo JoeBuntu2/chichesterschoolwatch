@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { forkJoin } from 'rxjs';  
-import { Lightbox } from 'ngx-lightbox';
+import { forkJoin } from 'rxjs';   
 import { DistrictApiService } from 'src/app/model/district-api.service';
 import { DistrictComparisionApiService } from 'src/app/model/district-comparision-api.service';
 import { District } from 'src/app/model/district';
@@ -14,23 +13,14 @@ import { DistrictComparison } from 'src/app/model/district-comparison';
 export class AssessedIncreaseComponent {
   public isBusy: boolean;
   public districts: District[];
-  public comparisons: DistrictComparison[];
-  private album: any[];
+  public comparisons: DistrictComparison[]; 
   public condensed: boolean = true;
 
   constructor( 
     private districtsApi : DistrictApiService,
-    private districtComparisonsApi : DistrictComparisionApiService, 
-    private lightbox: Lightbox) {
+    private districtComparisonsApi : DistrictComparisionApiService) {
   
     this.isBusy = true;
-
-    this.album = [ {
-      src: "https://cdn.chichesterschoolwatch.com/bartholf-do-the-math-lowest-in-the-county.png",
-      caption: "Bartholf bludgens tax-payer with DCIU tax comparison chart",
-      thumb: "https://cdn.chichesterschoolwatch.com/bartholf-do-the-math-lowest-in-the-county.png"
-
-    }];
  
     forkJoin([
       districtComparisonsApi.getComparisons(),
@@ -45,11 +35,6 @@ export class AssessedIncreaseComponent {
       error => console.error(error)
     );
   }
-
-  open(index: number): void {
-    // open lightbox
-    this.lightbox.open(this.album, index);
-  }
-
+ 
 
 }

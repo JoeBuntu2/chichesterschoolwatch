@@ -12,7 +12,6 @@ import { DeficitComponent } from './comparisons/deficit/deficit.component';
 import { DeficitPerStudentComponent } from './comparisons/deficit-per-student/deficit-per-student.component';
 import { ExcessChichesterSpendingComponent } from './comparisons/excess-chichester-spending/excess-chichester-spending.component';
 import { TaxRateIncreaseComponent } from './comparisons/tax-rate-increase/tax-rate-increase.component';
-import { SharedModule } from '../shared/shared.module';
 import { LightboxModule } from 'ngx-lightbox';
 import { OrderModule } from 'ngx-order-pipe';
 import { SpecialEducation1200PercentageCostComponent } from './comparisons/special-education1200-percentage-cost/special-education1200-percentage-cost.component';
@@ -26,6 +25,7 @@ import { PsersNetContributionIncreaseComponent } from './comparisons/psers-net-c
 import {MatMenuModule} from '@angular/material/menu';
 import { PsersContributionsBreakdownComponent } from './charts/psers-contributions-breakdown/psers-contributions-breakdown.component';
 import { ModelModule } from '../model/model.module';
+import { SharedModule } from '../shared/shared.module';
 
 
 let routing = RouterModule.forChild([
@@ -41,10 +41,11 @@ let routing = RouterModule.forChild([
     ChartsModule,
     NgbModule,
     ModelModule,
-    SharedModule,
     LightboxModule,
     MatMenuModule,
-    OrderModule
+    OrderModule,
+    SharedModule
+    
   ],
   declarations: [
     BudgetsComponent,

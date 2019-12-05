@@ -13,14 +13,16 @@
     <div [ngClass]="{'d-none': condensed}" class="d-md-block">
       <img 
         class="img-thumbnail cursor-pointer rounded  float-right d-none d-md-inline"
-        (click)="open(0)"
         style="max-width: 300px; max-height: 300px;"
-        [src]="album[0].thumb" />
+        [appLightboxImage]="'https://cdn.chichesterschoolwatch.com/bartholf-do-the-math-lowest-in-the-county.png'"
+        [appLightboxImageCaption]="'Bartholf bludgens tax-payer with DCIU tax comparison chart'"      
+        src="https://cdn.chichesterschoolwatch.com/bartholf-do-the-math-lowest-in-the-county.png" />
       <img 
-        class="img-thumbnail cursor-pointer rounded  float-right d-md-none"
-        (click)="open(0)"
+        class="img-thumbnail cursor-pointer rounded  float-right d-md-none"      
         style="max-width: 200px; max-height: 200px;"
-        [src]="album[0].thumb" />
+        [appLightboxImage]="'https://cdn.chichesterschoolwatch.com/bartholf-do-the-math-lowest-in-the-county.png'"
+        [appLightboxImageCaption]="'Bartholf bludgens tax-payer with DCIU tax comparison chart'"
+        src="https://cdn.chichesterschoolwatch.com/bartholf-do-the-math-lowest-in-the-county.png" />
       <div>
         <p>   
           Time and time again, you will see Chichester Board members patting themselves on the
