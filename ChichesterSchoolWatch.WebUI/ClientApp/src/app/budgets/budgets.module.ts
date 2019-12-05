@@ -25,6 +25,7 @@ import { AssessedComponent } from './comparisons/assessed/assessed.component';
 import { PsersNetContributionIncreaseComponent } from './comparisons/psers-net-contribution-increase/psers-net-contribution-increase.component';
 import {MatMenuModule} from '@angular/material/menu';
 import { PsersContributionsBreakdownComponent } from './charts/psers-contributions-breakdown/psers-contributions-breakdown.component';
+import { ModelModule } from '../model/model.module';
 
 
 let routing = RouterModule.forChild([
@@ -39,6 +40,7 @@ let routing = RouterModule.forChild([
     routing,
     ChartsModule,
     NgbModule,
+    ModelModule,
     SharedModule,
     LightboxModule,
     MatMenuModule,

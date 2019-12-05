@@ -1,6 +1,9 @@
-import { Component, Inject} from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component} from '@angular/core'; 
 import { forkJoin } from 'rxjs';  
+import { District } from 'src/app/model/district';
+import { DistrictApiService } from 'src/app/model/district-api.service';
+import { DistrictComparisionApiService } from 'src/app/model/district-comparision-api.service';
+import { DistrictComparison } from 'src/app/model/district-comparison';
 
 @Component({
   selector: 'app-assessed',
@@ -9,19 +12,21 @@ import { forkJoin } from 'rxjs';
 })
 export class AssessedComponent  {
   public isBusy: boolean;
-  public districts: any[];
-  public comparisons: any[]; 
+  public districts: District[];
+  public comparisons: DistrictComparison[]; 
   public condensed: boolean = true;
 
-  constructor( 
-    private http: HttpClient, 
-    @Inject('BASE_URL') baseUrl: string) {
+  constructor(  
+    private districtsApi: DistrictApiService,
+    private districtComparisonsApi: DistrictComparisionApiService
+    )
+    {
   
     this.isBusy = true;
  
     forkJoin([
-      http.get<any[]>(baseUrl + 'api/DistrictComparisons'),
-      http.get<any[]>(baseUrl + 'api/Districts') 
+      districtComparisonsApi.getComparisons(),
+      districtsApi.getDistricts()
     ]).subscribe(results => {
 
         this.comparisons = results[0];

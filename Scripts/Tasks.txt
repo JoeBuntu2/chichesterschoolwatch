@@ -1,33 +1,9 @@
 ----------------------------- Tasks --------------------
 
+1. Image Component
 
-0. Mobile 
+2. Comparison Service
 
-1. Tax Savings Calculator
+3. Facebook Meta per/page
 
-2. Finish Blurbs (That are important)
-
-3. Where is the money going?
-
-4. PSERS
-
-5. Facebook Preview
-
-6. Change order of expenditure fiscal years
-
------------------- Mid -------------------------
- 
-
-5. Misconceptions
-
-	- Joe Pushing Democratic Agenda
-	- PSERS
-	- State Contributions
-
------------ Low Priority  -----------------------
- 
-5. Salaries By Title - Numbers
-
-6. Google Preview
-
-7. Documents
+4.
