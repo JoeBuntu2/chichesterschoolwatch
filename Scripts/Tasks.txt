@@ -1,9 +1,7 @@
 ----------------------------- Tasks --------------------
 
-1. Image Component
+1. Way to change meta based on route
 
-2. Comparison Service
+2. Hosting PSERS article
 
-3. Facebook Meta per/page
-
-4.
+3. 

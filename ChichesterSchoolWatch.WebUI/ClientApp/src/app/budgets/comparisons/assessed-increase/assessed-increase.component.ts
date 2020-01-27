@@ -13,7 +13,7 @@ import { DistrictComparison } from 'src/app/model/district-comparison';
 export class AssessedIncreaseComponent {
   public isBusy: boolean;
   public districts: District[];
-  public comparisons: DistrictComparison[]; 
+  public comparisons: DistrictComparison; 
   public condensed: boolean = true;
 
   constructor( 

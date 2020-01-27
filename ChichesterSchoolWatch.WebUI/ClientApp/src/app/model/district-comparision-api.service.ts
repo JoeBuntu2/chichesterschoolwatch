@@ -16,7 +16,7 @@ export class DistrictComparisionApiService {
 
     }
 
-  getComparisons() : Observable<DistrictComparison[]>{
-    return this.http.get<DistrictComparison[]>(this.baseUrl + 'api/DistrictComparisons') 
+  getComparisons() : Observable<DistrictComparison>{
+    return this.http.get<DistrictComparison>(this.baseUrl + 'api/DistrictComparisons') 
   }
 }

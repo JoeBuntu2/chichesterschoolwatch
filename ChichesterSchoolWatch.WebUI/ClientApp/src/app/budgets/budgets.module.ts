@@ -26,6 +26,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import { PsersContributionsBreakdownComponent } from './charts/psers-contributions-breakdown/psers-contributions-breakdown.component';
 import { ModelModule } from '../model/model.module';
 import { SharedModule } from '../shared/shared.module';
+import { DeficitComparisonComponent } from './charts/deficit-comparison/deficit-comparison.component';
 
 
 let routing = RouterModule.forChild([
@@ -65,9 +66,11 @@ let routing = RouterModule.forChild([
     AssessedNewRevenuePerStudentComponent,
     AssessedComponent,
     PsersNetContributionIncreaseComponent,
-    PsersContributionsBreakdownComponent],
+    PsersContributionsBreakdownComponent,
+    DeficitComparisonComponent],
   exports: [
-    PsersContributionsBreakdownComponent
+    PsersContributionsBreakdownComponent,
+    DeficitComparisonComponent
     ]
 })
 export class BudgetsModule { }

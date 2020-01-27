@@ -14,7 +14,7 @@ import { DistrictNameSorterService } from 'src/app/model/district-name-sorter.se
 export class AssessedComponent  {
   public isBusy: boolean;
   public districts: District[];
-  public comparisons: DistrictComparison[]; 
+  public comparisons: DistrictComparison; 
   public condensed: boolean = true;
 
   constructor(  
