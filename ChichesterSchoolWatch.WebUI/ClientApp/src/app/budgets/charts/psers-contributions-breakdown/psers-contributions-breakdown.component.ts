@@ -21,7 +21,7 @@ export class PsersContributionsBreakdownComponent implements OnInit {
      maintainAspectRatio: false,
      title: {
        display: true,
-       text: 'Chichester PSERS Contributions',
+       text: ["PSERS Pension Contributions ($ Millions)", "Chichester's Share vs State's Share"],
        fontSize: 16
      },
     // We use these empty structures as placeholders for dynamic theming.
@@ -34,7 +34,7 @@ export class PsersContributionsBreakdownComponent implements OnInit {
       ticks: {
         beginAtZero: false,
         min: 2,
-        max: 8
+        max: 7
       }
     }] },
     plugins: {

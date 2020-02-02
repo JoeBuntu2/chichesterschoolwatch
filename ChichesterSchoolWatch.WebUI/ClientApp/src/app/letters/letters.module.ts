@@ -6,8 +6,10 @@ import { LetterChichesterPSERSNetContributionsComponent } from './letter-chiches
 import { PsersNarrativeComponent } from './psers-narrative/psers-narrative.component';
 
 let routing = RouterModule.forChild([
-  { path: "board/psers-net-contributions-accuracy", component: LetterChichesterPSERSNetContributionsComponent },
-  { path: "the-psers-narrative", component: PsersNarrativeComponent }
+  { path: "board/bob", component: PsersNarrativeComponent },
+  { path: "board/ted", component: LetterChichesterPSERSNetContributionsComponent },
+ 
+  { path: "board/psers-net-contributions-accuracy", component: PsersNarrativeComponent }
 ]);
 @NgModule({
   declarations: [LetterChichesterPSERSNetContributionsComponent, PsersNarrativeComponent],
