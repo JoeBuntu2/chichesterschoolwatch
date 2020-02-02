@@ -43,6 +43,10 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
       {
         path: "tutorials",
         loadChildren: "./tutorial/tutorial.module#TutorialModule"
+      },
+      {
+        path: "blog",
+        loadChildren: "./blog/blog.module#BlogModule"
       }
     ]),
     NoopAnimationsModule
