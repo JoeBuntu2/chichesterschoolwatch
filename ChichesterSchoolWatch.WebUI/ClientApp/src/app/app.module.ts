@@ -37,10 +37,6 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
         loadChildren: "./budgets/budgets.module#BudgetsModule"
       },
       {
-        path: "letters",
-        loadChildren: "./letters/letters.module#LettersModule"
-      },
-      {
         path: "tutorials",
         loadChildren: "./tutorial/tutorial.module#TutorialModule"
       },

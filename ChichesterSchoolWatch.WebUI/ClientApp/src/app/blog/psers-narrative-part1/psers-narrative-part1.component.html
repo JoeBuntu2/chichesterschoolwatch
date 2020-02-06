@@ -1,31 +1,46 @@
 <div class="row">
   <main class="col-s col-md-10 col-lg-8">
-    <article>
+    <article class="ml-3 mr-3">
       <section class="section-introduction">
-        <div class="bg-light">
+        <div class="pt-3 bg-light">
           <h2>The PSERS Narrative</h2>
-          <img class="rounded article-image"
-               src="https://cdn.chichesterschoolwatch.com/articles/psers-narrative/chart-psers-state-vs-chihcester-share.png" />
-          <h3>Part 1: The <i>Actual</i> Impact of PSERS on Chichester SD</h3>
+          <div class="pl-sm-2 pl-md-5 pr-sm-2 pr-md-5 article-image-container">
+            <div>
+              <img class="rounded article-image"
+                   [appLightboxImage]="'https://cdn.chichesterschoolwatch.com/articles/psers-narrative/chart-psers-state-vs-chihcester-share.png'"
+                   [appLightboxImageCaption]="'Thanks to generous increases in state reimbursements, Chichester\'s
+          share of pension costs have decreased 2 years in a row. This stands in stark contrast to the narratives pushed by the board.'"    
+                   src="https://cdn.chichesterschoolwatch.com/articles/psers-narrative/chart-psers-state-vs-chihcester-share.png"/>
+              </div>
+          </div>
+
+          <h3 class="mt-3">Part 1: The <i>Actual</i> Impact of PSERS on Chichester SD</h3>
+          <p>
+            <i>By Joe Cooper <time> Feb 6th, 2020</time></i>
+          </p>
         </div>
-        <p>
+        <p> 
           <i>
             In this multi-part series, I’ll cover the actual impact of pensions (PSERS) on
             Chichester School District finances as well as the narratives and tactics that
             are being employed to pin blame on PSERS and divert accountability for district
             spending increases and budget deficits away from the Chichester School Board of Directors.
-          </i>
-
+          </i> 
         </p>
         <h5>Part 1 - Topics Covered</h5>
         <p>
           Here in Part 1, I’ll cover the following:
         </p>
         <ul>
-          <li>Some general background info on PSERS</li>
+          <li>Some general PSERS Background Info</li>
+          <li>Total PSERS Contribution - What it is, how it's calculated</li>
+          <li>Net PSERS Contribution - What it is, how it's calculated.</li>
           <li>How much PSERS impacts Chichester School District</li>
-          <li>How to calculate PSERS net contribution costs yourself</li>
         </ul>
+        <p class="p-3 rounded bg-light">
+          <span class="font-weight-bold">Short Version: </span> Thanks to generous increases in state reimbursements, Chichester's
+          share of pension costs have decreased 2 years in a row. This stands in stark contrast to the narratives pushed by the board.
+        </p>
       </section>
       <section class="section-psers-background">
         <h5>PSERS Background</h5>
@@ -51,35 +66,44 @@
         <div style="overflow: hidden">
           <img class="rounded float-sm-none float-md-right ml-md-3" width="200"
                src="https://cdn.chichesterschoolwatch.com/articles/psers-narrative/scape-goat.png" />
-          <p>
+          <p class="mt-3 mt-md-0">
             With all the negative press surrounding PSERS, combined with
             the difficulty the average tax payer would have in verifying the cost of PSERS on
-            Chichester, PSERS has made for the perfect scapegoat for the Chichester School Board
-            (at least certain members). I hope to change that by educating taxpayers. The first
-            order of business is showing how to calculate the PSERS costs.
+            Chichester, PSERS has made for the perfect scapegoat for some of the
+            Chichester School Board members.
+            I hope to change that by educating taxpayers. The first
+            order of business is showing how to calculate PSERS contribution amounts.
           </p>
         </div>
       </section>
       <section class="section-psers-total-contribution-amount">
-        <h5>Total PSERS Contribution Amount*</h5>
+        <h5>Total PSERS Contribution</h5>
         <p>
           The Total PSERS Contribution Amount is the entire amount the district pays into PSERS which includes
           a very, very generous helping of state money. In Chichester's case the state subsidizes more than half the cost.
-          This amount is determined by the Total Contribution rate, which for fiscal year 2019-2020 is set at
+          The Total Contribution is determined by the Total Contribution rate, which for fiscal year 2019-2020 is set at
           <a target="_blank" href="https://www.psers.pa.gov/FPP/Publications/General/Documents/2019%20PSERS%20Projections%20for%20the%20Website.pdf">34.29%</a>.
         </p>
         <p>
           What this means, is that each district must pay into PSERS the total sum of all district salaries
           multiplied by the rate of 34.29%. For Chichester FY2019-2020, this works out to a Total Contribution Amount
           just shy of $11 million:
-          <br />
-          <code>
-            $10,997,833 [Total Contribution Amount] = 34.29% [PSERS Rate] x 32,073,005 [Total Salaries]
-          </code>
         </p>
+        <figure class="bg-light p-3 rounded">
+          <figcaption class="font-weight-bold">PSERS Total Contribution Calculation</figcaption>
+          <i>Note - This amount does not factor in state contributions</i>
+<pre>
+  <code>
+  $32,073,005 [Total Salaries]
+     x 34.29% [PSERS Rate]
+-------------
+= $10,997,833 [Total Contribution]</code></pre>
+        </figure>
+        
         <div class="bg-light p-3 rounded">
           <p>
-            <strong>To Find Total Salaries For a District</strong>
+            <strong>To Find Total Salaries For a District</strong><br/>
+            <i>Should you wish to verify the numbers...</i>
           </p>
           <ol>
             <li>
@@ -88,8 +112,7 @@
             </li>
             <li>
               Now, painstakingly go through the budget and add up all expenditures coded as '100 Personal Services - Salaries'.
-              Here's a picture of a budget that shows you what to look for: picture
-            </li>
+            </li> 
           </ol>
         </div>
 
@@ -98,80 +121,126 @@
       <section class="section-psers-net-contribution-amount mt-3">
         <h5>Net PSERS Contribution Amount - What Districts <i>Actually</i> Pay</h5>
         <p>
-          If the above rates and amounts sound terrible, it’s because we haven’t covered state reimbursements.
+          If the above rates and amounts sound terrible, that is because we haven’t covered state reimbursements.
           Fortunately, there must be some kind of commonsense at play in the commonwealth. Instead of leaving it to
           school districts and their local tax bases to absorb these high contribution rates, the state alleviates
           most of the burden through state reimbursement moneys. These are reflected in PDE 2028 budgets as
-          revenue under ‘7820 State Share of Retirement Contributions’.
+          revenue under ‘7820 State Share of Retirement Contributions’. Budget revenues can be viewed
+          <a [routerLink]='["/budgets/revenues"]'>here</a>.
         </p>
         <p>
           The actual cost to the district after state money is factored in is referred to as the net PSERS contribution.
           Let’s take another look at the math for Chichester SD, where they received over 6 million (more than 50%)
           in state reimbursements for fiscal year 2019-2020:
-          <br />
-          <code>
-            $4,760,274 [Total Contribution Amount] = 34.29% [PSERS Rate] x 32,073,005 [Total Salaries] - <strong>$6,237,559 [State Reimbursement]</strong>
-          </code>
         </p>
+        <figure class="bg-light p-3 rounded">
+          <figcaption class="font-weight-bold">Net PSERS Contribution Calculation</figcaption>
+          <i>Net - What Chichester SD Actually Pays</i>
+          <pre>
+          <code>
+  $32,073,005 [Total Salaries]
+     x 34.29% [PSERS Rate]
+-------------
+= $10,997,833 [Total Contribution] 
+ - $6,237,559 [State Reimbursement]
+-------------<span class="font-weight-bold">
+=  $4,760,274 [Net Contribution]</span></code></pre>
+        </figure> 
       </section>
 
       <section class="section-psers-actual-impact">
         <h5>The <i>Actual</i> Impact of PSERS on Chichester SD Finances</h5>
         <p>
-          Now let's look at the actual cost impact of PSERS on Chichester SD. How much financial
-          strain does PSERS impose on Chichester? Looking at the chart below,
-          you'll see things have been looking pretty good the last two years. Note
-          how Chichester's actual share of the PSERS contribution (net contribution) has decreased
+          Now let's look at the actual cost impact of PSERS on Chichester SD over the last few years.
+          Looking at the chart below, you'll see things have been looking pretty good the last two years.
+          Note how Chichester's actual share of the PSERS contribution (net contribution) has decreased
           for two years in a row.
         </p>
-        <div class="bg-light">
+        <p class="bg-light">
           <img class="rounded article-image"
+               [appLightboxImage]="'https://cdn.chichesterschoolwatch.com/articles/psers-narrative/chart-psers-state-vs-chihcester-share.png'"
+               [appLightboxImageCaption]="'Thanks to generous increases in state reimbursements, Chichester\'s
+          share of pension costs have decreased 2 years in a row. This stands in stark contrast to the narratives pushed by the board.'"  
                src="https://cdn.chichesterschoolwatch.com/articles/psers-narrative/chart-psers-state-vs-chihcester-share.png" />
-        </div>
+          <span class="text-center d-block font-italic">(Tap or Click to Zoom)</span>
+        </p>
 
         <p>
-          Now let me draw your attention to the table below which spells out all the details. Note
-          the data highlighted in green at the bottom. The data shows how net increases to PSERS has only
+          Now allow me to draw your attention to the table below which details the cost-breakdown of PSERS
+          over the last several years. Note the data highlighted in green at the bottom.
+          This shows how net increases to PSERS have only
           contributed to roughly $900k or 10% of the districts $9 million in expenditure increases.
         </p>
 
-        <figure>
-          <figcaption class="pt-2 pb-2 font-weight-bold bg-light border">Chichester PSERS Breakdown Over Last 4 Years</figcaption>
-          <table class="table table-striped table-sm">
-            <thead>
-              <tr>
-                <th></th>
-                <th class="text-right">FY19-20</th>
-                <th class="text-right">FY18-19</th>
-                <th class="text-right">FY17-18</th>
-                <th class="text-right">FY16-17</th>
-                <th class="text-right">FY15-16</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>Total Salaries</td><td class="text-right">32,073,005</td><td class="text-right">30,983,652</td><td class="text-right">30,152,909</td><td class="text-right">29,220,069</td><td class="text-right">29,428,482</td></tr>
-              <tr><td>PSERS Employer Contribution Rate</td><td class="text-right">34.29%</td><td class="text-right">33.43%</td><td class="text-right">32.57%</td><td class="text-right">30.03%</td><td class="text-right">25.84%</td></tr>
-              <tr><td>Total PSERS Contribution</td><td class="text-right">10,997,833</td><td class="text-right">10,357,835</td><td class="text-right">9,820,802</td><td class="text-right">8,774,787</td><td class="text-right">7,604,320</td></tr>
-              <tr><td>State Reimbursement</td><td class="text-right">6,237,559</td><td class="text-right">5,489,077</td><td class="text-right">4,840,710</td><td class="text-right">4,331,279</td><td class="text-right">3,740,415</td></tr>
-              <tr><td>Chichester Net Contribution</td><td class="text-right">4,760,274</td><td class="text-right">4,868,758</td><td class="text-right">4,980,092</td><td class="text-right">4,443,508</td><td class="text-right">3,863,905</td></tr>
-              <tr><td>Chichester Net Contribution Increase</td><td class="text-right">-108,483</td><td class="text-right">-111,335</td><td class="text-right">536,585</td><td class="text-right">579,603</td><td class="text-right"></td></tr>
-              <tr><td>Chichester Expenditures</td><td class="text-right">79,781,141</td><td class="text-right">75,963,431</td><td class="text-right">72,880,178</td><td class="text-right">71,558,775</td><td class="text-right">70,776,116</td></tr>
-              <tr><td class="bg-success text-white">4-Year Expenditure Increase</td><td class="bg-success text-white text-right">9,005,025</td><td class="text-right"></td><td class="text-right"></td><td class="text-right"></td><td class="text-right"></td></tr>
-              <tr><td class="bg-success text-white">4-Year Chichester Contribution Increase</td><td class="bg-success text-white text-right">896,370</td><td class="text-right"></td><td class="text-right"></td><td class="text-right"></td><td class="text-right"></td></tr>
-              <tr><td class="bg-success text-white">4-Year PSERS % of Expenditure Increases</td><td class="bg-success text-white text-right">10%</td><td class="text-right"></td><td class="text-right"></td></tr>
-            </tbody>
+        <div class="font-weight-bold" >Chichester PSERS Breakdown Over Last 4 Years</div>
+
+        <figure class="pt-2 pb-2">
+          <table class='table table-sm wrapper'>
+            <tr>
+              <td class="fields">
+                <table class='table table-striped table-sm'>
+                  <thead>
+                  <tr>
+                    <th>&nbsp;</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr><td>Total Salaries</td></tr>
+                  <tr><td>PSERS Rate</td></tr>
+                  <tr><td>Total PSERS</td></tr>
+                  <tr><td>State Reimbursement</td></tr>
+                  <tr><td>Net PSERS</td></tr>
+                  <tr><td>Net PSERS Increase</td></tr>
+                  <tr><td>Expenditures</td></tr>
+                  <tr><td class="bg-success text-white">4Yr Expend. Incr.</td></tr>
+                  <tr><td class="bg-success text-white">4Yr Net PSERS Incr.</td></tr>
+                  <tr><td class="bg-success text-white">4Yr PSERS % Expend.</td></tr>
+
+                  </tbody>
+                </table>
+              </td>
+              <td class="data">
+                <table class="table table-striped table-sm">
+                  <thead>
+                  <tr>
+                    <th class="text-right">FY19-20</th>
+                    <th class="text-right">FY18-19</th>
+                    <th class="text-right">FY17-18</th>
+                    <th class="text-right">FY16-17</th>
+                    <th class="text-right">FY15-16</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr><td class="text-right">32,073,005</td><td class="text-right">30,983,652</td><td class="text-right">30,152,909</td><td class="text-right">29,220,069</td><td class="text-right">29,428,482</td></tr>
+                  <tr><td class="text-right">34.29%</td><td class="text-right">33.43%</td><td class="text-right">32.57%</td><td class="text-right">30.03%</td><td class="text-right">25.84%</td></tr>
+                  <tr><td class="text-right">10,997,833</td><td class="text-right">10,357,835</td><td class="text-right">9,820,802</td><td class="text-right">8,774,787</td><td class="text-right">7,604,320</td></tr>
+                  <tr><td class="text-right">6,237,559</td><td class="text-right">5,489,077</td><td class="text-right">4,840,710</td><td class="text-right">4,331,279</td><td class="text-right">3,740,415</td></tr>
+                  <tr><td class="text-right">4,760,274</td><td class="text-right">4,868,758</td><td class="text-right">4,980,092</td><td class="text-right">4,443,508</td><td class="text-right">3,863,905</td></tr>
+                  <tr><td class="text-right">-108,483</td><td class="text-right">-111,335</td><td class="text-right">536,585</td><td class="text-right">579,603</td><td class="text-right"></td></tr>
+                  <tr><td class="text-right">79,781,141</td><td class="text-right">75,963,431</td><td class="text-right">72,880,178</td><td class="text-right">71,558,775</td><td class="text-right">70,776,116</td></tr>
+                  <tr><td class="bg-success text-white text-right">9,005,025</td><td class="text-right"></td><td class="text-right"></td><td class="text-right"></td><td class="text-right"></td></tr>
+                  <tr><td class="bg-success text-white text-right">896,370</td><td class="text-right"></td><td class="text-right"></td><td class="text-right"></td><td class="text-right"></td></tr>
+                  <tr><td class="bg-success text-white text-right">10%</td><td class="text-right"></td><td class="text-right"></td></tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
           </table>
+          <i class="d-sm-block d-md-none">(Swipe left/right to see data from previous years on mobile).</i>
         </figure>
       </section>
 
       <section class="section-whats-next">
         <h5>Coming Up Next...</h5>
         <p>
-          As noted earlier, there seems to be a politics-first strategic effort to pin blame on PSERS
-          for things
-          such as last years multi-million budget deficit. I'll be covering what the tactics are,
-          the numerous attempts to get the board to take accountability, as well as their
-          complete lack of response and/or laughter to the issues raised.
+          As you can see, the net PSERS cost to the district has been decreasing over the last two years,
+          and represents only 10% of spending increases over the last four years. That might come as a surprise.
+          If you had attended last year's 5-22-19 board meeting, then you would certainly have walked
+          away believing that the multi-million dollar deficit was due to PSERS increases. In the distorted
+          portrait of district finances that the board painted that evening, it would have also
+          seemed reasonable that a fund named after PSERS was used to balance that multi-million dollar deficit.
+          More to come on these tactics as well as the fruitless, several-month
+          quest to seek out the the ever-elusive, endangered species: board-accountability.
         </p>
       </section>
       <footer>

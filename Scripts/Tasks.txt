@@ -1,7 +1,16 @@
 ----------------------------- Tasks --------------------
 
-1. Way to change meta based on route
+1. Page-specific meta tags
 
-2. Hosting PSERS article
+2. Page is horizontally squash on phone (facebook only???)
 
-3. 
+3. Check if side margins are needed on phone.
+
+4. Add margin between goat pic and content that follows
+
+5. Table Needs fixed on phone
+
+6. Red calculations need vertically stacked on phone
+
+7. Picture for expenses.
+
