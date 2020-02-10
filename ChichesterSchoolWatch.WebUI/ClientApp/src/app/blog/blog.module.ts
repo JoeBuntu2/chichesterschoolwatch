@@ -8,7 +8,7 @@ import { PsersNarrativePart2Component } from './psers-narrative-part2/psers-narr
 
 let routing = RouterModule.forChild([
   { path: "2020/2/6/psers-narrative-part-1-actual-impact", component: PsersNarrativePart1Component },
-  { path: "2020/2/8/psers-narrative-part-1-actual-impact", component: PsersNarrativePart2Component }
+  { path: "2020/2/8/psers-narrative-part-2-bartholf-misleads", component: PsersNarrativePart2Component }
 ]);
 @NgModule({
   declarations: [PsersNarrativePart1Component, PsersNarrativePart2Component],
