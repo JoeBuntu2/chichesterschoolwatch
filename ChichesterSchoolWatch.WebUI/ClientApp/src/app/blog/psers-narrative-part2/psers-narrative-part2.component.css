@@ -10,6 +10,13 @@
   max-height: 100%;
 }
 
+.border-bottom-thick {
+  padding-bottom: 2px;
+  padding-bottom: 2px;
+  border-bottom: solid 3px;
+  border-top: solid 3px;
+  
+}
 .videoWrapper {
   position: relative;
   padding-bottom: 56.25%; /* 16:9 */
